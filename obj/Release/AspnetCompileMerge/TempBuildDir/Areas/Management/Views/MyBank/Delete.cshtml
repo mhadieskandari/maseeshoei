@@ -1,0 +1,61 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_BankMyAcount
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">حذف شماره حساب و بانک</div>
+
+        <div class="panel-body">
+            @*<div class="display-label">
+                @Html.DisplayNameFor(model => model._BankId)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model._BankId)
+            </div>*@
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-3">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._AccountNumber)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._AccountNumber)
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._BankName)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._BankName)
+                    </div>
+                </div>
+            </div>
+            <p></p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <p>
+                    <button type="submit" class="btn btn-success">حذف <span class="glyphicon glyphicon-plus-sign"></span></button>
+                    <a href="@Url.Action("Index")" class="btn btn-warning"> بازگشت <span class="glyphicon glyphicon-backward"></span> </a>
+
+                </p>
+            }
+            
+        </div>
+    </div>
+</div>
+
+
+            

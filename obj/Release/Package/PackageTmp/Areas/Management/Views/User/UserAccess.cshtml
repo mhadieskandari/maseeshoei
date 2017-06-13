@@ -1,0 +1,151 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Users
+
+@{
+    ViewBag.Title = "دسترسی کاربر";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm()){
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading panel-title">دسترسی کاربر</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-2">
+
+
+                    @Html.HiddenFor(model => model.UserID)
+
+
+                </div>
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-2">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model.T_Users_Type.TypeName)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.T_Users_Type.TypeName)
+                    </div>
+                </div>
+                <div class="col-md-2">
+
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._LastName)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.LastName)
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._FirstName)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.FirstName)
+                    </div>
+
+                </div>
+                <div class="col-md-2">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._UserName)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.UserName)
+                    </div>
+
+                </div>
+
+
+            </div>
+            <p></p>
+            <p></p>
+            <p></p>
+            <div class="row">
+                <div class="col-md-9">
+
+                </div>
+
+                <div class="col-md-1">
+
+
+                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span></button>
+
+                </div>
+
+                <div class="col-md-2">
+                    @Html.DisplayName("دسترسی")
+                    @Html.DropDownList("RoleID", null, String.Empty, new { style = "width:150px" })
+
+                </div>
+            </div>
+        </div>
+        <p></p>
+        <p></p>
+        <p></p>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dataTables_wrapper">
+                    <table class="table table-striped  table-hover" id="dataTables-example1">
+
+                        <thead style="background-color:peru;">
+                            <tr>
+                                <th class="text-right">
+                                    @Html.DisplayName("RoldeID")
+                                </th>
+                                <th class="text-right">
+                                    @Html.DisplayName("دسترسی")
+                                </th>
+
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (MaaseShooei.Areas.Management.Models.T_UsersInRoles item in Model.T_UsersInRoles)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RoleId)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.T_UserRoles.RoleName)
+                                    </td>
+
+
+                                    <td>
+                                        <a href="@Url.Action("DeleteRole", new { id = item.ID })" class="btn btn-info"><span class="glyphicon glyphicon-remove"></span></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+        
+
+
+        
+        
+        <p>
+            @*@Html.ActionLink("Edit", "Edit", new { id = Model._UserID }) |*@
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
+}

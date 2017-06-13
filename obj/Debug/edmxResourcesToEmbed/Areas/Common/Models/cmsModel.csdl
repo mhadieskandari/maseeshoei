@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MaaseDBCMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="T_CMS_Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Order" Type="Int32" />
+    <Property Name="MenuID" Type="Int32" Nullable="false" />
+    <Property Name="StateID" Type="Int16" Nullable="false" />
+    <Property Name="DatePublish" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DateEnd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_CMS_Content" Relationship="Self.FK_T_CMS_Content_T_CMS_Category" FromRole="T_CMS_Category" ToRole="T_CMS_Content" />
+  </EntityType>
+  <EntityType Name="T_CMS_Content">
+    <Key>
+      <PropertyRef Name="ContentID" />
+    </Key>
+    <Property Name="ContentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Summery" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Keywords" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Order" Type="Int32" />
+    <Property Name="DatePublish" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DateEnd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="StateID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="T_CMS_Category" Relationship="Self.FK_T_CMS_Content_T_CMS_Category" FromRole="T_CMS_Content" ToRole="T_CMS_Category" />
+    <NavigationProperty Name="T_CMS_MasterState" Relationship="Self.FK_T_CMS_Content_T_CMS_MasterState" FromRole="T_CMS_Content" ToRole="T_CMS_MasterState" />
+  </EntityType>
+  <EntityType Name="T_CMS_MasterState">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="Int16" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="T_CMS_Content" Relationship="Self.FK_T_CMS_Content_T_CMS_MasterState" FromRole="T_CMS_MasterState" ToRole="T_CMS_Content" />
+    <NavigationProperty Name="T_CMS_Menu" Relationship="Self.FK_T_CMS_Menu_T_CMS_MasterState" FromRole="T_CMS_MasterState" ToRole="T_CMS_Menu" />
+    <NavigationProperty Name="T_CMS_SlideShow" Relationship="Self.FK_T_CMS_SlideShow_T_CMS_MasterState" FromRole="T_CMS_MasterState" ToRole="T_CMS_SlideShow" />
+  </EntityType>
+  <EntityType Name="T_CMS_Menu">
+    <Key>
+      <PropertyRef Name="MenuID" />
+    </Key>
+    <Property Name="MenuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Order" Type="Int32" />
+    <Property Name="ModuleID" Type="Int32" Nullable="false" />
+    <Property Name="MasterMenuID" Type="Int32" />
+    <Property Name="StateID" Type="Int16" Nullable="false" />
+    <Property Name="DatePublish" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DateEnd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_CMS_MasterState" Relationship="Self.FK_T_CMS_Menu_T_CMS_MasterState" FromRole="T_CMS_Menu" ToRole="T_CMS_MasterState" />
+    <NavigationProperty Name="T_CMS_Menu1" Relationship="Self.FK_T_CMS_Menu_T_CMS_Menu" FromRole="T_CMS_Menu" ToRole="T_CMS_Menu1" />
+    <NavigationProperty Name="T_CMS_Menu2" Relationship="Self.FK_T_CMS_Menu_T_CMS_Menu" FromRole="T_CMS_Menu1" ToRole="T_CMS_Menu" />
+    <NavigationProperty Name="T_CMS_Module" Relationship="Self.FK_T_CMS_Menu_T_CMS_Module" FromRole="T_CMS_Menu" ToRole="T_CMS_Module" />
+  </EntityType>
+  <EntityType Name="T_CMS_Module">
+    <Key>
+      <PropertyRef Name="ModuleID" />
+    </Key>
+    <Property Name="ModuleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PositionID" Type="Int16" Nullable="false" />
+    <Property Name="StateID" Type="Int16" Nullable="false" />
+    <Property Name="TypeID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="T_CMS_Menu" Relationship="Self.FK_T_CMS_Menu_T_CMS_Module" FromRole="T_CMS_Module" ToRole="T_CMS_Menu" />
+    <NavigationProperty Name="T_CMS_ModulePosition" Relationship="Self.FK_T_CMS_Module_T_CMS_ModulePosition" FromRole="T_CMS_Module" ToRole="T_CMS_ModulePosition" />
+    <NavigationProperty Name="T_CMS_ModuleType" Relationship="Self.FK_T_CMS_Module_T_CMS_ModuleType" FromRole="T_CMS_Module" ToRole="T_CMS_ModuleType" />
+    <NavigationProperty Name="T_CMS_ModuleType1" Relationship="Self.FK_T_CMS_Module_T_CMS_ModuleType1" FromRole="T_CMS_Module" ToRole="T_CMS_ModuleType" />
+    <NavigationProperty Name="T_CMS_SlideShow" Relationship="Self.FK_T_CMS_SlideShow_T_CMS_Module" FromRole="T_CMS_Module" ToRole="T_CMS_SlideShow" />
+  </EntityType>
+  <EntityType Name="T_CMS_ModulePosition">
+    <Key>
+      <PropertyRef Name="PositionID" />
+    </Key>
+    <Property Name="PositionID" Type="Int16" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="T_CMS_Module" Relationship="Self.FK_T_CMS_Module_T_CMS_ModulePosition" FromRole="T_CMS_ModulePosition" ToRole="T_CMS_Module" />
+  </EntityType>
+  <EntityType Name="T_CMS_ModuleType">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Int16" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="T_CMS_Module" Relationship="Self.FK_T_CMS_Module_T_CMS_ModuleType" FromRole="T_CMS_ModuleType" ToRole="T_CMS_Module" />
+    <NavigationProperty Name="T_CMS_Module1" Relationship="Self.FK_T_CMS_Module_T_CMS_ModuleType1" FromRole="T_CMS_ModuleType" ToRole="T_CMS_Module" />
+  </EntityType>
+  <EntityType Name="T_CMS_SlideShow">
+    <Key>
+      <PropertyRef Name="SlideID" />
+    </Key>
+    <Property Name="SlideID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ImageURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Order" Type="Int16" />
+    <Property Name="StateID" Type="Int16" Nullable="false" />
+    <Property Name="ModuleID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="T_CMS_MasterState" Relationship="Self.FK_T_CMS_SlideShow_T_CMS_MasterState" FromRole="T_CMS_SlideShow" ToRole="T_CMS_MasterState" />
+    <NavigationProperty Name="T_CMS_Module" Relationship="Self.FK_T_CMS_SlideShow_T_CMS_Module" FromRole="T_CMS_SlideShow" ToRole="T_CMS_Module" />
+  </EntityType>
+  <EntityType Name="T_UserRoles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="T_UsersInRoles" Relationship="Self.fk_RoleId" FromRole="T_UserRoles" ToRole="T_UsersInRoles" />
+  </EntityType>
+  <EntityType Name="T_Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PassWord" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="TypeID" Type="Int16" />
+    <Property Name="State" Type="Int16" />
+    <Property Name="PublicID" Type="Int32" />
+    <NavigationProperty Name="T_Users_Type" Relationship="Self.FK_T_Users_T_Users_Type" FromRole="T_Users" ToRole="T_Users_Type" />
+    <NavigationProperty Name="T_UsersInRoles" Relationship="Self.fk_UserId" FromRole="T_Users" ToRole="T_UsersInRoles" />
+  </EntityType>
+  <EntityType Name="T_Users_Type">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Int16" Nullable="false" />
+    <Property Name="TypeName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="T_Users" Relationship="Self.FK_T_Users_T_Users_Type" FromRole="T_Users_Type" ToRole="T_Users" />
+  </EntityType>
+  <EntityType Name="T_UsersInRoles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="T_UserRoles" Relationship="Self.fk_RoleId" FromRole="T_UsersInRoles" ToRole="T_UserRoles" />
+    <NavigationProperty Name="T_Users" Relationship="Self.fk_UserId" FromRole="T_UsersInRoles" ToRole="T_Users" />
+  </EntityType>
+  <Association Name="FK_T_CMS_Content_T_CMS_Category">
+    <End Role="T_CMS_Category" Type="Self.T_CMS_Category" Multiplicity="1" />
+    <End Role="T_CMS_Content" Type="Self.T_CMS_Content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CMS_Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="T_CMS_Content">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_CMS_Content_T_CMS_MasterState">
+    <End Role="T_CMS_MasterState" Type="Self.T_CMS_MasterState" Multiplicity="1" />
+    <End Role="T_CMS_Content" Type="Self.T_CMS_Content" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CMS_MasterState">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_CMS_Content">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_CMS_Menu_T_CMS_MasterState">
+    <End Role="T_CMS_MasterState" Type="Self.T_CMS_MasterState" Multiplicity="1" />
+    <End Role="T_CMS_Menu" Type="Self.T_CMS_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CMS_MasterState">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_CMS_Menu">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_CMS_SlideShow_T_CMS_MasterState">
+    <End Role="T_CMS_MasterState" Type="Self.T_CMS_MasterState" Multiplicity="1" />
+    <End Role="T_CMS_SlideShow" Type="Self.T_CMS_SlideShow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CMS_MasterState">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_CMS_SlideShow">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_CMS_Menu_T_CMS_Menu">
+    <End Role="T_CMS_Menu" Type="Self.T_CMS_Menu" Multiplicity="0..1" />
+    <End Role="T_CMS_Menu1" Type="Self.T_CMS_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CMS_Menu">
+        <PropertyRef Name="MenuID" />
+      </Principal>
+      <Dependent Role="T_CMS_Menu1">
+        <PropertyRef Name="MasterMenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_CMS_Menu_T_CMS_Module">
+    <End Role="T_CMS_Module" Type="Self.T_CMS_Module" Multiplicity="1" />
+    <End Role="T_CMS_Menu" Type="Self.T_CMS_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CMS_Module">
+        <PropertyRef Name="ModuleID" />
+      </Principal>
+      <Dependent Role="T_CMS_Menu">
+        <PropertyRef Name="ModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_CMS_Module_T_CMS_ModulePosition">
+    <End Role="T_CMS_ModulePosition" Type="Self.T_CMS_ModulePosition" Multiplicity="1" />
+    <End Role="T_CMS_Module" Type="Self.T_CMS_Module" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CMS_ModulePosition">
+        <PropertyRef Name="PositionID" />
+      </Principal>
+      <Dependent Role="T_CMS_Module">
+        <PropertyRef Name="PositionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_CMS_Module_T_CMS_ModuleType">
+    <End Role="T_CMS_ModuleType" Type="Self.T_CMS_ModuleType" Multiplicity="1" />
+    <End Role="T_CMS_Module" Type="Self.T_CMS_Module" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CMS_ModuleType">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="T_CMS_Module">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_CMS_Module_T_CMS_ModuleType1">
+    <End Role="T_CMS_ModuleType" Type="Self.T_CMS_ModuleType" Multiplicity="1" />
+    <End Role="T_CMS_Module" Type="Self.T_CMS_Module" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CMS_ModuleType">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="T_CMS_Module">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_CMS_SlideShow_T_CMS_Module">
+    <End Role="T_CMS_Module" Type="Self.T_CMS_Module" Multiplicity="1" />
+    <End Role="T_CMS_SlideShow" Type="Self.T_CMS_SlideShow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CMS_Module">
+        <PropertyRef Name="ModuleID" />
+      </Principal>
+      <Dependent Role="T_CMS_SlideShow">
+        <PropertyRef Name="ModuleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleId">
+    <End Role="T_UserRoles" Type="Self.T_UserRoles" Multiplicity="1" />
+    <End Role="T_UsersInRoles" Type="Self.T_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_UserRoles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="T_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Users_T_Users_Type">
+    <End Role="T_Users_Type" Type="Self.T_Users_Type" Multiplicity="0..1" />
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users_Type">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="T_Users">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="1" />
+    <End Role="T_UsersInRoles" Type="Self.T_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="T_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MaaseDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="T_CMS_Category" EntityType="Self.T_CMS_Category" />
+    <EntitySet Name="T_CMS_Content" EntityType="Self.T_CMS_Content" />
+    <EntitySet Name="T_CMS_MasterState" EntityType="Self.T_CMS_MasterState" />
+    <EntitySet Name="T_CMS_Menu" EntityType="Self.T_CMS_Menu" />
+    <EntitySet Name="T_CMS_Module" EntityType="Self.T_CMS_Module" />
+    <EntitySet Name="T_CMS_ModulePosition" EntityType="Self.T_CMS_ModulePosition" />
+    <EntitySet Name="T_CMS_ModuleType" EntityType="Self.T_CMS_ModuleType" />
+    <EntitySet Name="T_CMS_SlideShow" EntityType="Self.T_CMS_SlideShow" />
+    <EntitySet Name="T_UserRoles" EntityType="Self.T_UserRoles" />
+    <EntitySet Name="T_Users" EntityType="Self.T_Users" />
+    <EntitySet Name="T_Users_Type" EntityType="Self.T_Users_Type" />
+    <EntitySet Name="T_UsersInRoles" EntityType="Self.T_UsersInRoles" />
+    <AssociationSet Name="FK_T_CMS_Content_T_CMS_Category" Association="Self.FK_T_CMS_Content_T_CMS_Category">
+      <End Role="T_CMS_Category" EntitySet="T_CMS_Category" />
+      <End Role="T_CMS_Content" EntitySet="T_CMS_Content" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_CMS_Content_T_CMS_MasterState" Association="Self.FK_T_CMS_Content_T_CMS_MasterState">
+      <End Role="T_CMS_MasterState" EntitySet="T_CMS_MasterState" />
+      <End Role="T_CMS_Content" EntitySet="T_CMS_Content" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_CMS_Menu_T_CMS_MasterState" Association="Self.FK_T_CMS_Menu_T_CMS_MasterState">
+      <End Role="T_CMS_MasterState" EntitySet="T_CMS_MasterState" />
+      <End Role="T_CMS_Menu" EntitySet="T_CMS_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_CMS_SlideShow_T_CMS_MasterState" Association="Self.FK_T_CMS_SlideShow_T_CMS_MasterState">
+      <End Role="T_CMS_MasterState" EntitySet="T_CMS_MasterState" />
+      <End Role="T_CMS_SlideShow" EntitySet="T_CMS_SlideShow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_CMS_Menu_T_CMS_Menu" Association="Self.FK_T_CMS_Menu_T_CMS_Menu">
+      <End Role="T_CMS_Menu" EntitySet="T_CMS_Menu" />
+      <End Role="T_CMS_Menu1" EntitySet="T_CMS_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_CMS_Menu_T_CMS_Module" Association="Self.FK_T_CMS_Menu_T_CMS_Module">
+      <End Role="T_CMS_Module" EntitySet="T_CMS_Module" />
+      <End Role="T_CMS_Menu" EntitySet="T_CMS_Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_CMS_Module_T_CMS_ModulePosition" Association="Self.FK_T_CMS_Module_T_CMS_ModulePosition">
+      <End Role="T_CMS_ModulePosition" EntitySet="T_CMS_ModulePosition" />
+      <End Role="T_CMS_Module" EntitySet="T_CMS_Module" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_CMS_Module_T_CMS_ModuleType" Association="Self.FK_T_CMS_Module_T_CMS_ModuleType">
+      <End Role="T_CMS_ModuleType" EntitySet="T_CMS_ModuleType" />
+      <End Role="T_CMS_Module" EntitySet="T_CMS_Module" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_CMS_Module_T_CMS_ModuleType1" Association="Self.FK_T_CMS_Module_T_CMS_ModuleType1">
+      <End Role="T_CMS_ModuleType" EntitySet="T_CMS_ModuleType" />
+      <End Role="T_CMS_Module" EntitySet="T_CMS_Module" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_CMS_SlideShow_T_CMS_Module" Association="Self.FK_T_CMS_SlideShow_T_CMS_Module">
+      <End Role="T_CMS_Module" EntitySet="T_CMS_Module" />
+      <End Role="T_CMS_SlideShow" EntitySet="T_CMS_SlideShow" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+      <End Role="T_UserRoles" EntitySet="T_UserRoles" />
+      <End Role="T_UsersInRoles" EntitySet="T_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Users_T_Users_Type" Association="Self.FK_T_Users_T_Users_Type">
+      <End Role="T_Users_Type" EntitySet="T_Users_Type" />
+      <End Role="T_Users" EntitySet="T_Users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_UsersInRoles" EntitySet="T_UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

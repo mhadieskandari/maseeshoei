@@ -1,0 +1,209 @@
+﻿@model IEnumerable<MaaseShooei.Areas.Management.Models.T_ConsumerFinancialStatements>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> لیست صورت وضعیت های خریداران </div>
+
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                @*@Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)*@
+                <div class="row well">
+
+                    <div class="col-sm-1">
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" name="CFSID" id="CFSID" value="@ViewBag.CFSID" class="form-control" />
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.Label("کدسیستم")
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" name="ToDate" id="ToDate" value="@ViewBag.todate" class="form-control" />
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.Label("تا تاریخ")
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" name="FromDate" id="FromDate" value="@ViewBag.fromdate" class="form-control" />
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.Label("از تاریخ")
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.Label("پارامترهای جستجو")
+                    </div>
+                </div>
+
+
+
+
+
+
+            }
+
+
+
+
+            <p>
+                @if (User.IsInRole("Administrator") || User.IsInRole("User") || User.IsInRole("Accountant")) {
+
+                <a href="@Url.Action("Create")" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                }
+                @*@Html.ActionLink("ایجاد", "Create", "Produce", null, new { @class = "btn btn-default" })*@
+            </p>
+          
+
+            <div class="dataTables_wrapper">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead style="background-color:peru;">
+                        <tr>
+                            
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._ConsumerFinancialStatementID)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.T_Consumers._CompanyName)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._FromDate)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._ToDate)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._BurdonsSumPrices)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._Payed)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._Creditor)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model.T_FinancialStates._StateName)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._ConsumerFinancialStatementID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.T_Consumers._CompanyName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._FromDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._ToDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._BurdonsSumPrices)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._Payed)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._Creditor)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.T_FinancialStates._StateName)
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("ShowReport", new { id = item.ConsumerFinancialStatementID })" class="btn btn-success" target="_blank"><span class="glyphicon glyphicon-print"></span></a>
+                                    <a href="@Url.Action("ShowFactor", new { id = item.ConsumerFinancialStatementID })" class="btn btn-success" target="_blank">فاکتور</a>
+                                    <a href="@Url.Action("ShowAccountant", new { id = item.ConsumerFinancialStatementID })" class="btn btn-success" target="_blank">مالی</a>
+
+
+                                    @if (User.IsInRole("Administrator") || User.IsInRole("User") || User.IsInRole("Accountant"))
+                                    {
+                                        <a href="@Url.Action("Details", new { id = item.ConsumerFinancialStatementID })" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                        <a href="@Url.Action("Edit", new { id = item.ConsumerFinancialStatementID })" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span></a>
+                                        <a href="@Url.Action("Delete", new { id = item.ConsumerFinancialStatementID })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                                    }
+                                    
+                                    
+                                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').DataTable({
+                responsive: true,
+                select: true
+            });
+        });
+
+
+
+        //$(document).ready(function () {
+        //    var table = $('#dataTables-example').DataTable();
+
+        //    $('#example tbody').on('click', 'tr', function () {
+        //        if ($(this).hasClass('selected')) {
+        //            $(this).removeClass('selected');
+        //        }
+        //        else {
+        //            table.$('tr.selected').removeClass('selected');
+        //            $(this).addClass('selected');
+        //        }
+        //    });
+
+        //    //$('#button').click(function () {
+        //    //    table.row('.selected').remove().draw(false);
+        //    //});
+        //});
+    </script>
+
+<script type="text/javascript">
+    $('#FromDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        EnableTimePicker: false, // default is true,
+        TargetSelector: '', // default is empty,
+        GroupId: '', // default is empty,
+        ToDate: false, // default is false,
+        FromDate: false, // default is false,
+        EnglishNumber: true,
+    });
+    $('#ToDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        EnableTimePicker: false, // default is true,
+        TargetSelector: '', // default is empty,
+        GroupId: '', // default is empty,
+        ToDate: false, // default is false,
+        FromDate: false, // default is false,
+        EnglishNumber: true,
+    });
+
+</script>
+}

@@ -1,0 +1,67 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Producers
+
+@{
+    ViewBag.Title = "حذف فروشنده";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">آیا مطمعنید که میخواهید فروشنده را حذف کنید؟</div>
+
+        <div class="panel-body">
+
+            
+            <div >
+                @Html.HiddenFor(model => model._ProducerID)
+            </div>
+
+            <div class="editor-label">
+                @Html.DisplayNameFor(model => model._CompanyName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._CompanyName)
+            </div>
+
+            <div class="editor-label">
+                @Html.DisplayNameFor(model => model._OwnerFullName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._OwnerFullName)
+            </div>
+
+            <div class="editor-label">
+                @Html.DisplayNameFor(model => model._Address)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._Address)
+            </div>
+
+            <div class="editor-label">
+                @Html.DisplayNameFor(model => model._PhoneNumber)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._PhoneNumber)
+            </div>
+
+            <div class="editor-label">
+                @Html.DisplayNameFor(model => model._Descryption)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._Descryption)
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div>
+                    <button type="submit" class="btn btn-default">حذف</button>
+                    @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+                </div>
+            }
+        </div>
+    </div>
+</div>
+           

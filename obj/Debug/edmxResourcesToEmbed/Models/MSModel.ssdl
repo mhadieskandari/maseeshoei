@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MaaseDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="T_BurdenInformations">
+    <Key>
+      <PropertyRef Name="BurdenInformationID" />
+    </Key>
+    <Property Name="BurdenInformationID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TruckID" Type="int" Nullable="false" />
+    <Property Name="LoadInDateTime" Type="nvarchar" MaxLength="30" />
+    <Property Name="LoadOutDateTime" Type="nvarchar" MaxLength="30" />
+    <Property Name="LoadFullTruckWeight" Type="real" />
+    <Property Name="LoadFreeTruckWeight" Type="real" />
+    <Property Name="UnLoadInDateTime" Type="nvarchar" MaxLength="30" />
+    <Property Name="UnLoadOutDateTime" Type="nvarchar" MaxLength="30" />
+    <Property Name="UnLoadFullTruckWeight" Type="real" />
+    <Property Name="UnLoadFreeTruckWeight" Type="real" />
+    <Property Name="TransportPriceID" Type="int" Nullable="false" />
+    <Property Name="ProducerProducePriceID" Type="int" Nullable="false" />
+    <Property Name="ConsumerProducePriceID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="ResidNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="RegisterDateTime" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="T_ConsumerProducePrices">
+    <Key>
+      <PropertyRef Name="ConsumerProducePriceID" />
+    </Key>
+    <Property Name="ConsumerProducePriceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConsumerID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Price" Type="real" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="ProduceID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Consumers">
+    <Key>
+      <PropertyRef Name="ConsumerID" />
+    </Key>
+    <Property Name="ConsumerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="OwnerFullName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="Descryption" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="T_ProducerProducePrices">
+    <Key>
+      <PropertyRef Name="ProducerProducePriceID" />
+    </Key>
+    <Property Name="ProducerProducePriceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProduceID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Price" Type="real" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="ProducerID" Type="int" />
+  </EntityType>
+  <EntityType Name="T_Producers">
+    <Key>
+      <PropertyRef Name="ProducerID" />
+    </Key>
+    <Property Name="ProducerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OwnerFullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="Descryption" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="T_Produces">
+    <Key>
+      <PropertyRef Name="ProduceID" />
+    </Key>
+    <Property Name="ProduceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProduceName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Descryption" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_TransportPrices">
+    <Key>
+      <PropertyRef Name="TransportPriceID" />
+    </Key>
+    <Property Name="TransportPriceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Price" Type="real" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="ProducerID" Type="int" />
+    <Property Name="ConsumerID" Type="int" />
+    <Property Name="ProduceID" Type="int" />
+  </EntityType>
+  <EntityType Name="T_Trucks">
+    <Key>
+      <PropertyRef Name="TruckID" />
+    </Key>
+    <Property Name="TruckID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="OwnerFullName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="PureWeight" Type="int" Nullable="false" />
+    <Property Name="Descryption" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="T_UserRoles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="30" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="11" />
+    <Property Name="UserType" Type="smallint" Nullable="false" />
+    <Property Name="State" Type="smallint" />
+  </EntityType>
+  <EntityType Name="T_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_BurdenInformations_dbo_ConsumerProducePrices_ConsumerProducePrice_ConsumerProducePriceID">
+    <End Role="T_ConsumerProducePrices" Type="Self.T_ConsumerProducePrices" Multiplicity="1" />
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ConsumerProducePrices">
+        <PropertyRef Name="ConsumerProducePriceID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="ConsumerProducePriceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BurdenInformations_dbo_ProducerProducePrices_ProducerProducePrice_ProducerProducePriceID">
+    <End Role="T_ProducerProducePrices" Type="Self.T_ProducerProducePrices" Multiplicity="1" />
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ProducerProducePrices">
+        <PropertyRef Name="ProducerProducePriceID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="ProducerProducePriceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BurdenInformations_dbo_TransportPrices_TransportPrice_TransportPriceID">
+    <End Role="T_TransportPrices" Type="Self.T_TransportPrices" Multiplicity="1" />
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_TransportPrices">
+        <PropertyRef Name="TransportPriceID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="TransportPriceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BurdenInformations_dbo_Trucks_TruckID">
+    <End Role="T_Trucks" Type="Self.T_Trucks" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Trucks">
+        <PropertyRef Name="TruckID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="TruckID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ConsumerProducePrices_dbo_Consumers_ConsumerID">
+    <End Role="T_Consumers" Type="Self.T_Consumers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ConsumerProducePrices" Type="Self.T_ConsumerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Consumers">
+        <PropertyRef Name="ConsumerID" />
+      </Principal>
+      <Dependent Role="T_ConsumerProducePrices">
+        <PropertyRef Name="ConsumerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ConsumerProducePrices_dbo_Produces_Produce_ProduceID">
+    <End Role="T_Produces" Type="Self.T_Produces" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ConsumerProducePrices" Type="Self.T_ConsumerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Produces">
+        <PropertyRef Name="ProduceID" />
+      </Principal>
+      <Dependent Role="T_ConsumerProducePrices">
+        <PropertyRef Name="ProduceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProducerProducePrices_dbo_Producers_Producer_ProducerID">
+    <End Role="T_Producers" Type="Self.T_Producers" Multiplicity="0..1" />
+    <End Role="T_ProducerProducePrices" Type="Self.T_ProducerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="T_ProducerProducePrices">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProducerProducePrices_dbo_Produces_ProduceID">
+    <End Role="T_Produces" Type="Self.T_Produces" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ProducerProducePrices" Type="Self.T_ProducerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Produces">
+        <PropertyRef Name="ProduceID" />
+      </Principal>
+      <Dependent Role="T_ProducerProducePrices">
+        <PropertyRef Name="ProduceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TransportPrices_dbo_Consumers_Consumer_ConsumerID">
+    <End Role="T_Consumers" Type="Self.T_Consumers" Multiplicity="0..1" />
+    <End Role="T_TransportPrices" Type="Self.T_TransportPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Consumers">
+        <PropertyRef Name="ConsumerID" />
+      </Principal>
+      <Dependent Role="T_TransportPrices">
+        <PropertyRef Name="ConsumerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TransportPrices_dbo_Producers_Producer_ProducerID">
+    <End Role="T_Producers" Type="Self.T_Producers" Multiplicity="0..1" />
+    <End Role="T_TransportPrices" Type="Self.T_TransportPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="T_TransportPrices">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TransportPrices_dbo_Produces_Produce_ProduceID">
+    <End Role="T_Produces" Type="Self.T_Produces" Multiplicity="0..1" />
+    <End Role="T_TransportPrices" Type="Self.T_TransportPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Produces">
+        <PropertyRef Name="ProduceID" />
+      </Principal>
+      <Dependent Role="T_TransportPrices">
+        <PropertyRef Name="ProduceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleId">
+    <End Role="T_UserRoles" Type="Self.T_UserRoles" Multiplicity="1" />
+    <End Role="T_UsersInRoles" Type="Self.T_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_UserRoles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="T_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_Users">
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="1" />
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="1" />
+    <End Role="T_UsersInRoles" Type="Self.T_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="T_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MaaseDBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_BurdenInformations" EntityType="Self.T_BurdenInformations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ConsumerProducePrices" EntityType="Self.T_ConsumerProducePrices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Consumers" EntityType="Self.T_Consumers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ProducerProducePrices" EntityType="Self.T_ProducerProducePrices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Producers" EntityType="Self.T_Producers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Produces" EntityType="Self.T_Produces" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_TransportPrices" EntityType="Self.T_TransportPrices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Trucks" EntityType="Self.T_Trucks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_UserRoles" EntityType="Self.T_UserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Users" EntityType="Self.T_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_UsersInRoles" EntityType="Self.T_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_BurdenInformations_dbo_ConsumerProducePrices_ConsumerProducePrice_ConsumerProducePriceID" Association="Self.FK_dbo_BurdenInformations_dbo_ConsumerProducePrices_ConsumerProducePrice_ConsumerProducePriceID">
+      <End Role="T_ConsumerProducePrices" EntitySet="T_ConsumerProducePrices" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BurdenInformations_dbo_ProducerProducePrices_ProducerProducePrice_ProducerProducePriceID" Association="Self.FK_dbo_BurdenInformations_dbo_ProducerProducePrices_ProducerProducePrice_ProducerProducePriceID">
+      <End Role="T_ProducerProducePrices" EntitySet="T_ProducerProducePrices" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BurdenInformations_dbo_TransportPrices_TransportPrice_TransportPriceID" Association="Self.FK_dbo_BurdenInformations_dbo_TransportPrices_TransportPrice_TransportPriceID">
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BurdenInformations_dbo_Trucks_TruckID" Association="Self.FK_dbo_BurdenInformations_dbo_Trucks_TruckID">
+      <End Role="T_Trucks" EntitySet="T_Trucks" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ConsumerProducePrices_dbo_Consumers_ConsumerID" Association="Self.FK_dbo_ConsumerProducePrices_dbo_Consumers_ConsumerID">
+      <End Role="T_Consumers" EntitySet="T_Consumers" />
+      <End Role="T_ConsumerProducePrices" EntitySet="T_ConsumerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ConsumerProducePrices_dbo_Produces_Produce_ProduceID" Association="Self.FK_dbo_ConsumerProducePrices_dbo_Produces_Produce_ProduceID">
+      <End Role="T_Produces" EntitySet="T_Produces" />
+      <End Role="T_ConsumerProducePrices" EntitySet="T_ConsumerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProducerProducePrices_dbo_Producers_Producer_ProducerID" Association="Self.FK_dbo_ProducerProducePrices_dbo_Producers_Producer_ProducerID">
+      <End Role="T_Producers" EntitySet="T_Producers" />
+      <End Role="T_ProducerProducePrices" EntitySet="T_ProducerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProducerProducePrices_dbo_Produces_ProduceID" Association="Self.FK_dbo_ProducerProducePrices_dbo_Produces_ProduceID">
+      <End Role="T_Produces" EntitySet="T_Produces" />
+      <End Role="T_ProducerProducePrices" EntitySet="T_ProducerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TransportPrices_dbo_Consumers_Consumer_ConsumerID" Association="Self.FK_dbo_TransportPrices_dbo_Consumers_Consumer_ConsumerID">
+      <End Role="T_Consumers" EntitySet="T_Consumers" />
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TransportPrices_dbo_Producers_Producer_ProducerID" Association="Self.FK_dbo_TransportPrices_dbo_Producers_Producer_ProducerID">
+      <End Role="T_Producers" EntitySet="T_Producers" />
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TransportPrices_dbo_Produces_Produce_ProduceID" Association="Self.FK_dbo_TransportPrices_dbo_Produces_Produce_ProduceID">
+      <End Role="T_Produces" EntitySet="T_Produces" />
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+      <End Role="T_UserRoles" EntitySet="T_UserRoles" />
+      <End Role="T_UsersInRoles" EntitySet="T_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_Users" Association="Self.FK_T_BurdenInformations_T_Users">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_UsersInRoles" EntitySet="T_UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

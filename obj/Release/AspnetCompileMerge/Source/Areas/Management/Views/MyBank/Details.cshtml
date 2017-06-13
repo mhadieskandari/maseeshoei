@@ -1,0 +1,65 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_BankMyAcount
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>T_BankMyAcount</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model._BankId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model._BankId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model._BankName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model._BankName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model._AccountNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model._AccountNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model._BankNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model._BankNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BankId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BankId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BankName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BankName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AccountNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AccountNumber)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

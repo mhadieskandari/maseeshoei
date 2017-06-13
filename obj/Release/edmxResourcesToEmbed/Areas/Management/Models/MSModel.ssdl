@@ -1,0 +1,1072 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MaaseDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="T_BankMyAcount">
+    <Key>
+      <PropertyRef Name="BankId" />
+    </Key>
+    <Property Name="BankId" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="T_BurdenInformations">
+    <Key>
+      <PropertyRef Name="BurdenInformationID" />
+    </Key>
+    <Property Name="BurdenInformationID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TruckID" Type="int" />
+    <Property Name="LoadDateTime" Type="nvarchar" MaxLength="30" />
+    <Property Name="LoadFullTruckWeight" Type="real" />
+    <Property Name="LoadFreeTruckWeight" Type="real" />
+    <Property Name="UnLoadDateTime" Type="nvarchar" MaxLength="30" />
+    <Property Name="UnLoadFullTruckWeight" Type="real" />
+    <Property Name="UnLoadFreeTruckWeight" Type="real" />
+    <Property Name="TransportPriceID" Type="int" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="ResidUnLoudNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="ResidLoudNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="RegisterDateTime" Type="nvarchar" MaxLength="30" />
+    <Property Name="Type" Type="smallint" />
+    <Property Name="CPPID" Type="int" />
+    <Property Name="PPPID" Type="int" />
+    <Property Name="PFSID" Type="bigint" />
+    <Property Name="CFSID" Type="bigint" />
+    <Property Name="TFSID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="T_Consumer_Bank">
+    <Key>
+      <PropertyRef Name="BankID" />
+    </Key>
+    <Property Name="BankID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_ConsumerFinancialStatements">
+    <Key>
+      <PropertyRef Name="ConsumerFinancialStatementID" />
+    </Key>
+    <Property Name="ConsumerFinancialStatementID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromDate" Type="nvarchar" MaxLength="30" />
+    <Property Name="ToDate" Type="nvarchar" MaxLength="30" />
+    <Property Name="Descryption" Type="nvarchar" MaxLength="200" />
+    <Property Name="ConsumerID" Type="int" Nullable="false" />
+    <Property Name="StateID" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_ConsumerProducePrices">
+    <Key>
+      <PropertyRef Name="ConsumerProducePriceID" />
+    </Key>
+    <Property Name="ConsumerProducePriceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConsumerID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="StateID" Type="bit" Nullable="false" />
+    <Property Name="ProduceID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Consumers">
+    <Key>
+      <PropertyRef Name="ConsumerID" />
+    </Key>
+    <Property Name="ConsumerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="OwnerFullName" Type="nvarchar" MaxLength="30" />
+    <Property Name="Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="35" />
+    <Property Name="Descryption" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="20" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="30" />
+    <Property Name="StateID" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_ConsumersPays">
+    <Key>
+      <PropertyRef Name="ConsumerPayID" />
+    </Key>
+    <Property Name="ConsumerPayID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CFSID" Type="bigint" Nullable="false" />
+    <Property Name="PayDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="PayTypeID" Type="smallint" Nullable="false" />
+    <Property Name="PayStateID" Type="smallint" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Number" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="Owner" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankId" Type="smallint" Nullable="false" />
+    <Property Name="Bankdepartment" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecoveryDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="AgentID" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_FinancialStates">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="smallint" Nullable="false" />
+    <Property Name="StateName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_PayState">
+    <Key>
+      <PropertyRef Name="PayStateID" />
+    </Key>
+    <Property Name="PayStateID" Type="smallint" Nullable="false" />
+    <Property Name="PayStateName" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="T_PayType">
+    <Key>
+      <PropertyRef Name="PayTypeID" />
+    </Key>
+    <Property Name="PayTypeID" Type="smallint" Nullable="false" />
+    <Property Name="PayTypeName" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="T_Producer_Pay_Title">
+    <Key>
+      <PropertyRef Name="TitleID" />
+    </Key>
+    <Property Name="TitleID" Type="smallint" Nullable="false" />
+    <Property Name="TitleName" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_ProducerFinancialStatements">
+    <Key>
+      <PropertyRef Name="ProducerFinancialStatementID" />
+    </Key>
+    <Property Name="ProducerFinancialStatementID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromDate" Type="nvarchar" MaxLength="30" />
+    <Property Name="ToDate" Type="nvarchar" MaxLength="30" />
+    <Property Name="Descryption" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProducerID" Type="int" Nullable="false" />
+    <Property Name="StateID" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_ProducerProducePrices">
+    <Key>
+      <PropertyRef Name="ProducerProducePriceID" />
+    </Key>
+    <Property Name="ProducerProducePriceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProduceID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="StateID" Type="bit" Nullable="false" />
+    <Property Name="ProducerID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Producers">
+    <Key>
+      <PropertyRef Name="ProducerID" />
+    </Key>
+    <Property Name="ProducerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OwnerFullName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="35" />
+    <Property Name="Descryption" Type="nvarchar" MaxLength="200" />
+    <Property Name="StateID" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_ProducersPays">
+    <Key>
+      <PropertyRef Name="ProducerPayID" />
+    </Key>
+    <Property Name="ProducerPayID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PFSID" Type="bigint" Nullable="false" />
+    <Property Name="PayDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="PayTypeID" Type="smallint" Nullable="false" />
+    <Property Name="PayStateID" Type="smallint" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Number" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="BankId" Type="smallint" Nullable="false" />
+    <Property Name="RecoveryDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="TitleID" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Produces">
+    <Key>
+      <PropertyRef Name="ProduceID" />
+    </Key>
+    <Property Name="ProduceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProduceName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Descryption" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_RecoveryAgent">
+    <Key>
+      <PropertyRef Name="AgentID" />
+    </Key>
+    <Property Name="AgentID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AgentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_State">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="bit" Nullable="false" />
+    <Property Name="StateName" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_TransportPrices">
+    <Key>
+      <PropertyRef Name="TransportPriceID" />
+    </Key>
+    <Property Name="TransportPriceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="StateID" Type="bit" Nullable="false" />
+    <Property Name="ProducerID" Type="int" Nullable="false" />
+    <Property Name="ConsumerID" Type="int" Nullable="false" />
+    <Property Name="ProduceID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Truck_Pay_Title">
+    <Key>
+      <PropertyRef Name="TitleID" />
+    </Key>
+    <Property Name="TitleID" Type="smallint" Nullable="false" />
+    <Property Name="TitleName" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_TruckFinancialStatements">
+    <Key>
+      <PropertyRef Name="TruckFinancialStatementID" />
+    </Key>
+    <Property Name="TruckFinancialStatementID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromDate" Type="nvarchar" MaxLength="30" />
+    <Property Name="ToDate" Type="nvarchar" MaxLength="30" />
+    <Property Name="Descryption" Type="nvarchar" MaxLength="200" />
+    <Property Name="TruckID" Type="int" Nullable="false" />
+    <Property Name="StateID" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Trucks">
+    <Key>
+      <PropertyRef Name="TruckID" />
+    </Key>
+    <Property Name="TruckID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Number" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="OwnerFullName" Type="nvarchar" MaxLength="30" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="35" />
+    <Property Name="PureWeight" Type="int" />
+    <Property Name="Descryption" Type="nvarchar" MaxLength="300" />
+    <Property Name="StateID" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_TrucksPays">
+    <Key>
+      <PropertyRef Name="TruckPayID" />
+    </Key>
+    <Property Name="TruckPayID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TFSID" Type="bigint" Nullable="false" />
+    <Property Name="PayDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="PayTypeID" Type="smallint" Nullable="false" />
+    <Property Name="PayStateID" Type="smallint" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Number" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="BankId" Type="smallint" Nullable="false" />
+    <Property Name="RecoveryDate" Type="nvarchar" MaxLength="10" />
+    <Property Name="TitleID" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_UserRoles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="20" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="20" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="30" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="11" />
+    <Property Name="TypeID" Type="smallint" />
+    <Property Name="State" Type="smallint" />
+    <Property Name="PublicID" Type="int" />
+  </EntityType>
+  <EntityType Name="T_Users_Type">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="smallint" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_UsersInRoles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_BurdenInformations_dbo_TransportPrices_TransportPrice_TransportPriceID">
+    <End Role="T_TransportPrices" Type="Self.T_TransportPrices" Multiplicity="0..1" />
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_TransportPrices">
+        <PropertyRef Name="TransportPriceID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="TransportPriceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BurdenInformations_dbo_Trucks_TruckID">
+    <End Role="T_Trucks" Type="Self.T_Trucks" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Trucks">
+        <PropertyRef Name="TruckID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="TruckID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ConsumerProducePrices_dbo_Consumers_ConsumerID">
+    <End Role="T_Consumers" Type="Self.T_Consumers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ConsumerProducePrices" Type="Self.T_ConsumerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Consumers">
+        <PropertyRef Name="ConsumerID" />
+      </Principal>
+      <Dependent Role="T_ConsumerProducePrices">
+        <PropertyRef Name="ConsumerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ConsumerProducePrices_dbo_Produces_Produce_ProduceID">
+    <End Role="T_Produces" Type="Self.T_Produces" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ConsumerProducePrices" Type="Self.T_ConsumerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Produces">
+        <PropertyRef Name="ProduceID" />
+      </Principal>
+      <Dependent Role="T_ConsumerProducePrices">
+        <PropertyRef Name="ProduceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProducerProducePrices_dbo_Producers_Producer_ProducerID">
+    <End Role="T_Producers" Type="Self.T_Producers" Multiplicity="1" />
+    <End Role="T_ProducerProducePrices" Type="Self.T_ProducerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="T_ProducerProducePrices">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProducerProducePrices_dbo_Produces_ProduceID">
+    <End Role="T_Produces" Type="Self.T_Produces" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="T_ProducerProducePrices" Type="Self.T_ProducerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Produces">
+        <PropertyRef Name="ProduceID" />
+      </Principal>
+      <Dependent Role="T_ProducerProducePrices">
+        <PropertyRef Name="ProduceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TransportPrices_dbo_Consumers_Consumer_ConsumerID">
+    <End Role="T_Consumers" Type="Self.T_Consumers" Multiplicity="1" />
+    <End Role="T_TransportPrices" Type="Self.T_TransportPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Consumers">
+        <PropertyRef Name="ConsumerID" />
+      </Principal>
+      <Dependent Role="T_TransportPrices">
+        <PropertyRef Name="ConsumerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TransportPrices_dbo_Producers_Producer_ProducerID">
+    <End Role="T_Producers" Type="Self.T_Producers" Multiplicity="1" />
+    <End Role="T_TransportPrices" Type="Self.T_TransportPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="T_TransportPrices">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TransportPrices_dbo_Produces_Produce_ProduceID">
+    <End Role="T_Produces" Type="Self.T_Produces" Multiplicity="1" />
+    <End Role="T_TransportPrices" Type="Self.T_TransportPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Produces">
+        <PropertyRef Name="ProduceID" />
+      </Principal>
+      <Dependent Role="T_TransportPrices">
+        <PropertyRef Name="ProduceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleId">
+    <End Role="T_UserRoles" Type="Self.T_UserRoles" Multiplicity="1" />
+    <End Role="T_UsersInRoles" Type="Self.T_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_UserRoles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="T_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_ConsumerFinancialStatements">
+    <End Role="T_ConsumerFinancialStatements" Type="Self.T_ConsumerFinancialStatements" Multiplicity="0..1" />
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ConsumerFinancialStatements">
+        <PropertyRef Name="ConsumerFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="CFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_ConsumerProducePrices">
+    <End Role="T_ConsumerProducePrices" Type="Self.T_ConsumerProducePrices" Multiplicity="0..1" />
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ConsumerProducePrices">
+        <PropertyRef Name="ConsumerProducePriceID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="CPPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_ProducerFinancialstatements">
+    <End Role="T_ProducerFinancialStatements" Type="Self.T_ProducerFinancialStatements" Multiplicity="0..1" />
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ProducerFinancialStatements">
+        <PropertyRef Name="ProducerFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="PFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_ProducerProducePrices">
+    <End Role="T_ProducerProducePrices" Type="Self.T_ProducerProducePrices" Multiplicity="0..1" />
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ProducerProducePrices">
+        <PropertyRef Name="ProducerProducePriceID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="PPPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_TruckFinancialStatements">
+    <End Role="T_TruckFinancialStatements" Type="Self.T_TruckFinancialStatements" Multiplicity="0..1" />
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_TruckFinancialStatements">
+        <PropertyRef Name="TruckFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="TFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_Users">
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="0..1" />
+    <End Role="T_BurdenInformations" Type="Self.T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerFinancialStatements_T_Consumers">
+    <End Role="T_Consumers" Type="Self.T_Consumers" Multiplicity="1" />
+    <End Role="T_ConsumerFinancialStatements" Type="Self.T_ConsumerFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Consumers">
+        <PropertyRef Name="ConsumerID" />
+      </Principal>
+      <Dependent Role="T_ConsumerFinancialStatements">
+        <PropertyRef Name="ConsumerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerFinancialStatements_T_FinancialStates">
+    <End Role="T_FinancialStates" Type="Self.T_FinancialStates" Multiplicity="1" />
+    <End Role="T_ConsumerFinancialStatements" Type="Self.T_ConsumerFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_FinancialStates">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_ConsumerFinancialStatements">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerPay_T_ConsumerFinancialStatements">
+    <End Role="T_ConsumerFinancialStatements" Type="Self.T_ConsumerFinancialStatements" Multiplicity="1" />
+    <End Role="T_ConsumersPays" Type="Self.T_ConsumersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ConsumerFinancialStatements">
+        <PropertyRef Name="ConsumerFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_ConsumersPays">
+        <PropertyRef Name="CFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerPay_T_PayState">
+    <End Role="T_PayState" Type="Self.T_PayState" Multiplicity="1" />
+    <End Role="T_ConsumersPays" Type="Self.T_ConsumersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayState">
+        <PropertyRef Name="PayStateID" />
+      </Principal>
+      <Dependent Role="T_ConsumersPays">
+        <PropertyRef Name="PayStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerPay_T_PayType">
+    <End Role="T_PayType" Type="Self.T_PayType" Multiplicity="1" />
+    <End Role="T_ConsumersPays" Type="Self.T_ConsumersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayType">
+        <PropertyRef Name="PayTypeID" />
+      </Principal>
+      <Dependent Role="T_ConsumersPays">
+        <PropertyRef Name="PayTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerProducePrices_T_State">
+    <End Role="T_State" Type="Self.T_State" Multiplicity="1" />
+    <End Role="T_ConsumerProducePrices" Type="Self.T_ConsumerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_ConsumerProducePrices">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Consumers_T_State">
+    <End Role="T_State" Type="Self.T_State" Multiplicity="1" />
+    <End Role="T_Consumers" Type="Self.T_Consumers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_Consumers">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumersPays_T_Bank">
+    <End Role="T_Consumer_Bank" Type="Self.T_Consumer_Bank" Multiplicity="1" />
+    <End Role="T_ConsumersPays" Type="Self.T_ConsumersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Consumer_Bank">
+        <PropertyRef Name="BankID" />
+      </Principal>
+      <Dependent Role="T_ConsumersPays">
+        <PropertyRef Name="BankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumersPays_T_RecoveryAgent">
+    <End Role="T_RecoveryAgent" Type="Self.T_RecoveryAgent" Multiplicity="1" />
+    <End Role="T_ConsumersPays" Type="Self.T_ConsumersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_RecoveryAgent">
+        <PropertyRef Name="AgentID" />
+      </Principal>
+      <Dependent Role="T_ConsumersPays">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerFinancialstatements_T_FinancialStates">
+    <End Role="T_FinancialStates" Type="Self.T_FinancialStates" Multiplicity="1" />
+    <End Role="T_ProducerFinancialStatements" Type="Self.T_ProducerFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_FinancialStates">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_ProducerFinancialStatements">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerFinancialstatements_T_Producers">
+    <End Role="T_Producers" Type="Self.T_Producers" Multiplicity="1" />
+    <End Role="T_ProducerFinancialStatements" Type="Self.T_ProducerFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="T_ProducerFinancialStatements">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerPay_T_PayState">
+    <End Role="T_PayState" Type="Self.T_PayState" Multiplicity="1" />
+    <End Role="T_ProducersPays" Type="Self.T_ProducersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayState">
+        <PropertyRef Name="PayStateID" />
+      </Principal>
+      <Dependent Role="T_ProducersPays">
+        <PropertyRef Name="PayStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerPay_T_PayType">
+    <End Role="T_PayType" Type="Self.T_PayType" Multiplicity="1" />
+    <End Role="T_ProducersPays" Type="Self.T_ProducersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayType">
+        <PropertyRef Name="PayTypeID" />
+      </Principal>
+      <Dependent Role="T_ProducersPays">
+        <PropertyRef Name="PayTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerPay_T_ProducerFinancialStatements">
+    <End Role="T_ProducerFinancialStatements" Type="Self.T_ProducerFinancialStatements" Multiplicity="1" />
+    <End Role="T_ProducersPays" Type="Self.T_ProducersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ProducerFinancialStatements">
+        <PropertyRef Name="ProducerFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_ProducersPays">
+        <PropertyRef Name="PFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerProducePrices_T_State">
+    <End Role="T_State" Type="Self.T_State" Multiplicity="1" />
+    <End Role="T_ProducerProducePrices" Type="Self.T_ProducerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_ProducerProducePrices">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Producers_T_State">
+    <End Role="T_State" Type="Self.T_State" Multiplicity="1" />
+    <End Role="T_Producers" Type="Self.T_Producers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_Producers">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducersPays_T_Bank">
+    <End Role="T_BankMyAcount" Type="Self.T_BankMyAcount" Multiplicity="1" />
+    <End Role="T_ProducersPays" Type="Self.T_ProducersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_BankMyAcount">
+        <PropertyRef Name="BankId" />
+      </Principal>
+      <Dependent Role="T_ProducersPays">
+        <PropertyRef Name="BankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducersPays_T_Producer_Pay_Title">
+    <End Role="T_Producer_Pay_Title" Type="Self.T_Producer_Pay_Title" Multiplicity="1" />
+    <End Role="T_ProducersPays" Type="Self.T_ProducersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Producer_Pay_Title">
+        <PropertyRef Name="TitleID" />
+      </Principal>
+      <Dependent Role="T_ProducersPays">
+        <PropertyRef Name="TitleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TransportPrices_T_State">
+    <End Role="T_State" Type="Self.T_State" Multiplicity="1" />
+    <End Role="T_TransportPrices" Type="Self.T_TransportPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_TransportPrices">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TruckFinancialStatements_T_FinancialStates">
+    <End Role="T_FinancialStates" Type="Self.T_FinancialStates" Multiplicity="1" />
+    <End Role="T_TruckFinancialStatements" Type="Self.T_TruckFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_FinancialStates">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_TruckFinancialStatements">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TruckFinancialStatements_T_Trucks">
+    <End Role="T_Trucks" Type="Self.T_Trucks" Multiplicity="1" />
+    <End Role="T_TruckFinancialStatements" Type="Self.T_TruckFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Trucks">
+        <PropertyRef Name="TruckID" />
+      </Principal>
+      <Dependent Role="T_TruckFinancialStatements">
+        <PropertyRef Name="TruckID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Trucks_T_State">
+    <End Role="T_State" Type="Self.T_State" Multiplicity="1" />
+    <End Role="T_Trucks" Type="Self.T_Trucks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_Trucks">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TrucksPays_T_Bank">
+    <End Role="T_BankMyAcount" Type="Self.T_BankMyAcount" Multiplicity="1" />
+    <End Role="T_TrucksPays" Type="Self.T_TrucksPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_BankMyAcount">
+        <PropertyRef Name="BankId" />
+      </Principal>
+      <Dependent Role="T_TrucksPays">
+        <PropertyRef Name="BankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TrucksPays_T_PayState">
+    <End Role="T_PayState" Type="Self.T_PayState" Multiplicity="1" />
+    <End Role="T_TrucksPays" Type="Self.T_TrucksPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayState">
+        <PropertyRef Name="PayStateID" />
+      </Principal>
+      <Dependent Role="T_TrucksPays">
+        <PropertyRef Name="PayStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TrucksPays_T_PayType">
+    <End Role="T_PayType" Type="Self.T_PayType" Multiplicity="1" />
+    <End Role="T_TrucksPays" Type="Self.T_TrucksPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayType">
+        <PropertyRef Name="PayTypeID" />
+      </Principal>
+      <Dependent Role="T_TrucksPays">
+        <PropertyRef Name="PayTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TrucksPays_T_Truck_Pay_Title">
+    <End Role="T_Truck_Pay_Title" Type="Self.T_Truck_Pay_Title" Multiplicity="1" />
+    <End Role="T_TrucksPays" Type="Self.T_TrucksPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Truck_Pay_Title">
+        <PropertyRef Name="TitleID" />
+      </Principal>
+      <Dependent Role="T_TrucksPays">
+        <PropertyRef Name="TitleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TrucksPays_T_TruckFinancialStatements">
+    <End Role="T_TruckFinancialStatements" Type="Self.T_TruckFinancialStatements" Multiplicity="1" />
+    <End Role="T_TrucksPays" Type="Self.T_TrucksPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_TruckFinancialStatements">
+        <PropertyRef Name="TruckFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_TrucksPays">
+        <PropertyRef Name="TFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Users_T_Users_Type">
+    <End Role="T_Users_Type" Type="Self.T_Users_Type" Multiplicity="0..1" />
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users_Type">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="T_Users">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="1" />
+    <End Role="T_UsersInRoles" Type="Self.T_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="T_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MaaseDBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_BankMyAcount" EntityType="Self.T_BankMyAcount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_BurdenInformations" EntityType="Self.T_BurdenInformations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Consumer_Bank" EntityType="Self.T_Consumer_Bank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ConsumerFinancialStatements" EntityType="Self.T_ConsumerFinancialStatements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ConsumerProducePrices" EntityType="Self.T_ConsumerProducePrices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Consumers" EntityType="Self.T_Consumers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ConsumersPays" EntityType="Self.T_ConsumersPays" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_FinancialStates" EntityType="Self.T_FinancialStates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PayState" EntityType="Self.T_PayState" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PayType" EntityType="Self.T_PayType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Producer_Pay_Title" EntityType="Self.T_Producer_Pay_Title" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ProducerFinancialStatements" EntityType="Self.T_ProducerFinancialStatements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ProducerProducePrices" EntityType="Self.T_ProducerProducePrices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Producers" EntityType="Self.T_Producers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ProducersPays" EntityType="Self.T_ProducersPays" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Produces" EntityType="Self.T_Produces" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_RecoveryAgent" EntityType="Self.T_RecoveryAgent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_State" EntityType="Self.T_State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_TransportPrices" EntityType="Self.T_TransportPrices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Truck_Pay_Title" EntityType="Self.T_Truck_Pay_Title" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_TruckFinancialStatements" EntityType="Self.T_TruckFinancialStatements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Trucks" EntityType="Self.T_Trucks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_TrucksPays" EntityType="Self.T_TrucksPays" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_UserRoles" EntityType="Self.T_UserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Users" EntityType="Self.T_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Users_Type" EntityType="Self.T_Users_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_UsersInRoles" EntityType="Self.T_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_BurdenInformations_dbo_TransportPrices_TransportPrice_TransportPriceID" Association="Self.FK_dbo_BurdenInformations_dbo_TransportPrices_TransportPrice_TransportPriceID">
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BurdenInformations_dbo_Trucks_TruckID" Association="Self.FK_dbo_BurdenInformations_dbo_Trucks_TruckID">
+      <End Role="T_Trucks" EntitySet="T_Trucks" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ConsumerProducePrices_dbo_Consumers_ConsumerID" Association="Self.FK_dbo_ConsumerProducePrices_dbo_Consumers_ConsumerID">
+      <End Role="T_Consumers" EntitySet="T_Consumers" />
+      <End Role="T_ConsumerProducePrices" EntitySet="T_ConsumerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ConsumerProducePrices_dbo_Produces_Produce_ProduceID" Association="Self.FK_dbo_ConsumerProducePrices_dbo_Produces_Produce_ProduceID">
+      <End Role="T_Produces" EntitySet="T_Produces" />
+      <End Role="T_ConsumerProducePrices" EntitySet="T_ConsumerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProducerProducePrices_dbo_Producers_Producer_ProducerID" Association="Self.FK_dbo_ProducerProducePrices_dbo_Producers_Producer_ProducerID">
+      <End Role="T_Producers" EntitySet="T_Producers" />
+      <End Role="T_ProducerProducePrices" EntitySet="T_ProducerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProducerProducePrices_dbo_Produces_ProduceID" Association="Self.FK_dbo_ProducerProducePrices_dbo_Produces_ProduceID">
+      <End Role="T_Produces" EntitySet="T_Produces" />
+      <End Role="T_ProducerProducePrices" EntitySet="T_ProducerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TransportPrices_dbo_Consumers_Consumer_ConsumerID" Association="Self.FK_dbo_TransportPrices_dbo_Consumers_Consumer_ConsumerID">
+      <End Role="T_Consumers" EntitySet="T_Consumers" />
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TransportPrices_dbo_Producers_Producer_ProducerID" Association="Self.FK_dbo_TransportPrices_dbo_Producers_Producer_ProducerID">
+      <End Role="T_Producers" EntitySet="T_Producers" />
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TransportPrices_dbo_Produces_Produce_ProduceID" Association="Self.FK_dbo_TransportPrices_dbo_Produces_Produce_ProduceID">
+      <End Role="T_Produces" EntitySet="T_Produces" />
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+      <End Role="T_UserRoles" EntitySet="T_UserRoles" />
+      <End Role="T_UsersInRoles" EntitySet="T_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_ConsumerFinancialStatements" Association="Self.FK_T_BurdenInformations_T_ConsumerFinancialStatements">
+      <End Role="T_ConsumerFinancialStatements" EntitySet="T_ConsumerFinancialStatements" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_ConsumerProducePrices" Association="Self.FK_T_BurdenInformations_T_ConsumerProducePrices">
+      <End Role="T_ConsumerProducePrices" EntitySet="T_ConsumerProducePrices" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_ProducerFinancialstatements" Association="Self.FK_T_BurdenInformations_T_ProducerFinancialstatements">
+      <End Role="T_ProducerFinancialStatements" EntitySet="T_ProducerFinancialStatements" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_ProducerProducePrices" Association="Self.FK_T_BurdenInformations_T_ProducerProducePrices">
+      <End Role="T_ProducerProducePrices" EntitySet="T_ProducerProducePrices" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_TruckFinancialStatements" Association="Self.FK_T_BurdenInformations_T_TruckFinancialStatements">
+      <End Role="T_TruckFinancialStatements" EntitySet="T_TruckFinancialStatements" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_Users" Association="Self.FK_T_BurdenInformations_T_Users">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerFinancialStatements_T_Consumers" Association="Self.FK_T_ConsumerFinancialStatements_T_Consumers">
+      <End Role="T_Consumers" EntitySet="T_Consumers" />
+      <End Role="T_ConsumerFinancialStatements" EntitySet="T_ConsumerFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerFinancialStatements_T_FinancialStates" Association="Self.FK_T_ConsumerFinancialStatements_T_FinancialStates">
+      <End Role="T_FinancialStates" EntitySet="T_FinancialStates" />
+      <End Role="T_ConsumerFinancialStatements" EntitySet="T_ConsumerFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerPay_T_ConsumerFinancialStatements" Association="Self.FK_T_ConsumerPay_T_ConsumerFinancialStatements">
+      <End Role="T_ConsumerFinancialStatements" EntitySet="T_ConsumerFinancialStatements" />
+      <End Role="T_ConsumersPays" EntitySet="T_ConsumersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerPay_T_PayState" Association="Self.FK_T_ConsumerPay_T_PayState">
+      <End Role="T_PayState" EntitySet="T_PayState" />
+      <End Role="T_ConsumersPays" EntitySet="T_ConsumersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerPay_T_PayType" Association="Self.FK_T_ConsumerPay_T_PayType">
+      <End Role="T_PayType" EntitySet="T_PayType" />
+      <End Role="T_ConsumersPays" EntitySet="T_ConsumersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerProducePrices_T_State" Association="Self.FK_T_ConsumerProducePrices_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_ConsumerProducePrices" EntitySet="T_ConsumerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Consumers_T_State" Association="Self.FK_T_Consumers_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_Consumers" EntitySet="T_Consumers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumersPays_T_Bank" Association="Self.FK_T_ConsumersPays_T_Bank">
+      <End Role="T_Consumer_Bank" EntitySet="T_Consumer_Bank" />
+      <End Role="T_ConsumersPays" EntitySet="T_ConsumersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumersPays_T_RecoveryAgent" Association="Self.FK_T_ConsumersPays_T_RecoveryAgent">
+      <End Role="T_RecoveryAgent" EntitySet="T_RecoveryAgent" />
+      <End Role="T_ConsumersPays" EntitySet="T_ConsumersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerFinancialstatements_T_FinancialStates" Association="Self.FK_T_ProducerFinancialstatements_T_FinancialStates">
+      <End Role="T_FinancialStates" EntitySet="T_FinancialStates" />
+      <End Role="T_ProducerFinancialStatements" EntitySet="T_ProducerFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerFinancialstatements_T_Producers" Association="Self.FK_T_ProducerFinancialstatements_T_Producers">
+      <End Role="T_Producers" EntitySet="T_Producers" />
+      <End Role="T_ProducerFinancialStatements" EntitySet="T_ProducerFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerPay_T_PayState" Association="Self.FK_T_ProducerPay_T_PayState">
+      <End Role="T_PayState" EntitySet="T_PayState" />
+      <End Role="T_ProducersPays" EntitySet="T_ProducersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerPay_T_PayType" Association="Self.FK_T_ProducerPay_T_PayType">
+      <End Role="T_PayType" EntitySet="T_PayType" />
+      <End Role="T_ProducersPays" EntitySet="T_ProducersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerPay_T_ProducerFinancialStatements" Association="Self.FK_T_ProducerPay_T_ProducerFinancialStatements">
+      <End Role="T_ProducerFinancialStatements" EntitySet="T_ProducerFinancialStatements" />
+      <End Role="T_ProducersPays" EntitySet="T_ProducersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerProducePrices_T_State" Association="Self.FK_T_ProducerProducePrices_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_ProducerProducePrices" EntitySet="T_ProducerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Producers_T_State" Association="Self.FK_T_Producers_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_Producers" EntitySet="T_Producers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducersPays_T_Bank" Association="Self.FK_T_ProducersPays_T_Bank">
+      <End Role="T_BankMyAcount" EntitySet="T_BankMyAcount" />
+      <End Role="T_ProducersPays" EntitySet="T_ProducersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducersPays_T_Producer_Pay_Title" Association="Self.FK_T_ProducersPays_T_Producer_Pay_Title">
+      <End Role="T_Producer_Pay_Title" EntitySet="T_Producer_Pay_Title" />
+      <End Role="T_ProducersPays" EntitySet="T_ProducersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TransportPrices_T_State" Association="Self.FK_T_TransportPrices_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TruckFinancialStatements_T_FinancialStates" Association="Self.FK_T_TruckFinancialStatements_T_FinancialStates">
+      <End Role="T_FinancialStates" EntitySet="T_FinancialStates" />
+      <End Role="T_TruckFinancialStatements" EntitySet="T_TruckFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TruckFinancialStatements_T_Trucks" Association="Self.FK_T_TruckFinancialStatements_T_Trucks">
+      <End Role="T_Trucks" EntitySet="T_Trucks" />
+      <End Role="T_TruckFinancialStatements" EntitySet="T_TruckFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Trucks_T_State" Association="Self.FK_T_Trucks_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_Trucks" EntitySet="T_Trucks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TrucksPays_T_Bank" Association="Self.FK_T_TrucksPays_T_Bank">
+      <End Role="T_BankMyAcount" EntitySet="T_BankMyAcount" />
+      <End Role="T_TrucksPays" EntitySet="T_TrucksPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TrucksPays_T_PayState" Association="Self.FK_T_TrucksPays_T_PayState">
+      <End Role="T_PayState" EntitySet="T_PayState" />
+      <End Role="T_TrucksPays" EntitySet="T_TrucksPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TrucksPays_T_PayType" Association="Self.FK_T_TrucksPays_T_PayType">
+      <End Role="T_PayType" EntitySet="T_PayType" />
+      <End Role="T_TrucksPays" EntitySet="T_TrucksPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TrucksPays_T_Truck_Pay_Title" Association="Self.FK_T_TrucksPays_T_Truck_Pay_Title">
+      <End Role="T_Truck_Pay_Title" EntitySet="T_Truck_Pay_Title" />
+      <End Role="T_TrucksPays" EntitySet="T_TrucksPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TrucksPays_T_TruckFinancialStatements" Association="Self.FK_T_TrucksPays_T_TruckFinancialStatements">
+      <End Role="T_TruckFinancialStatements" EntitySet="T_TruckFinancialStatements" />
+      <End Role="T_TrucksPays" EntitySet="T_TrucksPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Users_T_Users_Type" Association="Self.FK_T_Users_T_Users_Type">
+      <End Role="T_Users_Type" EntitySet="T_Users_Type" />
+      <End Role="T_Users" EntitySet="T_Users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_UsersInRoles" EntitySet="T_UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

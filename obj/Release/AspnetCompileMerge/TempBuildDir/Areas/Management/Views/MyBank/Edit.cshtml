@@ -1,0 +1,81 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_BankMyAcount
+
+@{
+    ViewBag.Title = "ویرایش شماره حساب و بانک";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="panel-group">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">ویرایش شماره حساب و بانک</div>
+
+            <div class="panel-body">
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model._BankId)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model._BankId)
+                        @Html.ValidationMessageFor(model => model._BankId)
+                    </div>*@
+                @Html.HiddenFor(model => model._BankId)
+                <div class="row">
+                    <div class="col-md-3">
+
+
+                    </div>
+                    <div class="col-md-3">
+
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model._AccountNumber)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model._AccountNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model._AccountNumber)
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model._BankName)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model._BankName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model._BankName)
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+
+
+
+
+                <p></p>
+                <button type="submit" class="btn btn-success">ویرایش <span class="glyphicon glyphicon-plus-sign"></span></button>
+                <a href="@Url.Action("Index")" class="btn btn-warning"> بازگشت <span class="glyphicon glyphicon-backward"></span> </a>
+
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

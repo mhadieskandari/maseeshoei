@@ -1,0 +1,128 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Users
+
+@{
+    ViewBag.Title = "ویرایش کاربر";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        ویرایش کاربر
+                    </div>
+                    <div class="panel-body">
+                        @Html.HiddenFor(model => model.UserID)
+                        @Html.HiddenFor(model => model.UserName)
+                        @Html.HiddenFor(model => model.PublicID)
+                        @Html.HiddenFor(model => model.State)
+                        @Html.HiddenFor(model => model.TypeID)
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._LastName)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._LastName)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._EmailAddress)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._EmailAddress)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._PhoneNumber)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._PhoneNumber)
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+
+
+                                <div class="editor-label">
+                                    @Html.Label("نام کاربری")
+                                </div>
+                                <div class="form-control">
+                                    @ViewBag.UserName
+                                    
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._PassWord)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.PassWord, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._PassWord)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._FirstName)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._FirstName)
+                                </div>
+
+                                
+
+
+                                <p></p>
+                                <button type="submit" class="btn btn-success">ویرایش <span class="glyphicon glyphicon-plus-sign"></span></button>
+                                @if (User.IsInRole("Administrator"))
+                                {
+                                    <a href="@Url.Action("Index","User")" class="btn btn-warning"> بازگشت <span class="glyphicon glyphicon-backward"></span> </a>
+
+                                }else
+                                {
+                                    
+                                <a href="@Url.Action("Index","BurdenInformation")" class="btn btn-warning"> بازگشت <span class="glyphicon glyphicon-backward"></span> </a>
+
+                                }
+                                <p></p>
+                                @if (ViewBag.errs != null) {
+                                    <div class="alert alert-success">
+                                        @ViewBag.errs
+                                    </div>
+                                }
+                                @if (ViewBag.errf != null)
+                                {
+                                    <div class="alert alert-danger">
+                                        @ViewBag.errf
+                                    </div>
+                                }
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+
+}
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }

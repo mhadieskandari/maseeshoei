@@ -1,0 +1,160 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_BurdenInformations
+
+@{
+    ViewBag.Title = "گزارش حواله ها";
+
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="panel panel-primary">
+        <div class="panel-heading "><span class="glyphicon glyphicon-list" aria-hidden="true"></span> پارامتر های گزارش </div>
+
+        <div class="panel-body">
+
+
+
+            <div class="row form-inline">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.Label("تا تاریخ", new { @for = "ToDate" })
+                        @Html.TextBox("ToDate", null, new { @class = "form-control" })
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.Label("از تاریخ", new { @for = "FromDate" })
+                        @Html.TextBox("FromDate", null, new { @class = "form-control" })
+
+                    </div>
+                </div>
+            </div>
+
+
+            <p></p>
+            <div class="row ">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.T_TransportPrices._ProduceID, new { @for = "ProduceID" })                   
+                        @Html.DropDownList("ProduceID", null, new { @class = "form-control", @multiple = "multiple" })
+                        
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.T_TransportPrices._ProducerID, new { @for = "ProducerID" })                    
+                        @Html.DropDownList("ProducerID", null, new { @class = "form-control", @multiple = "multiple" })
+                       
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.T_TransportPrices._ConsumerID, new { @for = "ConsumerID" })                   
+                        @Html.DropDownList("ConsumerID", null, new { @class = "form-control", @multiple = "multiple" })
+                        
+                    </div>
+
+                </div>
+                <div class="col-md-3 ">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._TruckNumber, new { @for = "TruckID" })                    
+                        @Html.DropDownList("TruckID", null, new { @class = "form-control", @multiple = "multiple" })
+                        
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+            <p></p>
+            <div class="row">
+                <div class="col-lg-12">
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-print"></span>  نمایش گزارش</button>
+                </div>
+                @*, new {ProduceID= ,ProducerID= ,ConsumerID= ,TruckID= }*@
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+}
+@section Scripts {
+
+
+<script type="text/javascript">
+    $('#FromDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        EnableTimePicker: false, // default is true,
+        TargetSelector: '', // default is empty,
+        GroupId: '', // default is empty,
+        ToDate: false, // default is false,
+        FromDate: false, // default is false,
+        EnglishNumber: true,
+    });
+
+    $('#ToDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        EnableTimePicker: false, // default is true,
+        TargetSelector: '', // default is empty,
+        GroupId: '', // default is empty,
+        ToDate: false, // default is false,
+        FromDate: false, // default is false,
+        EnglishNumber: true,
+    });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#TruckID').multiselect({
+                includeSelectAllOption: true,
+                enableFiltering: true
+            });
+            $('#ProduceID').multiselect({
+                includeSelectAllOption: true,
+                enableFiltering: true
+            });
+
+            $('#ProducerID').multiselect({
+                includeSelectAllOption: true,
+                enableFiltering: true
+            });
+
+            $('#ConsumerID').multiselect({
+                includeSelectAllOption: true,
+                enableFiltering: true
+            });
+        });
+        
+
+           
+     </script>
+
+
+
+   }

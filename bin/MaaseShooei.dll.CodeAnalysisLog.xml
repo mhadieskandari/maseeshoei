@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 12.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="12.0">
+ <Targets>
+  <Target Name="C:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\bin\MaaseShooei.dll">
+   <Modules>
+    <Module Name="maaseshooei.dll">
+     <Namespaces>
+      <Namespace Name="MaaseShooei.Areas.Management.Models">
+       <Types>
+        <Type Name="T_BankMyAcount" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_BankMyAcount.cs" Line="17">'T_BankMyAcount.T_BankMyAcount()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_BankMyAcount..ctor()&#xD;&#xA;T_BankMyAcount.set_T_ProducersPays(ICollection&lt;T_ProducersPays&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_BankMyAcount.cs" Line="17">'T_BankMyAcount.T_BankMyAcount()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_BankMyAcount..ctor()&#xD;&#xA;T_BankMyAcount.set_T_TrucksPays(ICollection&lt;T_TrucksPays&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_Consumer_Bank" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Consumer_Bank.cs" Line="17">'T_Consumer_Bank.T_Consumer_Bank()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Consumer_Bank..ctor()&#xD;&#xA;T_Consumer_Bank.set_T_ConsumersPays(ICollection&lt;T_ConsumersPays&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_ConsumerFinancialStatements" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_ConsumerFinancialStatements.cs" Line="17">'T_ConsumerFinancialStatements.T_ConsumerFinancialStatements()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_ConsumerFinancialStatements..ctor()&#xD;&#xA;T_ConsumerFinancialStatements.set_T_BurdenInformations(ICollection&lt;T_BurdenInformations&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_ConsumerFinancialStatements.cs" Line="17">'T_ConsumerFinancialStatements.T_ConsumerFinancialStatements()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_ConsumerFinancialStatements..ctor()&#xD;&#xA;T_ConsumerFinancialStatements.set_T_ConsumersPays(ICollection&lt;T_ConsumersPays&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_ConsumerProducePrices" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_ConsumerProducePrices.cs" Line="17">'T_ConsumerProducePrices.T_ConsumerProducePrices()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_ConsumerProducePrices..ctor()&#xD;&#xA;T_ConsumerProducePrices.set_T_BurdenInformations(ICollection&lt;T_BurdenInformations&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_Consumers" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Consumers.cs" Line="17">'T_Consumers.T_Consumers()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Consumers..ctor()&#xD;&#xA;T_Consumers.set_T_ConsumerFinancialStatements(ICollection&lt;T_ConsumerFinancialStatements&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Consumers.cs" Line="17">'T_Consumers.T_Consumers()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Consumers..ctor()&#xD;&#xA;T_Consumers.set_T_ConsumerProducePrices(ICollection&lt;T_ConsumerProducePrices&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Consumers.cs" Line="17">'T_Consumers.T_Consumers()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Consumers..ctor()&#xD;&#xA;T_Consumers.set_T_TransportPrices(ICollection&lt;T_TransportPrices&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_FinancialStates" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_FinancialStates.cs" Line="17">'T_FinancialStates.T_FinancialStates()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_FinancialStates..ctor()&#xD;&#xA;T_FinancialStates.set_T_ConsumerFinancialStatements(ICollection&lt;T_ConsumerFinancialStatements&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_FinancialStates.cs" Line="17">'T_FinancialStates.T_FinancialStates()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_FinancialStates..ctor()&#xD;&#xA;T_FinancialStates.set_T_ProducerFinancialStatements(ICollection&lt;T_ProducerFinancialStatements&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_FinancialStates.cs" Line="17">'T_FinancialStates.T_FinancialStates()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_FinancialStates..ctor()&#xD;&#xA;T_FinancialStates.set_T_TruckFinancialStatements(ICollection&lt;T_TruckFinancialStatements&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_PayState" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_PayState.cs" Line="17">'T_PayState.T_PayState()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_PayState..ctor()&#xD;&#xA;T_PayState.set_T_ConsumersPays(ICollection&lt;T_ConsumersPays&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_PayState.cs" Line="17">'T_PayState.T_PayState()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_PayState..ctor()&#xD;&#xA;T_PayState.set_T_ProducersPays(ICollection&lt;T_ProducersPays&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_PayState.cs" Line="17">'T_PayState.T_PayState()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_PayState..ctor()&#xD;&#xA;T_PayState.set_T_TrucksPays(ICollection&lt;T_TrucksPays&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_PayType" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_PayType.cs" Line="17">'T_PayType.T_PayType()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_PayType..ctor()&#xD;&#xA;T_PayType.set_T_ConsumersPays(ICollection&lt;T_ConsumersPays&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_PayType.cs" Line="17">'T_PayType.T_PayType()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_PayType..ctor()&#xD;&#xA;T_PayType.set_T_ProducersPays(ICollection&lt;T_ProducersPays&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_PayType.cs" Line="17">'T_PayType.T_PayType()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_PayType..ctor()&#xD;&#xA;T_PayType.set_T_TrucksPays(ICollection&lt;T_TrucksPays&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_Producer_Pay_Title" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Producer_Pay_Title.cs" Line="17">'T_Producer_Pay_Title.T_Producer_Pay_Title()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Producer_Pay_Title..ctor()&#xD;&#xA;T_Producer_Pay_Title.set_T_ProducersPays(ICollection&lt;T_ProducersPays&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_ProducerFinancialStatements" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_ProducerFinancialStatements.cs" Line="17">'T_ProducerFinancialStatements.T_ProducerFinancialStatements()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_ProducerFinancialStatements..ctor()&#xD;&#xA;T_ProducerFinancialStatements.set_T_BurdenInformations(ICollection&lt;T_BurdenInformations&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_ProducerFinancialStatements.cs" Line="17">'T_ProducerFinancialStatements.T_ProducerFinancialStatements()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_ProducerFinancialStatements..ctor()&#xD;&#xA;T_ProducerFinancialStatements.set_T_ProducersPays(ICollection&lt;T_ProducersPays&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_ProducerProducePrices" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_ProducerProducePrices.cs" Line="17">'T_ProducerProducePrices.T_ProducerProducePrices()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_ProducerProducePrices..ctor()&#xD;&#xA;T_ProducerProducePrices.set_T_BurdenInformations(ICollection&lt;T_BurdenInformations&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_Producers" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Producers.cs" Line="17">'T_Producers.T_Producers()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Producers..ctor()&#xD;&#xA;T_Producers.set_T_ProducerFinancialStatements(ICollection&lt;T_ProducerFinancialStatements&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Producers.cs" Line="17">'T_Producers.T_Producers()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Producers..ctor()&#xD;&#xA;T_Producers.set_T_ProducerProducePrices(ICollection&lt;T_ProducerProducePrices&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Producers.cs" Line="17">'T_Producers.T_Producers()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Producers..ctor()&#xD;&#xA;T_Producers.set_T_TransportPrices(ICollection&lt;T_TransportPrices&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_Produces" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Produces.cs" Line="17">'T_Produces.T_Produces()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Produces..ctor()&#xD;&#xA;T_Produces.set_T_ConsumerProducePrices(ICollection&lt;T_ConsumerProducePrices&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Produces.cs" Line="17">'T_Produces.T_Produces()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Produces..ctor()&#xD;&#xA;T_Produces.set_T_ProducerProducePrices(ICollection&lt;T_ProducerProducePrices&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Produces.cs" Line="17">'T_Produces.T_Produces()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Produces..ctor()&#xD;&#xA;T_Produces.set_T_TransportPrices(ICollection&lt;T_TransportPrices&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_RecoveryAgent" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_RecoveryAgent.cs" Line="17">'T_RecoveryAgent.T_RecoveryAgent()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_RecoveryAgent..ctor()&#xD;&#xA;T_RecoveryAgent.set_T_ConsumersPays(ICollection&lt;T_ConsumersPays&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_State" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_State.cs" Line="17">'T_State.T_State()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_State..ctor()&#xD;&#xA;T_State.set_T_ConsumerProducePrices(ICollection&lt;T_ConsumerProducePrices&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_State.cs" Line="17">'T_State.T_State()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_State..ctor()&#xD;&#xA;T_State.set_T_Consumers(ICollection&lt;T_Consumers&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_State.cs" Line="17">'T_State.T_State()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_State..ctor()&#xD;&#xA;T_State.set_T_ProducerProducePrices(ICollection&lt;T_ProducerProducePrices&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_State.cs" Line="17">'T_State.T_State()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_State..ctor()&#xD;&#xA;T_State.set_T_Producers(ICollection&lt;T_Producers&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_State.cs" Line="17">'T_State.T_State()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_State..ctor()&#xD;&#xA;T_State.set_T_TransportPrices(ICollection&lt;T_TransportPrices&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_State.cs" Line="17">'T_State.T_State()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_State..ctor()&#xD;&#xA;T_State.set_T_Trucks(ICollection&lt;T_Trucks&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_TransportPrices" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_TransportPrices.cs" Line="17">'T_TransportPrices.T_TransportPrices()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_TransportPrices..ctor()&#xD;&#xA;T_TransportPrices.set_T_BurdenInformations(ICollection&lt;T_BurdenInformations&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_Truck_Pay_Title" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Truck_Pay_Title.cs" Line="17">'T_Truck_Pay_Title.T_Truck_Pay_Title()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Truck_Pay_Title..ctor()&#xD;&#xA;T_Truck_Pay_Title.set_T_TrucksPays(ICollection&lt;T_TrucksPays&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_TruckFinancialStatements" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_TruckFinancialStatements.cs" Line="17">'T_TruckFinancialStatements.T_TruckFinancialStatements()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_TruckFinancialStatements..ctor()&#xD;&#xA;T_TruckFinancialStatements.set_T_BurdenInformations(ICollection&lt;T_BurdenInformations&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_TruckFinancialStatements.cs" Line="17">'T_TruckFinancialStatements.T_TruckFinancialStatements()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_TruckFinancialStatements..ctor()&#xD;&#xA;T_TruckFinancialStatements.set_T_TrucksPays(ICollection&lt;T_TrucksPays&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_Trucks" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Trucks.cs" Line="17">'T_Trucks.T_Trucks()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Trucks..ctor()&#xD;&#xA;T_Trucks.set_T_BurdenInformations(ICollection&lt;T_BurdenInformations&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Trucks.cs" Line="17">'T_Trucks.T_Trucks()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Trucks..ctor()&#xD;&#xA;T_Trucks.set_T_TruckFinancialStatements(ICollection&lt;T_TruckFinancialStatements&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_UserRoles" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_UserRoles.cs" Line="17">'T_UserRoles.T_UserRoles()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_UserRoles..ctor()&#xD;&#xA;T_UserRoles.set_T_UsersInRoles(ICollection&lt;T_UsersInRoles&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_Users" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Users.cs" Line="17">'T_Users.T_Users()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Users..ctor()&#xD;&#xA;T_Users.set_T_BurdenInformations(ICollection&lt;T_BurdenInformations&gt;):Void</Issue>
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Users.cs" Line="17">'T_Users.T_Users()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Users..ctor()&#xD;&#xA;T_Users.set_T_UsersInRoles(ICollection&lt;T_UsersInRoles&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="T_Users_Type" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Areas\Management\Models" File="T_Users_Type.cs" Line="17">'T_Users_Type.T_Users_Type()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;T_Users_Type..ctor()&#xD;&#xA;T_Users_Type.set_T_Users(ICollection&lt;T_Users&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="MaaseShooei.Security">
+       <Types>
+        <Type Name="CustomRoleProvider" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#ApplicationName" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Accessors>
+            <Accessor Name="#get_ApplicationName()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+             <Messages>
+              <Message TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065" Status="Active" Created="2016-07-17 18:05:37Z" FixCategory="Breaking">
+               <Issue Name="PropertyGetter" Certainty="90" Level="Warning" Path="c:\Users\Asus\Documents\Visual Studio 2013\Projects\MaaseShooei\MaaseShooei\Security" File="CustomRoleProvider.cs" Line="57">'CustomRoleProvider.ApplicationName.get()' creates an exception of type 'NotImplementedException', an exception type that should not be raised in a property. If this exception instance might be raised, use a different exception type, convert this property into a method, or change this property's logic so that it no longer raises an exception.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214">
+   <Name>Do not call overridable methods in constructors</Name>
+   <Description>Virtual methods defined on the class should not be called from constructors. If a derived class has overridden the method, the derived class version will be called (before the derived class constructor is called).</Description>
+   <Resolution Name="Default">{0} contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: {1}</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182331.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="usagerules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065">
+   <Name>Do not raise exceptions in unexpected locations</Name>
+   <Description>Do not explicitly raise exceptions from unexpected locations. There are some methods, such as Equals and GetHashCode, which users do not expect to raise exceptions. Therefore calls to these methods are not commonly wrapped in try catch blocks.</Description>
+   <Resolution Name="PropertyGetter">{0} creates an exception of type {1}, an exception type that should not be raised in a property. If this exception instance might be raised, use a different exception type, convert this property into a method, or change this property's logic so that it no longer raises an exception.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb386039.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error, Warning</MessageLevel>
+   <File Name="designrules.dll" Version="12.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

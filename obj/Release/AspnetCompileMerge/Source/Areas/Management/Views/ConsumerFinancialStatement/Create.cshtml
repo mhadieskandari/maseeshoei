@@ -1,0 +1,112 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_ConsumerFinancialStatements
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="panel-group">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">ایجاد صورت وضعیت جدید برای مشتری ها</div>
+
+            <div class="panel-body">
+
+
+                @*<div class="editor-label">
+                    @Html.LabelFor(model => model.ConsumerFinancialStatementID)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ConsumerFinancialStatementID)
+                    @Html.ValidationMessageFor(model => model.ConsumerFinancialStatementID)
+                </div>*@
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._ConsumerID)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("ConsumerID", String.Empty)
+                    @Html.ValidationMessageFor(model => model._ConsumerID)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._FromDate)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model._FromDate, new { @class = "form-control", id = "FromDate" })
+                    @Html.ValidationMessageFor(model => model._FromDate)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._ToDate)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model._ToDate, new { @class = "form-control", id = "ToDate" })
+                    @Html.ValidationMessageFor(model => model._ToDate)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._Descryption)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model._Descryption, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model._Descryption)
+                </div>
+
+               
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._StateID)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("StateID", String.Empty)
+                    @Html.ValidationMessageFor(model => model._StateID)
+                </div>
+
+                <p>
+                </p>   
+                    <button type="submit" class="btn btn-default"> ایجاد</button>
+                    @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+                
+            </div>
+        </div>
+    </div>
+     
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+
+
+<script type="text/javascript">
+    $('#FromDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        EnableTimePicker: false, // default is true,
+        TargetSelector: '', // default is empty,
+        GroupId: '', // default is empty,
+        ToDate: false, // default is false,
+        FromDate: false, // default is false,
+        EnglishNumber: true,
+    });
+    $('#ToDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        EnableTimePicker: false, // default is true,
+        TargetSelector: '', // default is empty,
+        GroupId: '', // default is empty,
+        ToDate: false, // default is false,
+        FromDate: false, // default is false,
+        EnglishNumber: true,
+    });
+</script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

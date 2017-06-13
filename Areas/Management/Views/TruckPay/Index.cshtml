@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MaaseShooei.Areas.Management.Models.T_TrucksPays>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TruckPayID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_TruckFinancialStatements.RegisterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PayDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegisterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_PayType.PayTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_PayState.PayStateName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TruckPayID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_TruckFinancialStatements.RegisterDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegisterDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_PayType.PayTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_PayState.PayStateName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

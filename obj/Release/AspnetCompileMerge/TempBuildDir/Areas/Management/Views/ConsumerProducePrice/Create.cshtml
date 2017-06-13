@@ -1,0 +1,98 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_ConsumerProducePrices
+
+@{
+    ViewBag.Title = "ایجاد";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="panel-group">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">ایجاد قیمت مشتریان</div>
+
+            <div class="panel-body">
+
+                @*<div class="editor-label">
+                    @Html.LabelFor(model => model.ConsumerProducePriceID)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ConsumerProducePriceID)
+                    @Html.ValidationMessageFor(model => model.ConsumerProducePriceID)
+                </div>*@
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._ConsumerID, "مشتری ها")
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("ConsumerID", String.Empty)
+                    @Html.ValidationMessageFor(model => model._ConsumerID)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._ProduceID)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("ProduceID", String.Empty)
+                    @Html.ValidationMessageFor(model => model._ProduceID)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._Date)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model._Date, new { @class = "form-control", @id = "date1" })
+                    @Html.ValidationMessageFor(model => model._Date)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._Price)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model._Price, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model._Price)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._StateID)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("StateID", String.Empty)
+                    @Html.ValidationMessageFor(model => model._StateID)
+                </div>
+
+               
+
+                <p></p>
+                    <button type="submit" class="btn btn-default" >ایجاد</button>
+                    @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class="btn btn-default"})
+                
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+
+
+<script type="text/javascript">
+    $('#date1').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        EnableTimePicker: true, // default is true,
+        TargetSelector: '', // default is empty,
+        GroupId: '', // default is empty,
+        ToDate: false, // default is false,
+        FromDate: false, // default is false,
+        EnglishNumber: true,
+        });
+</script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

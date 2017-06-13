@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <meta charset="utf-8" dir="rtl" />
+                @Styles.Render("~/Content/css")
+                @Styles.Render("~/Content/themes/base/css")
+                @Scripts.Render("~/bundles/modernizr")
+                @RenderSection("css", required: false)
+    </head>
+    <body dir="rtl" class="bg-info" >
+
+        @*<header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>*@
+
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    @*<a class="navbar-brand" href="#">WebSiteName</a>*@
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("خروج", "LogOut", "Account", null, new { @class = "glyphicon glyphicon-log-in" })</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"> کاربران <span class="glyphicon glyphicon-user"></span></a>
+                        <ul class="dropdown-menu ">
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("کاربران سیستم", "Index", "User", null, new { @class = "btn btn-success" })</li>
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("سطوح دسترسی", "Index", "User", null, new { @class = "btn btn-success" })</li>
+                            
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">تعاریف اولیه <span class="caret"></span></a>
+                        <ul class="dropdown-menu ">
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("ماشین ها", "Index", "Truck", null, new { @class = "btn btn-success" })</li>
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("خریداران", "Index", "Consumer", null, new { @class = "btn btn-success" })</li>
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("تولید کننده ها", "Index", "Producer", null, new { @class = "btn btn-success" })</li>
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("محصولات", "Index", "Produce", null, new { @class = "btn btn-success" })</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"> تعریف قیمت ها <span class="caret"></span></a>
+                        <ul class="dropdown-menu ">
+                            @*<li>@Html.ActionLink("ماشین ها", "Index", "Truck", null, new { @class = "btn btn-success" })</li>*@
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("قیمت های خریداران", "Index", "ConsumerProducePrice", null, new { @class = "btn btn-success" })</li>
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("قیمت های تولید کننده ها", "Index", "ProducerProducePrice", null, new { @class = "btn btn-success" })</li>
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("قیمت های حمل و نقل", "Index", "TransportPrice", null, new { @class = "btn btn-success" })</li>
+                        </ul>
+                    </li>
+                    @*<li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>*@
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">حواله ها و صورت وضعیت ها <span class="glyphicon glyphicon-usd"></span></a>
+                        <ul class="dropdown-menu">
+                            @*<li>@Html.ActionLink("ماشین ها", "Index", "Truck", null, new { @class = "btn btn-success" })</li>*@
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("حواله ها", "Index", "BurdenInformation", null, new { @class = "btn btn-success" })</li>
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("صورت وضعیت خریداران", "Index", "ConsumerFinancialStatement", null, new { @class = "btn btn-success" })</li>                            
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("صورت وضعیت تولید کننده ها", "Index", "ProducerFinancialStatement", null, new { @class = "btn btn-success" })</li>
+                            <li><div style="padding-bottom:1px;"></div>@Html.ActionLink("صورت وضعیت حمل و نقل", "Index", "TruckFinancialStatement", null, new { @class = "btn btn-success" })</li>
+                            
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div >
+            @RenderSection("featured", required: false)
+            <div class="row">
+                <div class="col-md-10">
+                    @RenderBody()
+                </div>
+                <div class="col-md-2">
+
+                </div>
+
+
+
+
+
+            </div>
+                
+            
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="text-center">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

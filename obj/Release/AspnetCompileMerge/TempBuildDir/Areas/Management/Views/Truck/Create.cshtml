@@ -1,0 +1,95 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Trucks
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+
+
+
+    <div class="panel-group">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">ثبت ماشین جدید</div>
+
+            <div class="panel-body">
+
+
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model.TruckID)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.TruckID)
+                        @Html.ValidationMessageFor(model => model.TruckID)
+                    </div>*@
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._Number)
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model._Number, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model._Number)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._OwnerFullName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model._OwnerFullName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model._OwnerFullName)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._PhoneNumber)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model._PhoneNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model._PhoneNumber)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._PureWeight)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model._PureWeight, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model._PureWeight)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._Descryption)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model._Descryption, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model._Descryption)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.T_State._StateName)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("StateID", null, new { @class = "dropdown" })
+                    @Html.ValidationMessageFor(model => model.T_State._StateID)
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-default">ایجاد </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("بازگشت به لیست", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

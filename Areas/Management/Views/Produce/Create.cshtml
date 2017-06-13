@@ -1,0 +1,60 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Produces
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+
+    <div class="panel-group">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">ایجاد محصول جدید</div>
+
+            <div class="panel-body">
+
+
+                @*<div class="editor-label">
+                    @Html.LabelFor(model => model.ProduceID)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ProduceID)
+                    @Html.ValidationMessageFor(model => model.ProduceID)
+                </div>*@
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._ProduceName)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model._ProduceName, new { @class="form-control" })
+                    @Html.ValidationMessageFor(model => model._ProduceName)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model._Descryption)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model._Descryption, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model._Descryption)
+                </div>
+
+                
+                    <button type="submit" class="btn btn-default"> ایجاد</button>                
+                    @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class="btn btn-default"})
+
+            </div>
+        </div>
+    </div>
+
+}
+
+                
+
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                }

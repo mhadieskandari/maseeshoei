@@ -1,0 +1,49 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Producers
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">جزئیات تولید کننده</div>
+
+        <div class="panel-body">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._ProducerID)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._ProducerID)</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._CompanyName)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._CompanyName)</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._OwnerFullName)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._OwnerFullName)</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._Address)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._Address)</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._PhoneNumber)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._PhoneNumber)</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._Descryption)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._Descryption)</div>
+            </div>
+            <div>
+                @Html.ActionLink("ویرایش", "Edit", new { id = Model._ProducerID }, new { @class = "btn btn-default" })
+                @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+           
+

@@ -1,0 +1,57 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_ConsumersPays
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>T_ConsumersPays</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ConsumerPayID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ConsumerPayID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.T_ConsumerFinancialStatements.RegisterDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.T_ConsumerFinancialStatements.RegisterDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PayDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PayDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RegisterDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegisterDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.T_PayType.PayTypeName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.T_PayType.PayTypeName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.T_PayState.PayStateName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.T_PayState.PayStateName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

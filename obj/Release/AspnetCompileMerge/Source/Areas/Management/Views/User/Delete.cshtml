@@ -1,0 +1,81 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Users
+
+@{
+    ViewBag.Title = "حذف";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">حذف کاربر </div>
+
+        <div class="panel-body">
+
+            @*<div class="display-label">
+                    @Html.DisplayNameFor(model => model._UserID)
+                </div>
+                <div class="form-control">
+                    @Html.DisplayFor(model => model._UserID)
+                </div>*@
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._UserName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._UserName)
+            </div>
+
+            @*<div class="display-label">
+                    @Html.DisplayNameFor(model => model._PassWord)
+                </div>
+                <div class="form-control">
+                    @Html.DisplayFor(model => model._PassWord)
+                </div>*@
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._FirstName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._FirstName)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._LastName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._LastName)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._EmailAddress)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._EmailAddress)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._PhoneNumber)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._PhoneNumber)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.T_Users_Type.TypeName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model.T_Users_Type.TypeName)
+            </div>
+        </div>
+    </div>
+</div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div>
+                    <button type="submit" class="btn btn-default">حذف</button>
+                    @Html.ActionLink("انصراف", null, null, new { @class = "btn btn-default", id = "btncancel" })
+                </div>
+            }
+

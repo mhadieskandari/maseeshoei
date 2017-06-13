@@ -1,0 +1,414 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_ConsumerFinancialStatements
+
+@{
+    ViewBag.Title = "جزئیات صورت وضعیت خریدار";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">جزئیات صورت وضعیت خریدار </div>
+
+        <div class="panel-body">
+            
+            
+            
+
+
+            <div class="row ">
+
+
+                <div class="col-md-3">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._FromDate)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._FromDate)
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._ToDate)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._ToDate)
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model.T_Consumers._CompanyName)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.T_Consumers._CompanyName)
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._ConsumerFinancialStatementID)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._ConsumerFinancialStatementID)
+                    </div>
+                </div>
+            </div>
+            <p></p>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model.T_FinancialStates._StateName)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model.T_FinancialStates._StateName)
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._Creditor)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._Creditor)
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._Payed)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._Payed)
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-3">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._BurdonsSumPrices)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._BurdonsSumPrices)
+                    </div>
+
+
+                </div>
+
+                
+
+                
+
+            </div>
+            <div class="row">
+               
+
+                <div class="col-md-12">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._Descryption)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._Descryption)
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <p></p>
+                    @*@Html.ActionLink("ویرایش", "Edit", new { id = Model.ConsumerFinancialStatementID }, new { @class = "btn btn-default" })*@
+                    @if (!(Model.StateID == 1 || Model.StateID == 2))
+                    {
+                        <a href="@Url.Action("SetBurdenForFinancial", new { id = Model.ConsumerFinancialStatementID })" class="btn btn-danger">افزودن حواله ها <span class="glyphicon glyphicon-ok"></span></a>
+                    }
+                    <button class="btn btn-info" id="pay-button">مشاهده مالی <span class="glyphicon glyphicon-chevron-down"></span></button>
+                    <button class="btn btn-info" id="burden-button">مشاهده حواله ها <span class="glyphicon glyphicon-chevron-down"></span></button>
+
+                    @*<button type="submit" class="btn btn-default">حذف</button>*@
+                    @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+
+                </div>
+
+
+
+            </div>
+            <p></p>
+            <p></p>
+
+
+            <div class="row bg-info" id="pay-panel">
+                <p></p>
+                <div class="col-md-12">
+                   
+                    @if (Model.StateID != 2)
+                    {
+                        <a href="@Url.Action("InsertPay", new { id = Model.ConsumerFinancialStatementID })" id="insertpaylink" class="btn btn-danger">افزودن پرداخت <span class="glyphicon glyphicon-usd"></span></a>
+
+                    }
+                    <p class="h3 text-info">لیست پرداخت های مربوط به این صورت حساب</p>
+                    <div class="dataTables_wrapper">
+                        <table class="table table-striped  table-hover" id="dataTables-example1">
+
+                            <thead style="background-color:peru;">
+                                <tr>
+                                    <th class="text-right">
+                                        @Html.DisplayName("ID")
+                                    </th>
+                                    <th class="text-right">
+                                        @Html.DisplayName("ش فیش/چک")
+                                    </th>
+                                    
+
+                                    <th class="text-right">
+                                        @Html.DisplayName("تاریخ دریافت چک")
+                                    </th>
+
+
+                                    <th class="text-right">
+                                        @Html.DisplayName("تاریخ سر رسید")
+                                    </th>
+                                    <th class="text-right">
+                                        @Html.DisplayName("وضعیت")
+                                    </th>
+
+                                    <th class="text-right">
+                                        @Html.DisplayName("نوع  دریافت")
+                                    </th>
+                                    <th class="text-right">
+                                        @Html.DisplayName("توضیحات")
+                                    </th>
+                                    <th class="text-right">
+                                        @Html.DisplayName("مامور وصول")
+                                    </th>
+                                    <th class="text-right">
+                                        @Html.DisplayName("تاریخ وصول")
+                                    </th>
+                                    <th class="text-right">
+                                        @Html.DisplayName("مبلغ")
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (MaaseShooei.Areas.Management.Models.T_ConsumersPays item in @ViewBag.Pays)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._ConsumerPayID)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._Number)
+                                        </td>
+                                        
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._RegisterDate)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._PayDate)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.T_PayState._PayStateName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.T_PayType._PayTypeName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._Description)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.T_RecoveryAgent._AgentName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._RecoveryDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._Price)
+                                        </td>
+                                        <td>
+                                            @if (Model.StateID != 2) { 
+                                            <a href="@Url.Action("EditPay", new { id = item.ConsumerPayID })" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span></a>
+                                            <a href="@Url.Action("DeletePayConfirmed", new { id = item.ConsumerPayID })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                                            }
+                                            @*@Html.ActionLink("حذف", "DeleteFormFinancial", new { id = item._BurdenInformationID }, new { @class = "btn btn-danger" })*@
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <p></p>
+            <div class="row  bg-info" id="burden-panel">
+                <div class="col-md-12">
+                    <p class="h3 text-info">لیست حواله های مربوط به این صورت حساب</p>
+                    <p></p>
+                    @if (!(Model.StateID == 1 || Model.StateID == 2))
+                    {
+                    <a href="@Url.Action("DeleteAllBurden", new { id = Model.ConsumerFinancialStatementID })" class="btn btn-danger">حذف همه ی حواله ها <span class="glyphicon glyphicon-remove"></span></a>
+                    }
+                    <p></p>
+                    <div class="dataTables_wrapper">
+                        <table class="table table-striped  table-hover" id="dataTables-example">
+
+                            <thead style="background-color:peru;">
+                                <tr>
+                                    <th class="text-right">
+                                        @Html.DisplayName("ID")
+                                    </th>
+                                    <th class="text-right">
+                                        @Html.DisplayName("شماره ماشین")
+                                    </th>
+                                    <th class="text-right">
+                                        @Html.DisplayName("بارگیری")
+                                    </th>
+
+                                    <th class="text-right">
+                                        @Html.DisplayName("وزن خالص بارگیری")
+                                    </th>
+
+
+                                    <th class="text-right">
+                                        @Html.DisplayName("تخلیه")
+                                    </th>
+                                    <th class="text-right">
+                                        @Html.DisplayName("وزن خالص تخلیه")
+                                    </th>
+
+                                    <th class="text-right">
+                                        @Html.DisplayName("قیمت حمل")
+                                    </th>
+                                    <th class="text-right">
+                                        @Html.DisplayName("جمع خریدار")
+                                    </th>
+
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (MaaseShooei.Areas.Management.Models.T_BurdenInformations item in @ViewBag.Burdens)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._BurdenInformationID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._TruckNumber)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._LoadDateTime)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._LoadPureWeight)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._UnLoadDateTime)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._UnLoadPureWeight)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.T_TransportPrices._Price)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item._UnloadBurdenConsumerPrice)
+                                        </td>
+
+
+                                        <td>
+                                            @if (!(Model.StateID == 1 || Model.StateID == 2))
+                                            {
+                                            <a href="@Url.Action("DeleteFormFinancial", new { id = item._BurdenInformationID })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                                            }
+                                            @*@Html.ActionLink("حذف", "DeleteFormFinancial", new { id = item._BurdenInformationID }, new { @class = "btn btn-danger" })*@
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div id="InsertPay-panel"></div>
+
+
+
+
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').DataTable({
+                responsive: true
+
+            });
+            $('#dataTables-example1').DataTable({
+                responsive: true
+            });
+
+            //$("#burden-panel").slideToggle("fast");
+            //$("#pay-panel").slideToggle("fast");
+            
+        });
+
+
+        $("#burden-button").click(function () {
+            $("#burden-panel").slideToggle("slow");
+        });
+
+        $("#pay-button").click(function () {
+            $("#pay-panel").slideToggle("slow");
+        });
+
+
+        
+            
+            //$('#insertpaylink').click(function () {
+                
+            //    $('#InsertPay-panel').load(this.href).dialog();
+                
+            //    return false;
+                
+            //});
+            
+       
+
+
+
+
+    </script>
+
+
+}

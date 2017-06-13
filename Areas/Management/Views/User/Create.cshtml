@@ -1,0 +1,198 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Users
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="row">
+
+        <div class="col-md-4"></div>
+        <div class="col-md-6">
+            <div class="panel-group">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading panel-title">ایجاد کاربر جدید</div>
+
+                    <div class="panel-body ">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._EmailAddress)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._EmailAddress, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._EmailAddress)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._PhoneNumber)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._PhoneNumber, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._PhoneNumber)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._TypeID)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownList("TypeID", null,  new { style = "width:200px;min-height:25px;",id="UserType" })
+                                    @Html.ValidationMessageFor(model => model._TypeID)
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._FirstName)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._FirstName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._FirstName)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._LastName)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._LastName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._LastName)
+                                </div>
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._UserName)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._UserName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._UserName)
+                                </div>
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._PassWord)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.PasswordFor(model => model._PassWord, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._PassWord)
+                                </div>
+
+                            </div>
+                            
+                            @*<div class="editor-label">
+                                    @Html.LabelFor(model => model._UserID)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._UserID)
+                                    @Html.ValidationMessageFor(model => model._UserID)
+                                </div>*@
+
+
+
+
+                        </div>
+                        <div class="row" id="TruckPanel" >
+
+                            <div class="col-md-12">
+                                <div class="editor-label">
+                                    @Html.Label("ماشین")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownList("TruckID", null, new { style = "width:200px;min-height:25px;", id = "TruckID" })
+                                    
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row" id="ConsumerPanel" >
+
+                            <div class="col-md-12">
+                                <div class="editor-label">
+                                    @Html.Label("خریدار")
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownList("ConsumerID", null, new { style = "width:200px;min-height:25px;", id = "ConsumerID" })
+                                    
+                                </div>
+
+                            </div>
+                            
+
+
+                        </div>
+
+
+
+                        <div class="row">
+                            
+
+                            <div class="col-md-12">
+                                <p></p>
+                                <button type="submit" class="btn btn-success">ایجاد <span class="glyphicon glyphicon-plus-sign"></span></button>
+                                <a href="@Url.Action("Index","User")" class="btn btn-warning"> بازگشت <span class="glyphicon glyphicon-backward"></span> </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+
+    <script>
+        $(document).ready(function () {
+           
+
+            $("#TruckPanel").hide();
+            $("#ConsumerPanel").hide();
+            
+            
+            if ($("#UserType").val() == 1) {
+                $("#TruckPanel").hide();
+                $("#ConsumerPanel").hide();
+            }
+            else if ($("#UserType").val() == 2) {
+                $("#ConsumerPanel").hide();
+                $("#TruckPanel").show();
+            }
+            else if ($("#UserType").val() == 3) {
+                $("#TruckPanel").hide();
+                $("#ConsumerPanel").show();
+            }
+
+        });
+        $("#UserType").change(function () {
+            if ($(this).val() == 1) {
+                $("#TruckPanel").hide();
+                $("#ConsumerPanel").hide();
+            }
+            else if ($(this).val() == 2) {
+                $("#ConsumerPanel").hide();
+                $("#TruckPanel").show();
+            }
+            else if ($(this).val() == 3) {
+                $("#TruckPanel").hide();
+                $("#ConsumerPanel").show();
+            }
+        });
+
+
+
+    </script>
+}

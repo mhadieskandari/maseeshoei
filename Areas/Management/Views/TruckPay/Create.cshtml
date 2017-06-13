@@ -1,0 +1,76 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_TrucksPays
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>T_TrucksPays</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TruckPayID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TruckPayID)
+            @Html.ValidationMessageFor(model => model.TruckPayID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TFSID, "T_TruckFinancialStatements")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("TFSID", String.Empty)
+            @Html.ValidationMessageFor(model => model.TFSID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PayDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PayDate)
+            @Html.ValidationMessageFor(model => model.PayDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RegisterDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RegisterDate)
+            @Html.ValidationMessageFor(model => model.RegisterDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PayTypeID, "T_PayType")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PayTypeID", String.Empty)
+            @Html.ValidationMessageFor(model => model.PayTypeID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PayStateID, "T_PayState")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PayStateID", String.Empty)
+            @Html.ValidationMessageFor(model => model.PayStateID)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

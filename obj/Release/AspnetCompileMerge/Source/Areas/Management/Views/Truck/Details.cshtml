@@ -1,0 +1,45 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Trucks
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">جزئیات</div>
+
+        <div class="panel-body">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._TruckID)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._TruckID)</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._Number)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._Number)</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._OwnerFullName)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._OwnerFullName)</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._PhoneNumber)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._PhoneNumber)</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._PureWeight)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._PureWeight)</div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">@Html.DisplayNameFor(model => model._Descryption)</div>
+                <div class="panel-body">@Html.DisplayFor(model => model._Descryption)</div>
+            </div>
+            <p>
+                @Html.ActionLink("ویرایش", "Edit", new { id = Model._TruckID }, new {@class="btn btn-default" }) |
+                @Html.ActionLink("بازگشت به لیست", "Index",null, new {@class="btn btn-default"})
+            </p>
+        </div>
+    </div>
+</div>

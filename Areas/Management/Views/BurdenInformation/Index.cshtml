@@ -1,0 +1,317 @@
+﻿@model IEnumerable<MaaseShooei.Areas.Management.Models.T_BurdenInformations>
+
+@{
+    ViewBag.Title = " لیست حواله ها";
+    //Layout = "~/Areas/Management/Views/Shared/_AdminLayout - Copy.cshtml";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading "><span class="glyphicon glyphicon-list" aria-hidden="true"></span> لیست حواله ها </div>
+
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                @*@Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)*@
+                <div class="row well">
+
+                    <div class="col-sm-1">
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" name="BID" id="BID" value="@ViewBag.BID" class="form-control" />
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.Label("کدسیستم")
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" name="ToDate" id="ToDate" value="@ViewBag.todate" class="form-control" />
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.Label("تا تاریخ")
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" name="FromDate" id="FromDate" value="@ViewBag.fromdate" class="form-control" />
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.Label("از تاریخ")
+                    </div>
+                    <div class="col-sm-2">
+                        @Html.Label("پارامترهای جستجو")
+                    </div>
+                </div>
+
+
+
+
+
+
+            }
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                   
+                </div>
+                <div class="col-md-2">
+                    <p>
+                        @if (User.IsInRole("Administrator") || User.IsInRole("User") || User.IsInRole("Accountant")) {
+
+                            <a href="@Url.Action("Create")" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                        }
+                        @* @Html.ActionLink("ایجاد", "Create", null, new { @class = "btn btn-default" })*@
+                    </p>
+                </div>
+
+            </div>
+           
+
+            
+            
+
+            <div class="dataTables_wrapper">
+                <table class="table table-striped table-bordered table-hover table-responsive" id="dataTables-example">
+
+                    <thead style="background-color:peru;">
+                        <tr>
+                             <th class="text-right">
+                                @Html.DisplayNameFor(model => model._BurdenInformationID)
+                            </th>
+                             
+                            @if (!User.IsInRole("Truck"))
+                            {
+                                <th class="text-right">
+                                    @Html.DisplayNameFor(model => model._TruckNumber)
+                                </th>
+                                <th class="text-right">
+                                    @Html.DisplayNameFor(model => model.T_Trucks._OwnerFullName)
+                                </th>
+                            }
+                            
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model.T_TransportPrices.T_Producers._CompanyName)
+                            </th>
+
+                             @if (!User.IsInRole("Consumer"))
+                             {
+                                <th class="text-right">
+                                    @Html.DisplayNameFor(model => model.T_TransportPrices.T_Consumers._CompanyName)
+                                </th>
+                             }
+                             
+                            
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model.T_TransportPrices.T_Produces._ProduceName)
+                            </th>                            
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model._LoadDateTime)
+                            </th>  
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model._UnLoadDateTime)
+                            </th>
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model._ResidUnLoadNumber)
+                                </th>
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model._LoadPureWeight)
+                                </th>
+
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model._UnLoadPureWeight)
+                            </th>
+                            @if (!User.IsInRole("Consumer"))
+                            {
+                                <th class="text-right">
+                                    @Html.DisplayNameFor(model => model._TotalTransportPrice)
+                                </th>
+                            }
+                            
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._BurdenInformationID)
+                                </td>
+                                @if (!User.IsInRole("Truck"))
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item._TruckNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.T_Trucks._OwnerFullName)
+                                    </td>
+                                }
+                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.T_TransportPrices.T_Producers.CompanyName)
+                                </td>
+                                @if (!User.IsInRole("Consumer"))
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.T_TransportPrices.T_Consumers.CompanyName)
+                                    </td>
+                                }
+                               
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.T_TransportPrices.T_Produces.ProduceName)
+                                </td>                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._LoadDateTime)
+                                </td>   
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._UnLoadDateTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._ResidUnLoadNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._LoadPureWeight)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._UnLoadPureWeight)
+                                </td>
+                                @if (!User.IsInRole("Consumer"))
+                                {
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item._TotalTransportPrice)
+                                    </td>
+                                }
+                                
+                                
+                                <td width="75px">
+                                    @{
+                            
+                            if (User.IsInRole("Administrator") || User.IsInRole("User") || User.IsInRole("Accountant")) { 
+                                bool ac = true;
+
+                                if (item.CFSID == null && item.TFSID == null && item.PFSID == null)
+                                {
+
+                                }
+                                else
+                                {
+                                    try
+                                    {
+                                        if (item.T_ProducerFinancialStatements.StateID == 1 || item.T_ProducerFinancialStatements.StateID==2)
+                                        {
+                                            ac = false;
+                                        }
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    try
+                                    {
+                                        if (item.T_ConsumerFinancialStatements.StateID == 1 || item.T_ConsumerFinancialStatements.StateID == 2)
+                                        {
+                                            ac = false;
+                                        }
+                                    }
+                                    catch
+                                    {
+
+                                    }
+                                    try
+                                    {
+                                        if (item.T_TruckFinancialStatements.StateID == 1 || item.T_TruckFinancialStatements.StateID == 2)
+                                        {
+                                            ac = false;
+                                        }
+                                    }
+                                    catch
+                                    {
+
+                                    }
+
+
+
+                                }
+
+
+
+                                if (ac)
+                                {
+                                    <a href="@Url.Action("Edit", new { id = item.BurdenInformationID })" class="btn btn-info btn-xs"><small><span class="glyphicon glyphicon-edit"></span></small></a>
+                                    <a href="@Url.Action("Details", new { id = item.BurdenInformationID })" class="btn btn-primary btn-xs"><small><span class="glyphicon glyphicon-eye-open"></span></small></a>
+                                    <a href="@Url.Action("Delete", new { id = item.BurdenInformationID })" class="btn btn-danger btn-xs"><small><span class="glyphicon glyphicon-trash"></span></small></a>                                }
+                                else
+                                {
+
+                                }
+
+
+
+
+
+
+
+                            }
+
+
+
+                                    }
+                                   
+
+                                   
+                                    @*@Html.ActionLink("ویرایش", "Edit", new { id = item._BurdenInformationID }, new { @class="btn btn-default"}) 
+                                    @Html.ActionLink("جزئیات", "Details", new { id = item._BurdenInformationID }, new { @class = "btn btn-default" }) 
+                                    @Html.ActionLink("حذف", "Delete", new { id = item._BurdenInformationID }, new { @class = "btn btn-danger" })*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').DataTable({
+                responsive: true
+
+            });
+        });
+
+
+        </script>
+<script type="text/javascript">
+    $('#FromDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        EnableTimePicker: false, // default is true,
+        TargetSelector: '', // default is empty,
+        GroupId: '', // default is empty,
+        ToDate: false, // default is false,
+        FromDate: false, // default is false,
+        EnglishNumber: true,
+    });
+    $('#ToDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        EnableTimePicker: false, // default is true,
+        TargetSelector: '', // default is empty,
+        GroupId: '', // default is empty,
+        ToDate: false, // default is false,
+        FromDate: false, // default is false,
+        EnglishNumber: true,
+    });
+    
+</script>
+
+
+    
+}

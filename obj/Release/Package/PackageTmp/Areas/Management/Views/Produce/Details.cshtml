@@ -1,0 +1,42 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Produces
+
+@{
+    ViewBag.Title = "جزئیات";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="panel-group">
+
+    <div class="panel panel-info">
+        <div class="panel-heading">جزئیات محصول</div>
+
+        <div class="panel-body">
+
+            @*<div class="display-label">
+                    @Html.DisplayNameFor(model => model.ProduceID)
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.ProduceID)
+                </div>*@
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._ProduceName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._ProduceName)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._Descryption)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._Descryption)
+            </div>
+
+            @Html.ActionLink("ویرایش", "Edit", new { id = Model._ProduceID }, new { @class="btn btn-danger"})
+            @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+                
+        </div>
+    </div>
+
+</div>
+

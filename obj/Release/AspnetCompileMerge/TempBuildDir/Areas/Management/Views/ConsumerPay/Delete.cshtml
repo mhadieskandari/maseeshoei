@@ -1,0 +1,61 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_ConsumersPays
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>T_ConsumersPays</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ConsumerPayID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ConsumerPayID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.T_ConsumerFinancialStatements.RegisterDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.T_ConsumerFinancialStatements.RegisterDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PayDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PayDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RegisterDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegisterDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.T_PayType.PayTypeName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.T_PayType.PayTypeName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.T_PayState.PayStateName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.T_PayState.PayStateName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

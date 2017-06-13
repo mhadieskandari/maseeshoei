@@ -1,0 +1,61 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Consumer_Bank
+
+@{
+    ViewBag.Title = "حذف بانک(خریدار)";
+
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">حذف بانک(خریدار)</div>
+
+        <div class="panel-body">
+            @*<div class="editor-label">
+                    @Html.LabelFor(model => model._BankID)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model._BankID)
+                    @Html.ValidationMessageFor(model => model._BankID)
+                </div>*@
+
+            <div class="row">
+                <div class="col-md-4">
+
+
+                </div>
+                <div class="col-md-4">
+
+
+                </div>
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model._BankName)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._BankName, new { @class = "form-control" })
+                        
+                    </div>
+
+                </div>
+
+            </div>
+            <p></p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <p>
+                    <button type="submit" class="btn btn-success">حذف <span class="glyphicon glyphicon-plus-sign"></span></button>
+                    <a href="@Url.Action("Index")" class="btn btn-warning"> بازگشت <span class="glyphicon glyphicon-backward"></span> </a>
+
+                </p>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+

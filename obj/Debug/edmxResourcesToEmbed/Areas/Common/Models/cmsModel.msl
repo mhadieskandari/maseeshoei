@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MaaseDBCMSModelStoreContainer" CdmEntityContainer="MaaseDBEntities1">
+    <EntitySetMapping Name="T_CMS_Category">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_CMS_Category">
+        <MappingFragment StoreEntitySet="T_CMS_Category">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="DatePublish" ColumnName="DatePublish" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_CMS_Content">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_CMS_Content">
+        <MappingFragment StoreEntitySet="T_CMS_Content">
+          <ScalarProperty Name="ContentID" ColumnName="ContentID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Summery" ColumnName="Summery" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="DatePublish" ColumnName="DatePublish" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_CMS_MasterState">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_CMS_MasterState">
+        <MappingFragment StoreEntitySet="T_CMS_MasterState">
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_CMS_Menu">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_CMS_Menu">
+        <MappingFragment StoreEntitySet="T_CMS_Menu">
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="MasterMenuID" ColumnName="MasterMenuID" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="DatePublish" ColumnName="DatePublish" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_CMS_Module">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_CMS_Module">
+        <MappingFragment StoreEntitySet="T_CMS_Module">
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_CMS_ModulePosition">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_CMS_ModulePosition">
+        <MappingFragment StoreEntitySet="T_CMS_ModulePosition">
+          <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_CMS_ModuleType">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_CMS_ModuleType">
+        <MappingFragment StoreEntitySet="T_CMS_ModuleType">
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_CMS_SlideShow">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_CMS_SlideShow">
+        <MappingFragment StoreEntitySet="T_CMS_SlideShow">
+          <ScalarProperty Name="SlideID" ColumnName="SlideID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="ModuleID" ColumnName="ModuleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_UserRoles">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_UserRoles">
+        <MappingFragment StoreEntitySet="T_UserRoles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Users">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_Users">
+        <MappingFragment StoreEntitySet="T_Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="PublicID" ColumnName="PublicID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Users_Type">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_Users_Type">
+        <MappingFragment StoreEntitySet="T_Users_Type">
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_UsersInRoles">
+      <EntityTypeMapping TypeName="MaaseDBCMSModel.T_UsersInRoles">
+        <MappingFragment StoreEntitySet="T_UsersInRoles">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

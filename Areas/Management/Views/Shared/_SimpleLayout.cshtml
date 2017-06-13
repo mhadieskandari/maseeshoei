@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title </title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="~/Content/site.css" type="text/css" />
+        @Styles.Render("~/Content/css")
+    </head>
+    <body class="body body-background">
+        
+        
+                @RenderBody()
+          
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

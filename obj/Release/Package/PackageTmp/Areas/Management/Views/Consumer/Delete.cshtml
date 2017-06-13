@@ -1,0 +1,91 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Consumers
+@{
+    ViewBag.Title = "حذف خریدار";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<div class="panel-group">
+    <div class="panel panel-primary">
+        <div class="panel-heading">حذف خریدار</div>
+
+        <div class="panel-body">
+
+            @*<div class="panel panel-primary">
+                    <div class="panel-heading">@Html.DisplayNameFor(model => model._ConsumerID)</div>
+
+                    <div class="panel-body">
+                        @Html.DisplayFor(model => model._ConsumerID)
+                    </div>
+                </div>*@
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._Descryption)
+                    </div>
+
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._Descryption)
+                    </div>
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._UserName)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._UserName)
+                    </div>
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._EmailAddress)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._EmailAddress)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._CompanyName)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._CompanyName)
+                    </div>
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._OwnerFullName)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._OwnerFullName)
+                    </div>
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._Address)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._Address)
+                    </div>
+                    <div class="display-label">
+                        @Html.DisplayNameFor(model => model._PhoneNumber)
+                    </div>
+                    <div class="form-control">
+                        @Html.DisplayFor(model => model._PhoneNumber)
+                    </div>
+                </div>
+
+            </div>
+
+            <p></p>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="btn btn-default">حذف</button>
+                @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+
+
+            }
+
+
+        </div>
+    </div>
+
+</div>
+
+            

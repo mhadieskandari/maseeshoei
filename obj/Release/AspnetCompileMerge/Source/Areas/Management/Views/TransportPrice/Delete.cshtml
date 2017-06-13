@@ -1,0 +1,89 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_TransportPrices
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel-group">
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">آیا مطمعنید که میخواهید این قیمت حمل و نقل را حذف کنید؟</div>
+
+        <div class="panel-body">
+            @*<div class="display-label">
+                @Html.DisplayNameFor(model => model.TransportPriceID)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.TransportPriceID)
+            </div>*@
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._Date)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._Date)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._Price)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._Price)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._StateID)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model.T_State.StateName)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.T_Producers._CompanyName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model.T_Producers._CompanyName)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.T_Consumers._CompanyName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model.T_Consumers._CompanyName)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.T_Produces._ProduceName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model.T_Produces._ProduceName)
+            </div>
+            
+
+            <p></p>
+            @{
+                try
+                {
+                    <div class="well">
+                        <p class="text-danger text-center">@ViewBag.err</p>
+                    </div>
+                }
+                catch
+                {
+
+                }
+            }
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+    
+                    <button type="submit" class="btn btn-danger" >حذف</button> 
+                    @Html.ActionLink("بازگشت به لیست", "Index", null, new {@class="btn btn-default" })
+                
+            }
+
+        </div>
+    </div>
+</div>
+           

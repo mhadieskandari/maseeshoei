@@ -1,0 +1,127 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_BurdenInformations
+
+@{
+    ViewBag.Title = "حذف حواله";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="panel-group">
+    <div class="panel panel-primary">
+        <div class="panel-heading">حذف حواله</div>
+
+        <div class="panel-body">
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._BurdenInformationID)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._BurdenInformationID, new { @class = "form-control" })
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.T_TransportPrices._Price)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model.T_TransportPrices._Price, new { @class = "form-control" })
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.T_Trucks._Number)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model.T_Trucks._Number, new { @class = "form-control" })
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._LoadDateTime)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._LoadDateTime, new { @class = "form-control" })
+            </div>
+
+            
+
+            @*<div class="display-label">
+                @Html.DisplayNameFor(model => model._LoadOutDateTime)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._LoadOutDateTime, new { @class = "form-control" })
+            </div>*@
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._LoadFullTruckWeight)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._LoadFullTruckWeight, new { @class = "form-control" })
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._LoadFreeTruckWeight)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._LoadFreeTruckWeight, new { @class = "form-control" })
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._UnLoadDateTime)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._UnLoadDateTime, new { @class = "form-control" })
+            </div>
+
+            @*<div class="display-label">
+                @Html.DisplayNameFor(model => model._UnLoadOutDateTime)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._UnLoadOutDateTime, new { @class = "form-control" })
+            </div>*@
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._UnLoadFullTruckWeight)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._UnLoadFullTruckWeight, new { @class = "form-control" })
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._UnLoadFreeTruckWeight)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._UnLoadFreeTruckWeight, new { @class = "form-control" })
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._RegisterDateTime)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._RegisterDateTime, new { @class = "form-control" })
+            </div>
+
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._ResidLoadNumber)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._ResidLoadNumber, new { @class = "form-control" })
+            </div>
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._ResidUnLoadNumber)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._ResidUnLoadNumber, new { @class = "form-control" })
+            </div>
+
+            <p></p>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                
+                <button type="submit" class="btn btn-default">حذف</button>
+                @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+
+
+            }
+        </div>
+
+    </div>
+
+</div>

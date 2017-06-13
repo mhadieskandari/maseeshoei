@@ -1,0 +1,71 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_TruckFinancialStatements
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">حذف صورت وضعیت ماشین </div>
+
+        <div class="panel-body">
+
+
+            @*<div class="display-label">
+                @Html.DisplayNameFor(model => model.TruckFinancialStatementID)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model.TruckFinancialStatementID)
+            </div>*@
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.T_Trucks._NumberName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model.T_Trucks._NumberName)
+            </div>
+
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._FromDate)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._FromDate)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._ToDate)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._ToDate)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._Descryption)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._Descryption)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model.T_FinancialStates._StateName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model.T_FinancialStates._StateName)
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <p></p>
+                <div>
+                    <button type="submit" class="btn btn-default">حذف</button>
+                    @Html.ActionLink("انصراف", "Index", null, new { @class = "btn btn-default" })
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

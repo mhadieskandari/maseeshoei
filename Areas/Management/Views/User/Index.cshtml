@@ -1,0 +1,260 @@
+﻿@model IEnumerable<MaaseShooei.Areas.Management.Models.T_Users>
+
+@{
+    ViewBag.Title = "لیست کاربران";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<div id="dialog-alert" style="display: none">
+    <p>
+        @TempData["msg"]!
+    </p>
+</div>
+
+<div id="dialog-confirm" style="display: none">
+    <p>
+        <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>
+        مطمعنید که می خواهید حذف کنید؟
+    </p>
+</div>
+
+<div id="dialog-edit" style="display: none">
+</div>
+<div id="dialog-detail" style="display: none">
+</div>*@
+
+
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> لیست کاربران ها </div>
+
+        <div class="panel-body">
+            <p>
+                <a href="@Url.Action("Create")" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span></a>
+               @* @Html.ActionLink("ایجاد", "Create", "User", null, new { @class = "btn btn-default", id = "lnkCreate" })*@
+            </p>
+
+            <div class="dataTables_wrapper">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+
+
+                    <thead style="background-color:peru;">
+                        <tr>
+                            @*<th class="text-center">
+                                    @Html.DisplayNameFor(model => model._UserID)
+                                </th>*@
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._UserName)
+                            </th>
+                            <th class="text-center">
+                                    @Html.DisplayNameFor(model => model._PassWord)
+                                </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._FirstName)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._LastName)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._EmailAddress)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._PhoneNumber)
+                            </th>
+                            <th class="text-center">
+                                @Html.DisplayNameFor(model => model._TypeID)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item._UserID)
+                                    </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._UserName)
+                                </td>
+                                <td>
+                                        @Html.DisplayFor(modelItem => item._PassWord)
+                                    </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._FirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._LastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._EmailAddress)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item._PhoneNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.T_Users_Type.TypeName)
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("Edit", new { id = item._UserID })" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a href="@Url.Action("Details", new { id = item._UserID })" class="btn btn-primary"><span class="glyphicon glyphicon-zoom-in"></span></a>
+                                    <a href="@Url.Action("UserAccess", new { id = item._UserID })" class="btn btn-primary">دسترسی کاربر<span class="glyphicon glyphicon-zoom-in"></span></a>
+
+                                    <a href="@Url.Action("Delete", new { id = item._UserID })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+
+                                    @*@Html.ActionLink("ویرایش", "Edit", new { id = item._UserID }, new { @class = "btn btn-default", id = "lnkEdit" })
+                                    @Html.ActionLink("جزئیات", "Details", new { id = item._UserID }, new { @class = "btn btn-default", id = "lnkDetail" })
+                                    @Html.ActionLink("حذف", "Delete", new { id = item._UserID }, new { @class = "btn btn-default", id = "lnkDelete" })*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts{
+
+    <script>
+                    $(document).ready(function () {
+                        $('#dataTables-example').DataTable({
+                            responsive: true
+                        });
+                    });
+
+
+    </script>
+
+@*<script>
+    $(document).ready(function () {
+        var url = "";
+        $("#dialog-alert").dialog({
+            autoOpen: false,
+            resizable: false,
+            height: 170,
+            width: 350,
+            show: { effect: 'drop', direction: "up" },
+            modal: true,
+            draggable: true,
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close").hide();
+            },
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+
+                },
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        if ('@TempData["msg"]' != "") {
+            $("#dialog-alert").dialog('open');
+        }
+
+        $("#dialog-edit").dialog({
+            title: 'Create User',
+            autoOpen: false,
+            resizable: false,
+            width: 400,
+            show: { effect: 'drop', direction: "up" },
+            modal: true,
+            draggable: true,
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close").hide();
+                $(this).load(url);
+            }
+        });
+
+        $("#dialog-confirm").dialog({
+            autoOpen: false,
+            resizable: false,
+            height: 170,
+            width: 350,
+            show: { effect: 'drop', direction: "up" },
+            modal: true,
+            draggable: true,
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close").hide();
+
+            },
+            buttons: {
+                "حذف": function () {
+                    $(this).dialog("close");
+                    window.location.href = url;
+                },
+                "انصراف": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $("#dialog-detail").dialog({
+            title: 'View User',
+            autoOpen: false,
+            resizable: false,
+            width: 400,
+            show: { effect: 'drop', direction: "up" },
+            modal: true,
+            draggable: true,
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close").hide();
+                $(this).load(url);
+            },
+            buttons: {
+                "بستن": function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+        $("#lnkCreate").live("click", function (e) {
+            //e.preventDefault(); //use this or return false
+            url = $(this).attr('href');
+            $(".ui-dialog-title").html('ایجاد');
+            $("#dialog-edit").dialog('open');
+
+            return false;
+        });
+
+        $("#lnkEdit").live("click", function (e) {
+            // e.preventDefault(); use this or return false
+            url = $(this).attr('href');
+            $(".ui-dialog-title").html('ویرایش');
+            $("#dialog-edit").dialog('open');
+
+            return false;
+        });
+
+        $("#lnkDelete").live("click", function (e) {
+            // e.preventDefault(); use this or return false
+            url = $(this).attr('href');
+            $(".ui-dialog-title").html('حذف');
+            $("#dialog-confirm").dialog('open');
+
+            return false;
+        });
+
+        $("#lnkDetail").live("click", function (e) {
+            // e.preventDefault(); use this or return false
+            url = $(this).attr('href');
+            $(".ui-dialog-title").html('جزئیات');
+            $("#dialog-detail").dialog('open');
+
+            return false;
+        });
+
+        $("#btncancel").live("click", function (e) {
+            $("#dialog-edit").dialog("close");
+            return false;
+        });
+    });
+</script>*@
+}

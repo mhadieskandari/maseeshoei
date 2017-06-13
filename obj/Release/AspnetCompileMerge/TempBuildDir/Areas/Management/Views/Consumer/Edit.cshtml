@@ -1,0 +1,134 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Consumers
+
+@{
+    ViewBag.Title = "ویرایش خریدار";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+
+
+
+    <div class="panel-group">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">ویرایش خریدار</div>
+
+            <div class="panel-body">
+
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        @Html.HiddenFor(model => model.ConsumerID, new { @class = "form-control" })
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model._Descryption)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model._Descryption, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model._Descryption)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model._UserName)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model._UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model._UserName)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model._PassWord)
+                        </div>
+                        <div class="editor-field">
+                            @Html.PasswordFor(model => model._PassWord, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model._PassWord)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model._EmailAddress)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model._EmailAddress, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model._EmailAddress)
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model._CompanyName)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model._CompanyName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model._CompanyName)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model._OwnerFullName)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model._OwnerFullName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model._OwnerFullName)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model._Address)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model._Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model._Address)
+                        </div>
+
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model._PhoneNumber)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model._PhoneNumber, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model._PhoneNumber)
+                        </div>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.T_State._StateName)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DropDownList("StateID", null, new { @class = "dropdown" })
+                            @Html.ValidationMessageFor(model => model.T_State._StateID)
+                        </div>
+                    </div>
+
+                </div>
+
+
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model._ConsumerID)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model._ConsumerID)
+                        @Html.ValidationMessageFor(model => model._ConsumerID)
+                    </div>*@
+
+
+                <p></p>
+                <button type="submit" class="btn btn-success">ویرایش <span class="glyphicon glyphicon-plus-sign"></span></button>
+                <a href="@Url.Action("Index")" class="btn btn-warning"> بازگشت <span class="glyphicon glyphicon-backward"></span> </a>
+
+                @*<button type="submit" class="btn btn-default" >ایجاد</button>
+
+                    @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class = "btn btn-default" })*@
+
+
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

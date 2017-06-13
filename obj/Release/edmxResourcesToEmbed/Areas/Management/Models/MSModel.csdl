@@ -1,0 +1,1162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MaaseDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MaaseDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="MaaseDBModel.C__MigrationHistory" />
+    <EntitySet Name="sysdiagrams" EntityType="MaaseDBModel.sysdiagrams" />
+    <EntitySet Name="T_BankMyAcount" EntityType="MaaseDBModel.T_BankMyAcount" />
+    <EntitySet Name="T_BurdenInformations" EntityType="MaaseDBModel.T_BurdenInformations" />
+    <EntitySet Name="T_Consumer_Bank" EntityType="MaaseDBModel.T_Consumer_Bank" />
+    <EntitySet Name="T_ConsumerFinancialStatements" EntityType="MaaseDBModel.T_ConsumerFinancialStatements" />
+    <EntitySet Name="T_ConsumerProducePrices" EntityType="MaaseDBModel.T_ConsumerProducePrices" />
+    <EntitySet Name="T_Consumers" EntityType="MaaseDBModel.T_Consumers" />
+    <EntitySet Name="T_ConsumersPays" EntityType="MaaseDBModel.T_ConsumersPays" />
+    <EntitySet Name="T_FinancialStates" EntityType="MaaseDBModel.T_FinancialStates" />
+    <EntitySet Name="T_PayState" EntityType="MaaseDBModel.T_PayState" />
+    <EntitySet Name="T_PayType" EntityType="MaaseDBModel.T_PayType" />
+    <EntitySet Name="T_Producer_Pay_Title" EntityType="MaaseDBModel.T_Producer_Pay_Title" />
+    <EntitySet Name="T_ProducerFinancialStatements" EntityType="MaaseDBModel.T_ProducerFinancialStatements" />
+    <EntitySet Name="T_ProducerProducePrices" EntityType="MaaseDBModel.T_ProducerProducePrices" />
+    <EntitySet Name="T_Producers" EntityType="MaaseDBModel.T_Producers" />
+    <EntitySet Name="T_ProducersPays" EntityType="MaaseDBModel.T_ProducersPays" />
+    <EntitySet Name="T_Produces" EntityType="MaaseDBModel.T_Produces" />
+    <EntitySet Name="T_RecoveryAgent" EntityType="MaaseDBModel.T_RecoveryAgent" />
+    <EntitySet Name="T_State" EntityType="MaaseDBModel.T_State" />
+    <EntitySet Name="T_TransportPrices" EntityType="MaaseDBModel.T_TransportPrices" />
+    <EntitySet Name="T_Truck_Pay_Title" EntityType="MaaseDBModel.T_Truck_Pay_Title" />
+    <EntitySet Name="T_TruckFinancialStatements" EntityType="MaaseDBModel.T_TruckFinancialStatements" />
+    <EntitySet Name="T_Trucks" EntityType="MaaseDBModel.T_Trucks" />
+    <EntitySet Name="T_TrucksPays" EntityType="MaaseDBModel.T_TrucksPays" />
+    <EntitySet Name="T_UserRoles" EntityType="MaaseDBModel.T_UserRoles" />
+    <EntitySet Name="T_Users" EntityType="MaaseDBModel.T_Users" />
+    <EntitySet Name="T_Users_Type" EntityType="MaaseDBModel.T_Users_Type" />
+    <EntitySet Name="T_UsersInRoles" EntityType="MaaseDBModel.T_UsersInRoles" />
+    <AssociationSet Name="FK_T_ProducersPays_T_Bank" Association="MaaseDBModel.FK_T_ProducersPays_T_Bank">
+      <End Role="T_BankMyAcount" EntitySet="T_BankMyAcount" />
+      <End Role="T_ProducersPays" EntitySet="T_ProducersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TrucksPays_T_Bank" Association="MaaseDBModel.FK_T_TrucksPays_T_Bank">
+      <End Role="T_BankMyAcount" EntitySet="T_BankMyAcount" />
+      <End Role="T_TrucksPays" EntitySet="T_TrucksPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BurdenInformations_dbo_TransportPrices_TransportPrice_TransportPriceID" Association="MaaseDBModel.FK_dbo_BurdenInformations_dbo_TransportPrices_TransportPrice_TransportPriceID">
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_BurdenInformations_dbo_Trucks_TruckID" Association="MaaseDBModel.FK_dbo_BurdenInformations_dbo_Trucks_TruckID">
+      <End Role="T_Trucks" EntitySet="T_Trucks" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_ConsumerFinancialStatements" Association="MaaseDBModel.FK_T_BurdenInformations_T_ConsumerFinancialStatements">
+      <End Role="T_ConsumerFinancialStatements" EntitySet="T_ConsumerFinancialStatements" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_ConsumerProducePrices" Association="MaaseDBModel.FK_T_BurdenInformations_T_ConsumerProducePrices">
+      <End Role="T_ConsumerProducePrices" EntitySet="T_ConsumerProducePrices" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_ProducerFinancialstatements" Association="MaaseDBModel.FK_T_BurdenInformations_T_ProducerFinancialstatements">
+      <End Role="T_ProducerFinancialStatements" EntitySet="T_ProducerFinancialStatements" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_ProducerProducePrices" Association="MaaseDBModel.FK_T_BurdenInformations_T_ProducerProducePrices">
+      <End Role="T_ProducerProducePrices" EntitySet="T_ProducerProducePrices" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_TruckFinancialStatements" Association="MaaseDBModel.FK_T_BurdenInformations_T_TruckFinancialStatements">
+      <End Role="T_TruckFinancialStatements" EntitySet="T_TruckFinancialStatements" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_BurdenInformations_T_Users" Association="MaaseDBModel.FK_T_BurdenInformations_T_Users">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_BurdenInformations" EntitySet="T_BurdenInformations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumersPays_T_Bank" Association="MaaseDBModel.FK_T_ConsumersPays_T_Bank">
+      <End Role="T_Consumer_Bank" EntitySet="T_Consumer_Bank" />
+      <End Role="T_ConsumersPays" EntitySet="T_ConsumersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerFinancialStatements_T_Consumers" Association="MaaseDBModel.FK_T_ConsumerFinancialStatements_T_Consumers">
+      <End Role="T_Consumers" EntitySet="T_Consumers" />
+      <End Role="T_ConsumerFinancialStatements" EntitySet="T_ConsumerFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerFinancialStatements_T_FinancialStates" Association="MaaseDBModel.FK_T_ConsumerFinancialStatements_T_FinancialStates">
+      <End Role="T_FinancialStates" EntitySet="T_FinancialStates" />
+      <End Role="T_ConsumerFinancialStatements" EntitySet="T_ConsumerFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerPay_T_ConsumerFinancialStatements" Association="MaaseDBModel.FK_T_ConsumerPay_T_ConsumerFinancialStatements">
+      <End Role="T_ConsumerFinancialStatements" EntitySet="T_ConsumerFinancialStatements" />
+      <End Role="T_ConsumersPays" EntitySet="T_ConsumersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ConsumerProducePrices_dbo_Consumers_ConsumerID" Association="MaaseDBModel.FK_dbo_ConsumerProducePrices_dbo_Consumers_ConsumerID">
+      <End Role="T_Consumers" EntitySet="T_Consumers" />
+      <End Role="T_ConsumerProducePrices" EntitySet="T_ConsumerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ConsumerProducePrices_dbo_Produces_Produce_ProduceID" Association="MaaseDBModel.FK_dbo_ConsumerProducePrices_dbo_Produces_Produce_ProduceID">
+      <End Role="T_Produces" EntitySet="T_Produces" />
+      <End Role="T_ConsumerProducePrices" EntitySet="T_ConsumerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerProducePrices_T_State" Association="MaaseDBModel.FK_T_ConsumerProducePrices_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_ConsumerProducePrices" EntitySet="T_ConsumerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TransportPrices_dbo_Consumers_Consumer_ConsumerID" Association="MaaseDBModel.FK_dbo_TransportPrices_dbo_Consumers_Consumer_ConsumerID">
+      <End Role="T_Consumers" EntitySet="T_Consumers" />
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Consumers_T_State" Association="MaaseDBModel.FK_T_Consumers_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_Consumers" EntitySet="T_Consumers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerPay_T_PayState" Association="MaaseDBModel.FK_T_ConsumerPay_T_PayState">
+      <End Role="T_PayState" EntitySet="T_PayState" />
+      <End Role="T_ConsumersPays" EntitySet="T_ConsumersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumerPay_T_PayType" Association="MaaseDBModel.FK_T_ConsumerPay_T_PayType">
+      <End Role="T_PayType" EntitySet="T_PayType" />
+      <End Role="T_ConsumersPays" EntitySet="T_ConsumersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ConsumersPays_T_RecoveryAgent" Association="MaaseDBModel.FK_T_ConsumersPays_T_RecoveryAgent">
+      <End Role="T_RecoveryAgent" EntitySet="T_RecoveryAgent" />
+      <End Role="T_ConsumersPays" EntitySet="T_ConsumersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerFinancialstatements_T_FinancialStates" Association="MaaseDBModel.FK_T_ProducerFinancialstatements_T_FinancialStates">
+      <End Role="T_FinancialStates" EntitySet="T_FinancialStates" />
+      <End Role="T_ProducerFinancialStatements" EntitySet="T_ProducerFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TruckFinancialStatements_T_FinancialStates" Association="MaaseDBModel.FK_T_TruckFinancialStatements_T_FinancialStates">
+      <End Role="T_FinancialStates" EntitySet="T_FinancialStates" />
+      <End Role="T_TruckFinancialStatements" EntitySet="T_TruckFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerPay_T_PayState" Association="MaaseDBModel.FK_T_ProducerPay_T_PayState">
+      <End Role="T_PayState" EntitySet="T_PayState" />
+      <End Role="T_ProducersPays" EntitySet="T_ProducersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TrucksPays_T_PayState" Association="MaaseDBModel.FK_T_TrucksPays_T_PayState">
+      <End Role="T_PayState" EntitySet="T_PayState" />
+      <End Role="T_TrucksPays" EntitySet="T_TrucksPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerPay_T_PayType" Association="MaaseDBModel.FK_T_ProducerPay_T_PayType">
+      <End Role="T_PayType" EntitySet="T_PayType" />
+      <End Role="T_ProducersPays" EntitySet="T_ProducersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TrucksPays_T_PayType" Association="MaaseDBModel.FK_T_TrucksPays_T_PayType">
+      <End Role="T_PayType" EntitySet="T_PayType" />
+      <End Role="T_TrucksPays" EntitySet="T_TrucksPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducersPays_T_Producer_Pay_Title" Association="MaaseDBModel.FK_T_ProducersPays_T_Producer_Pay_Title">
+      <End Role="T_Producer_Pay_Title" EntitySet="T_Producer_Pay_Title" />
+      <End Role="T_ProducersPays" EntitySet="T_ProducersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerFinancialstatements_T_Producers" Association="MaaseDBModel.FK_T_ProducerFinancialstatements_T_Producers">
+      <End Role="T_Producers" EntitySet="T_Producers" />
+      <End Role="T_ProducerFinancialStatements" EntitySet="T_ProducerFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerPay_T_ProducerFinancialStatements" Association="MaaseDBModel.FK_T_ProducerPay_T_ProducerFinancialStatements">
+      <End Role="T_ProducerFinancialStatements" EntitySet="T_ProducerFinancialStatements" />
+      <End Role="T_ProducersPays" EntitySet="T_ProducersPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProducerProducePrices_dbo_Producers_Producer_ProducerID" Association="MaaseDBModel.FK_dbo_ProducerProducePrices_dbo_Producers_Producer_ProducerID">
+      <End Role="T_Producers" EntitySet="T_Producers" />
+      <End Role="T_ProducerProducePrices" EntitySet="T_ProducerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ProducerProducePrices_dbo_Produces_ProduceID" Association="MaaseDBModel.FK_dbo_ProducerProducePrices_dbo_Produces_ProduceID">
+      <End Role="T_Produces" EntitySet="T_Produces" />
+      <End Role="T_ProducerProducePrices" EntitySet="T_ProducerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_ProducerProducePrices_T_State" Association="MaaseDBModel.FK_T_ProducerProducePrices_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_ProducerProducePrices" EntitySet="T_ProducerProducePrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TransportPrices_dbo_Producers_Producer_ProducerID" Association="MaaseDBModel.FK_dbo_TransportPrices_dbo_Producers_Producer_ProducerID">
+      <End Role="T_Producers" EntitySet="T_Producers" />
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Producers_T_State" Association="MaaseDBModel.FK_T_Producers_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_Producers" EntitySet="T_Producers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TransportPrices_dbo_Produces_Produce_ProduceID" Association="MaaseDBModel.FK_dbo_TransportPrices_dbo_Produces_Produce_ProduceID">
+      <End Role="T_Produces" EntitySet="T_Produces" />
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TransportPrices_T_State" Association="MaaseDBModel.FK_T_TransportPrices_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_TransportPrices" EntitySet="T_TransportPrices" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Trucks_T_State" Association="MaaseDBModel.FK_T_Trucks_T_State">
+      <End Role="T_State" EntitySet="T_State" />
+      <End Role="T_Trucks" EntitySet="T_Trucks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TrucksPays_T_Truck_Pay_Title" Association="MaaseDBModel.FK_T_TrucksPays_T_Truck_Pay_Title">
+      <End Role="T_Truck_Pay_Title" EntitySet="T_Truck_Pay_Title" />
+      <End Role="T_TrucksPays" EntitySet="T_TrucksPays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TruckFinancialStatements_T_Trucks" Association="MaaseDBModel.FK_T_TruckFinancialStatements_T_Trucks">
+      <End Role="T_Trucks" EntitySet="T_Trucks" />
+      <End Role="T_TruckFinancialStatements" EntitySet="T_TruckFinancialStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_TrucksPays_T_TruckFinancialStatements" Association="MaaseDBModel.FK_T_TrucksPays_T_TruckFinancialStatements">
+      <End Role="T_TruckFinancialStatements" EntitySet="T_TruckFinancialStatements" />
+      <End Role="T_TrucksPays" EntitySet="T_TrucksPays" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RoleId" Association="MaaseDBModel.fk_RoleId">
+      <End Role="T_UserRoles" EntitySet="T_UserRoles" />
+      <End Role="T_UsersInRoles" EntitySet="T_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Users_T_Users_Type" Association="MaaseDBModel.FK_T_Users_T_Users_Type">
+      <End Role="T_Users_Type" EntitySet="T_Users_Type" />
+      <End Role="T_Users" EntitySet="T_Users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="MaaseDBModel.fk_UserId">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_UsersInRoles" EntitySet="T_UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_BankMyAcount">
+    <Key>
+      <PropertyRef Name="BankId" />
+    </Key>
+    <Property Name="BankId" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_ProducersPays" Relationship="MaaseDBModel.FK_T_ProducersPays_T_Bank" FromRole="T_BankMyAcount" ToRole="T_ProducersPays" />
+    <NavigationProperty Name="T_TrucksPays" Relationship="MaaseDBModel.FK_T_TrucksPays_T_Bank" FromRole="T_BankMyAcount" ToRole="T_TrucksPays" />
+  </EntityType>
+  <EntityType Name="T_BurdenInformations">
+    <Key>
+      <PropertyRef Name="BurdenInformationID" />
+    </Key>
+    <Property Name="BurdenInformationID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TruckID" Type="Int32" />
+    <Property Name="LoadDateTime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="LoadFullTruckWeight" Type="Single" />
+    <Property Name="LoadFreeTruckWeight" Type="Single" />
+    <Property Name="UnLoadDateTime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="UnLoadFullTruckWeight" Type="Single" />
+    <Property Name="UnLoadFreeTruckWeight" Type="Single" />
+    <Property Name="TransportPriceID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="ResidUnLoudNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ResidLoudNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="RegisterDateTime" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="Int16" />
+    <Property Name="CPPID" Type="Int32" />
+    <Property Name="PPPID" Type="Int32" />
+    <Property Name="PFSID" Type="Int64" />
+    <Property Name="CFSID" Type="Int64" />
+    <Property Name="TFSID" Type="Int64" />
+    <NavigationProperty Name="T_TransportPrices" Relationship="MaaseDBModel.FK_dbo_BurdenInformations_dbo_TransportPrices_TransportPrice_TransportPriceID" FromRole="T_BurdenInformations" ToRole="T_TransportPrices" />
+    <NavigationProperty Name="T_Trucks" Relationship="MaaseDBModel.FK_dbo_BurdenInformations_dbo_Trucks_TruckID" FromRole="T_BurdenInformations" ToRole="T_Trucks" />
+    <NavigationProperty Name="T_ConsumerFinancialStatements" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_ConsumerFinancialStatements" FromRole="T_BurdenInformations" ToRole="T_ConsumerFinancialStatements" />
+    <NavigationProperty Name="T_ConsumerProducePrices" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_ConsumerProducePrices" FromRole="T_BurdenInformations" ToRole="T_ConsumerProducePrices" />
+    <NavigationProperty Name="T_ProducerFinancialStatements" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_ProducerFinancialstatements" FromRole="T_BurdenInformations" ToRole="T_ProducerFinancialStatements" />
+    <NavigationProperty Name="T_ProducerProducePrices" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_ProducerProducePrices" FromRole="T_BurdenInformations" ToRole="T_ProducerProducePrices" />
+    <NavigationProperty Name="T_TruckFinancialStatements" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_TruckFinancialStatements" FromRole="T_BurdenInformations" ToRole="T_TruckFinancialStatements" />
+    <NavigationProperty Name="T_Users" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_Users" FromRole="T_BurdenInformations" ToRole="T_Users" />
+  </EntityType>
+  <EntityType Name="T_Consumer_Bank">
+    <Key>
+      <PropertyRef Name="BankID" />
+    </Key>
+    <Property Name="BankID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BankName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_ConsumersPays" Relationship="MaaseDBModel.FK_T_ConsumersPays_T_Bank" FromRole="T_Consumer_Bank" ToRole="T_ConsumersPays" />
+  </EntityType>
+  <EntityType Name="T_ConsumerFinancialStatements">
+    <Key>
+      <PropertyRef Name="ConsumerFinancialStatementID" />
+    </Key>
+    <Property Name="ConsumerFinancialStatementID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromDate" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ToDate" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Descryption" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumerID" Type="Int32" Nullable="false" />
+    <Property Name="StateID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="T_BurdenInformations" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_ConsumerFinancialStatements" FromRole="T_ConsumerFinancialStatements" ToRole="T_BurdenInformations" />
+    <NavigationProperty Name="T_Consumers" Relationship="MaaseDBModel.FK_T_ConsumerFinancialStatements_T_Consumers" FromRole="T_ConsumerFinancialStatements" ToRole="T_Consumers" />
+    <NavigationProperty Name="T_FinancialStates" Relationship="MaaseDBModel.FK_T_ConsumerFinancialStatements_T_FinancialStates" FromRole="T_ConsumerFinancialStatements" ToRole="T_FinancialStates" />
+    <NavigationProperty Name="T_ConsumersPays" Relationship="MaaseDBModel.FK_T_ConsumerPay_T_ConsumerFinancialStatements" FromRole="T_ConsumerFinancialStatements" ToRole="T_ConsumersPays" />
+  </EntityType>
+  <EntityType Name="T_ConsumerProducePrices">
+    <Key>
+      <PropertyRef Name="ConsumerProducePriceID" />
+    </Key>
+    <Property Name="ConsumerProducePriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConsumerID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="StateID" Type="Boolean" Nullable="false" />
+    <Property Name="ProduceID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="T_BurdenInformations" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_ConsumerProducePrices" FromRole="T_ConsumerProducePrices" ToRole="T_BurdenInformations" />
+    <NavigationProperty Name="T_Consumers" Relationship="MaaseDBModel.FK_dbo_ConsumerProducePrices_dbo_Consumers_ConsumerID" FromRole="T_ConsumerProducePrices" ToRole="T_Consumers" />
+    <NavigationProperty Name="T_Produces" Relationship="MaaseDBModel.FK_dbo_ConsumerProducePrices_dbo_Produces_Produce_ProduceID" FromRole="T_ConsumerProducePrices" ToRole="T_Produces" />
+    <NavigationProperty Name="T_State" Relationship="MaaseDBModel.FK_T_ConsumerProducePrices_T_State" FromRole="T_ConsumerProducePrices" ToRole="T_State" />
+  </EntityType>
+  <EntityType Name="T_Consumers">
+    <Key>
+      <PropertyRef Name="ConsumerID" />
+    </Key>
+    <Property Name="ConsumerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerFullName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="Descryption" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PassWord" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="StateID" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="T_ConsumerFinancialStatements" Relationship="MaaseDBModel.FK_T_ConsumerFinancialStatements_T_Consumers" FromRole="T_Consumers" ToRole="T_ConsumerFinancialStatements" />
+    <NavigationProperty Name="T_ConsumerProducePrices" Relationship="MaaseDBModel.FK_dbo_ConsumerProducePrices_dbo_Consumers_ConsumerID" FromRole="T_Consumers" ToRole="T_ConsumerProducePrices" />
+    <NavigationProperty Name="T_TransportPrices" Relationship="MaaseDBModel.FK_dbo_TransportPrices_dbo_Consumers_Consumer_ConsumerID" FromRole="T_Consumers" ToRole="T_TransportPrices" />
+    <NavigationProperty Name="T_State" Relationship="MaaseDBModel.FK_T_Consumers_T_State" FromRole="T_Consumers" ToRole="T_State" />
+  </EntityType>
+  <EntityType Name="T_ConsumersPays">
+    <Key>
+      <PropertyRef Name="ConsumerPayID" />
+    </Key>
+    <Property Name="ConsumerPayID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CFSID" Type="Int64" Nullable="false" />
+    <Property Name="PayDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="RegisterDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayTypeID" Type="Int16" Nullable="false" />
+    <Property Name="PayStateID" Type="Int16" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Owner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankId" Type="Int16" Nullable="false" />
+    <Property Name="Bankdepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RecoveryDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="AgentID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="T_Consumer_Bank" Relationship="MaaseDBModel.FK_T_ConsumersPays_T_Bank" FromRole="T_ConsumersPays" ToRole="T_Consumer_Bank" />
+    <NavigationProperty Name="T_ConsumerFinancialStatements" Relationship="MaaseDBModel.FK_T_ConsumerPay_T_ConsumerFinancialStatements" FromRole="T_ConsumersPays" ToRole="T_ConsumerFinancialStatements" />
+    <NavigationProperty Name="T_PayState" Relationship="MaaseDBModel.FK_T_ConsumerPay_T_PayState" FromRole="T_ConsumersPays" ToRole="T_PayState" />
+    <NavigationProperty Name="T_PayType" Relationship="MaaseDBModel.FK_T_ConsumerPay_T_PayType" FromRole="T_ConsumersPays" ToRole="T_PayType" />
+    <NavigationProperty Name="T_RecoveryAgent" Relationship="MaaseDBModel.FK_T_ConsumersPays_T_RecoveryAgent" FromRole="T_ConsumersPays" ToRole="T_RecoveryAgent" />
+  </EntityType>
+  <EntityType Name="T_FinancialStates">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="Int16" Nullable="false" />
+    <Property Name="StateName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_ConsumerFinancialStatements" Relationship="MaaseDBModel.FK_T_ConsumerFinancialStatements_T_FinancialStates" FromRole="T_FinancialStates" ToRole="T_ConsumerFinancialStatements" />
+    <NavigationProperty Name="T_ProducerFinancialStatements" Relationship="MaaseDBModel.FK_T_ProducerFinancialstatements_T_FinancialStates" FromRole="T_FinancialStates" ToRole="T_ProducerFinancialStatements" />
+    <NavigationProperty Name="T_TruckFinancialStatements" Relationship="MaaseDBModel.FK_T_TruckFinancialStatements_T_FinancialStates" FromRole="T_FinancialStates" ToRole="T_TruckFinancialStatements" />
+  </EntityType>
+  <EntityType Name="T_PayState">
+    <Key>
+      <PropertyRef Name="PayStateID" />
+    </Key>
+    <Property Name="PayStateID" Type="Int16" Nullable="false" />
+    <Property Name="PayStateName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_ConsumersPays" Relationship="MaaseDBModel.FK_T_ConsumerPay_T_PayState" FromRole="T_PayState" ToRole="T_ConsumersPays" />
+    <NavigationProperty Name="T_ProducersPays" Relationship="MaaseDBModel.FK_T_ProducerPay_T_PayState" FromRole="T_PayState" ToRole="T_ProducersPays" />
+    <NavigationProperty Name="T_TrucksPays" Relationship="MaaseDBModel.FK_T_TrucksPays_T_PayState" FromRole="T_PayState" ToRole="T_TrucksPays" />
+  </EntityType>
+  <EntityType Name="T_PayType">
+    <Key>
+      <PropertyRef Name="PayTypeID" />
+    </Key>
+    <Property Name="PayTypeID" Type="Int16" Nullable="false" />
+    <Property Name="PayTypeName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_ConsumersPays" Relationship="MaaseDBModel.FK_T_ConsumerPay_T_PayType" FromRole="T_PayType" ToRole="T_ConsumersPays" />
+    <NavigationProperty Name="T_ProducersPays" Relationship="MaaseDBModel.FK_T_ProducerPay_T_PayType" FromRole="T_PayType" ToRole="T_ProducersPays" />
+    <NavigationProperty Name="T_TrucksPays" Relationship="MaaseDBModel.FK_T_TrucksPays_T_PayType" FromRole="T_PayType" ToRole="T_TrucksPays" />
+  </EntityType>
+  <EntityType Name="T_Producer_Pay_Title">
+    <Key>
+      <PropertyRef Name="TitleID" />
+    </Key>
+    <Property Name="TitleID" Type="Int16" Nullable="false" />
+    <Property Name="TitleName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_ProducersPays" Relationship="MaaseDBModel.FK_T_ProducersPays_T_Producer_Pay_Title" FromRole="T_Producer_Pay_Title" ToRole="T_ProducersPays" />
+  </EntityType>
+  <EntityType Name="T_ProducerFinancialStatements">
+    <Key>
+      <PropertyRef Name="ProducerFinancialStatementID" />
+    </Key>
+    <Property Name="ProducerFinancialStatementID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromDate" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ToDate" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Descryption" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProducerID" Type="Int32" Nullable="false" />
+    <Property Name="StateID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="T_BurdenInformations" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_ProducerFinancialstatements" FromRole="T_ProducerFinancialStatements" ToRole="T_BurdenInformations" />
+    <NavigationProperty Name="T_FinancialStates" Relationship="MaaseDBModel.FK_T_ProducerFinancialstatements_T_FinancialStates" FromRole="T_ProducerFinancialStatements" ToRole="T_FinancialStates" />
+    <NavigationProperty Name="T_Producers" Relationship="MaaseDBModel.FK_T_ProducerFinancialstatements_T_Producers" FromRole="T_ProducerFinancialStatements" ToRole="T_Producers" />
+    <NavigationProperty Name="T_ProducersPays" Relationship="MaaseDBModel.FK_T_ProducerPay_T_ProducerFinancialStatements" FromRole="T_ProducerFinancialStatements" ToRole="T_ProducersPays" />
+  </EntityType>
+  <EntityType Name="T_ProducerProducePrices">
+    <Key>
+      <PropertyRef Name="ProducerProducePriceID" />
+    </Key>
+    <Property Name="ProducerProducePriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProduceID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="StateID" Type="Boolean" Nullable="false" />
+    <Property Name="ProducerID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="T_BurdenInformations" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_ProducerProducePrices" FromRole="T_ProducerProducePrices" ToRole="T_BurdenInformations" />
+    <NavigationProperty Name="T_Producers" Relationship="MaaseDBModel.FK_dbo_ProducerProducePrices_dbo_Producers_Producer_ProducerID" FromRole="T_ProducerProducePrices" ToRole="T_Producers" />
+    <NavigationProperty Name="T_Produces" Relationship="MaaseDBModel.FK_dbo_ProducerProducePrices_dbo_Produces_ProduceID" FromRole="T_ProducerProducePrices" ToRole="T_Produces" />
+    <NavigationProperty Name="T_State" Relationship="MaaseDBModel.FK_T_ProducerProducePrices_T_State" FromRole="T_ProducerProducePrices" ToRole="T_State" />
+  </EntityType>
+  <EntityType Name="T_Producers">
+    <Key>
+      <PropertyRef Name="ProducerID" />
+    </Key>
+    <Property Name="ProducerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerFullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="Descryption" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="StateID" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="T_ProducerFinancialStatements" Relationship="MaaseDBModel.FK_T_ProducerFinancialstatements_T_Producers" FromRole="T_Producers" ToRole="T_ProducerFinancialStatements" />
+    <NavigationProperty Name="T_ProducerProducePrices" Relationship="MaaseDBModel.FK_dbo_ProducerProducePrices_dbo_Producers_Producer_ProducerID" FromRole="T_Producers" ToRole="T_ProducerProducePrices" />
+    <NavigationProperty Name="T_TransportPrices" Relationship="MaaseDBModel.FK_dbo_TransportPrices_dbo_Producers_Producer_ProducerID" FromRole="T_Producers" ToRole="T_TransportPrices" />
+    <NavigationProperty Name="T_State" Relationship="MaaseDBModel.FK_T_Producers_T_State" FromRole="T_Producers" ToRole="T_State" />
+  </EntityType>
+  <EntityType Name="T_ProducersPays">
+    <Key>
+      <PropertyRef Name="ProducerPayID" />
+    </Key>
+    <Property Name="ProducerPayID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PFSID" Type="Int64" Nullable="false" />
+    <Property Name="PayDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="RegisterDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayTypeID" Type="Int16" Nullable="false" />
+    <Property Name="PayStateID" Type="Int16" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BankId" Type="Int16" Nullable="false" />
+    <Property Name="RecoveryDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TitleID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="T_BankMyAcount" Relationship="MaaseDBModel.FK_T_ProducersPays_T_Bank" FromRole="T_ProducersPays" ToRole="T_BankMyAcount" />
+    <NavigationProperty Name="T_PayState" Relationship="MaaseDBModel.FK_T_ProducerPay_T_PayState" FromRole="T_ProducersPays" ToRole="T_PayState" />
+    <NavigationProperty Name="T_PayType" Relationship="MaaseDBModel.FK_T_ProducerPay_T_PayType" FromRole="T_ProducersPays" ToRole="T_PayType" />
+    <NavigationProperty Name="T_Producer_Pay_Title" Relationship="MaaseDBModel.FK_T_ProducersPays_T_Producer_Pay_Title" FromRole="T_ProducersPays" ToRole="T_Producer_Pay_Title" />
+    <NavigationProperty Name="T_ProducerFinancialStatements" Relationship="MaaseDBModel.FK_T_ProducerPay_T_ProducerFinancialStatements" FromRole="T_ProducersPays" ToRole="T_ProducerFinancialStatements" />
+  </EntityType>
+  <EntityType Name="T_Produces">
+    <Key>
+      <PropertyRef Name="ProduceID" />
+    </Key>
+    <Property Name="ProduceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProduceName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Descryption" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_ConsumerProducePrices" Relationship="MaaseDBModel.FK_dbo_ConsumerProducePrices_dbo_Produces_Produce_ProduceID" FromRole="T_Produces" ToRole="T_ConsumerProducePrices" />
+    <NavigationProperty Name="T_ProducerProducePrices" Relationship="MaaseDBModel.FK_dbo_ProducerProducePrices_dbo_Produces_ProduceID" FromRole="T_Produces" ToRole="T_ProducerProducePrices" />
+    <NavigationProperty Name="T_TransportPrices" Relationship="MaaseDBModel.FK_dbo_TransportPrices_dbo_Produces_Produce_ProduceID" FromRole="T_Produces" ToRole="T_TransportPrices" />
+  </EntityType>
+  <EntityType Name="T_RecoveryAgent">
+    <Key>
+      <PropertyRef Name="AgentID" />
+    </Key>
+    <Property Name="AgentID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AgentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_ConsumersPays" Relationship="MaaseDBModel.FK_T_ConsumersPays_T_RecoveryAgent" FromRole="T_RecoveryAgent" ToRole="T_ConsumersPays" />
+  </EntityType>
+  <EntityType Name="T_State">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="Boolean" Nullable="false" />
+    <Property Name="StateName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_ConsumerProducePrices" Relationship="MaaseDBModel.FK_T_ConsumerProducePrices_T_State" FromRole="T_State" ToRole="T_ConsumerProducePrices" />
+    <NavigationProperty Name="T_Consumers" Relationship="MaaseDBModel.FK_T_Consumers_T_State" FromRole="T_State" ToRole="T_Consumers" />
+    <NavigationProperty Name="T_ProducerProducePrices" Relationship="MaaseDBModel.FK_T_ProducerProducePrices_T_State" FromRole="T_State" ToRole="T_ProducerProducePrices" />
+    <NavigationProperty Name="T_Producers" Relationship="MaaseDBModel.FK_T_Producers_T_State" FromRole="T_State" ToRole="T_Producers" />
+    <NavigationProperty Name="T_TransportPrices" Relationship="MaaseDBModel.FK_T_TransportPrices_T_State" FromRole="T_State" ToRole="T_TransportPrices" />
+    <NavigationProperty Name="T_Trucks" Relationship="MaaseDBModel.FK_T_Trucks_T_State" FromRole="T_State" ToRole="T_Trucks" />
+  </EntityType>
+  <EntityType Name="T_TransportPrices">
+    <Key>
+      <PropertyRef Name="TransportPriceID" />
+    </Key>
+    <Property Name="TransportPriceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="StateID" Type="Boolean" Nullable="false" />
+    <Property Name="ProducerID" Type="Int32" Nullable="false" />
+    <Property Name="ConsumerID" Type="Int32" Nullable="false" />
+    <Property Name="ProduceID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="T_BurdenInformations" Relationship="MaaseDBModel.FK_dbo_BurdenInformations_dbo_TransportPrices_TransportPrice_TransportPriceID" FromRole="T_TransportPrices" ToRole="T_BurdenInformations" />
+    <NavigationProperty Name="T_Consumers" Relationship="MaaseDBModel.FK_dbo_TransportPrices_dbo_Consumers_Consumer_ConsumerID" FromRole="T_TransportPrices" ToRole="T_Consumers" />
+    <NavigationProperty Name="T_Producers" Relationship="MaaseDBModel.FK_dbo_TransportPrices_dbo_Producers_Producer_ProducerID" FromRole="T_TransportPrices" ToRole="T_Producers" />
+    <NavigationProperty Name="T_Produces" Relationship="MaaseDBModel.FK_dbo_TransportPrices_dbo_Produces_Produce_ProduceID" FromRole="T_TransportPrices" ToRole="T_Produces" />
+    <NavigationProperty Name="T_State" Relationship="MaaseDBModel.FK_T_TransportPrices_T_State" FromRole="T_TransportPrices" ToRole="T_State" />
+  </EntityType>
+  <EntityType Name="T_Truck_Pay_Title">
+    <Key>
+      <PropertyRef Name="TitleID" />
+    </Key>
+    <Property Name="TitleID" Type="Int16" Nullable="false" />
+    <Property Name="TitleName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_TrucksPays" Relationship="MaaseDBModel.FK_T_TrucksPays_T_Truck_Pay_Title" FromRole="T_Truck_Pay_Title" ToRole="T_TrucksPays" />
+  </EntityType>
+  <EntityType Name="T_TruckFinancialStatements">
+    <Key>
+      <PropertyRef Name="TruckFinancialStatementID" />
+    </Key>
+    <Property Name="TruckFinancialStatementID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromDate" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ToDate" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Descryption" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="TruckID" Type="Int32" Nullable="false" />
+    <Property Name="StateID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="T_BurdenInformations" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_TruckFinancialStatements" FromRole="T_TruckFinancialStatements" ToRole="T_BurdenInformations" />
+    <NavigationProperty Name="T_FinancialStates" Relationship="MaaseDBModel.FK_T_TruckFinancialStatements_T_FinancialStates" FromRole="T_TruckFinancialStatements" ToRole="T_FinancialStates" />
+    <NavigationProperty Name="T_Trucks" Relationship="MaaseDBModel.FK_T_TruckFinancialStatements_T_Trucks" FromRole="T_TruckFinancialStatements" ToRole="T_Trucks" />
+    <NavigationProperty Name="T_TrucksPays" Relationship="MaaseDBModel.FK_T_TrucksPays_T_TruckFinancialStatements" FromRole="T_TruckFinancialStatements" ToRole="T_TrucksPays" />
+  </EntityType>
+  <EntityType Name="T_Trucks">
+    <Key>
+      <PropertyRef Name="TruckID" />
+    </Key>
+    <Property Name="TruckID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerFullName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="PureWeight" Type="Int32" />
+    <Property Name="Descryption" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="StateID" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="T_BurdenInformations" Relationship="MaaseDBModel.FK_dbo_BurdenInformations_dbo_Trucks_TruckID" FromRole="T_Trucks" ToRole="T_BurdenInformations" />
+    <NavigationProperty Name="T_State" Relationship="MaaseDBModel.FK_T_Trucks_T_State" FromRole="T_Trucks" ToRole="T_State" />
+    <NavigationProperty Name="T_TruckFinancialStatements" Relationship="MaaseDBModel.FK_T_TruckFinancialStatements_T_Trucks" FromRole="T_Trucks" ToRole="T_TruckFinancialStatements" />
+  </EntityType>
+  <EntityType Name="T_TrucksPays">
+    <Key>
+      <PropertyRef Name="TruckPayID" />
+    </Key>
+    <Property Name="TruckPayID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TFSID" Type="Int64" Nullable="false" />
+    <Property Name="PayDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="RegisterDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="PayTypeID" Type="Int16" Nullable="false" />
+    <Property Name="PayStateID" Type="Int16" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BankId" Type="Int16" Nullable="false" />
+    <Property Name="RecoveryDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="TitleID" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="T_BankMyAcount" Relationship="MaaseDBModel.FK_T_TrucksPays_T_Bank" FromRole="T_TrucksPays" ToRole="T_BankMyAcount" />
+    <NavigationProperty Name="T_PayState" Relationship="MaaseDBModel.FK_T_TrucksPays_T_PayState" FromRole="T_TrucksPays" ToRole="T_PayState" />
+    <NavigationProperty Name="T_PayType" Relationship="MaaseDBModel.FK_T_TrucksPays_T_PayType" FromRole="T_TrucksPays" ToRole="T_PayType" />
+    <NavigationProperty Name="T_Truck_Pay_Title" Relationship="MaaseDBModel.FK_T_TrucksPays_T_Truck_Pay_Title" FromRole="T_TrucksPays" ToRole="T_Truck_Pay_Title" />
+    <NavigationProperty Name="T_TruckFinancialStatements" Relationship="MaaseDBModel.FK_T_TrucksPays_T_TruckFinancialStatements" FromRole="T_TrucksPays" ToRole="T_TruckFinancialStatements" />
+  </EntityType>
+  <EntityType Name="T_UserRoles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_UsersInRoles" Relationship="MaaseDBModel.fk_RoleId" FromRole="T_UserRoles" ToRole="T_UsersInRoles" />
+  </EntityType>
+  <EntityType Name="T_Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PassWord" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="TypeID" Type="Int16" />
+    <Property Name="State" Type="Int16" />
+    <Property Name="PublicID" Type="Int32" />
+    <NavigationProperty Name="T_BurdenInformations" Relationship="MaaseDBModel.FK_T_BurdenInformations_T_Users" FromRole="T_Users" ToRole="T_BurdenInformations" />
+    <NavigationProperty Name="T_Users_Type" Relationship="MaaseDBModel.FK_T_Users_T_Users_Type" FromRole="T_Users" ToRole="T_Users_Type" />
+    <NavigationProperty Name="T_UsersInRoles" Relationship="MaaseDBModel.fk_UserId" FromRole="T_Users" ToRole="T_UsersInRoles" />
+  </EntityType>
+  <EntityType Name="T_Users_Type">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Int16" Nullable="false" />
+    <Property Name="TypeName" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_Users" Relationship="MaaseDBModel.FK_T_Users_T_Users_Type" FromRole="T_Users_Type" ToRole="T_Users" />
+  </EntityType>
+  <EntityType Name="T_UsersInRoles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="T_UserRoles" Relationship="MaaseDBModel.fk_RoleId" FromRole="T_UsersInRoles" ToRole="T_UserRoles" />
+    <NavigationProperty Name="T_Users" Relationship="MaaseDBModel.fk_UserId" FromRole="T_UsersInRoles" ToRole="T_Users" />
+  </EntityType>
+  <Association Name="FK_T_ProducersPays_T_Bank">
+    <End Type="MaaseDBModel.T_BankMyAcount" Role="T_BankMyAcount" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ProducersPays" Role="T_ProducersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_BankMyAcount">
+        <PropertyRef Name="BankId" />
+      </Principal>
+      <Dependent Role="T_ProducersPays">
+        <PropertyRef Name="BankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TrucksPays_T_Bank">
+    <End Type="MaaseDBModel.T_BankMyAcount" Role="T_BankMyAcount" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_TrucksPays" Role="T_TrucksPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_BankMyAcount">
+        <PropertyRef Name="BankId" />
+      </Principal>
+      <Dependent Role="T_TrucksPays">
+        <PropertyRef Name="BankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BurdenInformations_dbo_TransportPrices_TransportPrice_TransportPriceID">
+    <End Type="MaaseDBModel.T_TransportPrices" Role="T_TransportPrices" Multiplicity="0..1" />
+    <End Type="MaaseDBModel.T_BurdenInformations" Role="T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_TransportPrices">
+        <PropertyRef Name="TransportPriceID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="TransportPriceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_BurdenInformations_dbo_Trucks_TruckID">
+    <End Type="MaaseDBModel.T_Trucks" Role="T_Trucks" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MaaseDBModel.T_BurdenInformations" Role="T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Trucks">
+        <PropertyRef Name="TruckID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="TruckID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_ConsumerFinancialStatements">
+    <End Type="MaaseDBModel.T_ConsumerFinancialStatements" Role="T_ConsumerFinancialStatements" Multiplicity="0..1" />
+    <End Type="MaaseDBModel.T_BurdenInformations" Role="T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ConsumerFinancialStatements">
+        <PropertyRef Name="ConsumerFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="CFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_ConsumerProducePrices">
+    <End Type="MaaseDBModel.T_ConsumerProducePrices" Role="T_ConsumerProducePrices" Multiplicity="0..1" />
+    <End Type="MaaseDBModel.T_BurdenInformations" Role="T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ConsumerProducePrices">
+        <PropertyRef Name="ConsumerProducePriceID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="CPPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_ProducerFinancialstatements">
+    <End Type="MaaseDBModel.T_ProducerFinancialStatements" Role="T_ProducerFinancialStatements" Multiplicity="0..1" />
+    <End Type="MaaseDBModel.T_BurdenInformations" Role="T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ProducerFinancialStatements">
+        <PropertyRef Name="ProducerFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="PFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_ProducerProducePrices">
+    <End Type="MaaseDBModel.T_ProducerProducePrices" Role="T_ProducerProducePrices" Multiplicity="0..1" />
+    <End Type="MaaseDBModel.T_BurdenInformations" Role="T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ProducerProducePrices">
+        <PropertyRef Name="ProducerProducePriceID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="PPPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_TruckFinancialStatements">
+    <End Type="MaaseDBModel.T_TruckFinancialStatements" Role="T_TruckFinancialStatements" Multiplicity="0..1" />
+    <End Type="MaaseDBModel.T_BurdenInformations" Role="T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_TruckFinancialStatements">
+        <PropertyRef Name="TruckFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="TFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_BurdenInformations_T_Users">
+    <End Type="MaaseDBModel.T_Users" Role="T_Users" Multiplicity="0..1" />
+    <End Type="MaaseDBModel.T_BurdenInformations" Role="T_BurdenInformations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="T_BurdenInformations">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumersPays_T_Bank">
+    <End Type="MaaseDBModel.T_Consumer_Bank" Role="T_Consumer_Bank" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ConsumersPays" Role="T_ConsumersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Consumer_Bank">
+        <PropertyRef Name="BankID" />
+      </Principal>
+      <Dependent Role="T_ConsumersPays">
+        <PropertyRef Name="BankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerFinancialStatements_T_Consumers">
+    <End Type="MaaseDBModel.T_Consumers" Role="T_Consumers" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ConsumerFinancialStatements" Role="T_ConsumerFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Consumers">
+        <PropertyRef Name="ConsumerID" />
+      </Principal>
+      <Dependent Role="T_ConsumerFinancialStatements">
+        <PropertyRef Name="ConsumerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerFinancialStatements_T_FinancialStates">
+    <End Type="MaaseDBModel.T_FinancialStates" Role="T_FinancialStates" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ConsumerFinancialStatements" Role="T_ConsumerFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_FinancialStates">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_ConsumerFinancialStatements">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerPay_T_ConsumerFinancialStatements">
+    <End Type="MaaseDBModel.T_ConsumerFinancialStatements" Role="T_ConsumerFinancialStatements" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ConsumersPays" Role="T_ConsumersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ConsumerFinancialStatements">
+        <PropertyRef Name="ConsumerFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_ConsumersPays">
+        <PropertyRef Name="CFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ConsumerProducePrices_dbo_Consumers_ConsumerID">
+    <End Type="MaaseDBModel.T_Consumers" Role="T_Consumers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MaaseDBModel.T_ConsumerProducePrices" Role="T_ConsumerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Consumers">
+        <PropertyRef Name="ConsumerID" />
+      </Principal>
+      <Dependent Role="T_ConsumerProducePrices">
+        <PropertyRef Name="ConsumerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ConsumerProducePrices_dbo_Produces_Produce_ProduceID">
+    <End Type="MaaseDBModel.T_Produces" Role="T_Produces" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MaaseDBModel.T_ConsumerProducePrices" Role="T_ConsumerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Produces">
+        <PropertyRef Name="ProduceID" />
+      </Principal>
+      <Dependent Role="T_ConsumerProducePrices">
+        <PropertyRef Name="ProduceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerProducePrices_T_State">
+    <End Type="MaaseDBModel.T_State" Role="T_State" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ConsumerProducePrices" Role="T_ConsumerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_ConsumerProducePrices">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TransportPrices_dbo_Consumers_Consumer_ConsumerID">
+    <End Type="MaaseDBModel.T_Consumers" Role="T_Consumers" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_TransportPrices" Role="T_TransportPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Consumers">
+        <PropertyRef Name="ConsumerID" />
+      </Principal>
+      <Dependent Role="T_TransportPrices">
+        <PropertyRef Name="ConsumerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Consumers_T_State">
+    <End Type="MaaseDBModel.T_State" Role="T_State" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_Consumers" Role="T_Consumers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_Consumers">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerPay_T_PayState">
+    <End Type="MaaseDBModel.T_PayState" Role="T_PayState" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ConsumersPays" Role="T_ConsumersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayState">
+        <PropertyRef Name="PayStateID" />
+      </Principal>
+      <Dependent Role="T_ConsumersPays">
+        <PropertyRef Name="PayStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumerPay_T_PayType">
+    <End Type="MaaseDBModel.T_PayType" Role="T_PayType" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ConsumersPays" Role="T_ConsumersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayType">
+        <PropertyRef Name="PayTypeID" />
+      </Principal>
+      <Dependent Role="T_ConsumersPays">
+        <PropertyRef Name="PayTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ConsumersPays_T_RecoveryAgent">
+    <End Type="MaaseDBModel.T_RecoveryAgent" Role="T_RecoveryAgent" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ConsumersPays" Role="T_ConsumersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_RecoveryAgent">
+        <PropertyRef Name="AgentID" />
+      </Principal>
+      <Dependent Role="T_ConsumersPays">
+        <PropertyRef Name="AgentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerFinancialstatements_T_FinancialStates">
+    <End Type="MaaseDBModel.T_FinancialStates" Role="T_FinancialStates" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ProducerFinancialStatements" Role="T_ProducerFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_FinancialStates">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_ProducerFinancialStatements">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TruckFinancialStatements_T_FinancialStates">
+    <End Type="MaaseDBModel.T_FinancialStates" Role="T_FinancialStates" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_TruckFinancialStatements" Role="T_TruckFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_FinancialStates">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_TruckFinancialStatements">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerPay_T_PayState">
+    <End Type="MaaseDBModel.T_PayState" Role="T_PayState" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ProducersPays" Role="T_ProducersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayState">
+        <PropertyRef Name="PayStateID" />
+      </Principal>
+      <Dependent Role="T_ProducersPays">
+        <PropertyRef Name="PayStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TrucksPays_T_PayState">
+    <End Type="MaaseDBModel.T_PayState" Role="T_PayState" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_TrucksPays" Role="T_TrucksPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayState">
+        <PropertyRef Name="PayStateID" />
+      </Principal>
+      <Dependent Role="T_TrucksPays">
+        <PropertyRef Name="PayStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerPay_T_PayType">
+    <End Type="MaaseDBModel.T_PayType" Role="T_PayType" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ProducersPays" Role="T_ProducersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayType">
+        <PropertyRef Name="PayTypeID" />
+      </Principal>
+      <Dependent Role="T_ProducersPays">
+        <PropertyRef Name="PayTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TrucksPays_T_PayType">
+    <End Type="MaaseDBModel.T_PayType" Role="T_PayType" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_TrucksPays" Role="T_TrucksPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_PayType">
+        <PropertyRef Name="PayTypeID" />
+      </Principal>
+      <Dependent Role="T_TrucksPays">
+        <PropertyRef Name="PayTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducersPays_T_Producer_Pay_Title">
+    <End Type="MaaseDBModel.T_Producer_Pay_Title" Role="T_Producer_Pay_Title" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ProducersPays" Role="T_ProducersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Producer_Pay_Title">
+        <PropertyRef Name="TitleID" />
+      </Principal>
+      <Dependent Role="T_ProducersPays">
+        <PropertyRef Name="TitleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerFinancialstatements_T_Producers">
+    <End Type="MaaseDBModel.T_Producers" Role="T_Producers" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ProducerFinancialStatements" Role="T_ProducerFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="T_ProducerFinancialStatements">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerPay_T_ProducerFinancialStatements">
+    <End Type="MaaseDBModel.T_ProducerFinancialStatements" Role="T_ProducerFinancialStatements" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ProducersPays" Role="T_ProducersPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_ProducerFinancialStatements">
+        <PropertyRef Name="ProducerFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_ProducersPays">
+        <PropertyRef Name="PFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProducerProducePrices_dbo_Producers_Producer_ProducerID">
+    <End Type="MaaseDBModel.T_Producers" Role="T_Producers" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ProducerProducePrices" Role="T_ProducerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="T_ProducerProducePrices">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ProducerProducePrices_dbo_Produces_ProduceID">
+    <End Type="MaaseDBModel.T_Produces" Role="T_Produces" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MaaseDBModel.T_ProducerProducePrices" Role="T_ProducerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Produces">
+        <PropertyRef Name="ProduceID" />
+      </Principal>
+      <Dependent Role="T_ProducerProducePrices">
+        <PropertyRef Name="ProduceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_ProducerProducePrices_T_State">
+    <End Type="MaaseDBModel.T_State" Role="T_State" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_ProducerProducePrices" Role="T_ProducerProducePrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_ProducerProducePrices">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TransportPrices_dbo_Producers_Producer_ProducerID">
+    <End Type="MaaseDBModel.T_Producers" Role="T_Producers" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_TransportPrices" Role="T_TransportPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Producers">
+        <PropertyRef Name="ProducerID" />
+      </Principal>
+      <Dependent Role="T_TransportPrices">
+        <PropertyRef Name="ProducerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Producers_T_State">
+    <End Type="MaaseDBModel.T_State" Role="T_State" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_Producers" Role="T_Producers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_Producers">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TransportPrices_dbo_Produces_Produce_ProduceID">
+    <End Type="MaaseDBModel.T_Produces" Role="T_Produces" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_TransportPrices" Role="T_TransportPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Produces">
+        <PropertyRef Name="ProduceID" />
+      </Principal>
+      <Dependent Role="T_TransportPrices">
+        <PropertyRef Name="ProduceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TransportPrices_T_State">
+    <End Type="MaaseDBModel.T_State" Role="T_State" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_TransportPrices" Role="T_TransportPrices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_TransportPrices">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Trucks_T_State">
+    <End Type="MaaseDBModel.T_State" Role="T_State" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_Trucks" Role="T_Trucks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_State">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="T_Trucks">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TrucksPays_T_Truck_Pay_Title">
+    <End Type="MaaseDBModel.T_Truck_Pay_Title" Role="T_Truck_Pay_Title" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_TrucksPays" Role="T_TrucksPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Truck_Pay_Title">
+        <PropertyRef Name="TitleID" />
+      </Principal>
+      <Dependent Role="T_TrucksPays">
+        <PropertyRef Name="TitleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TruckFinancialStatements_T_Trucks">
+    <End Type="MaaseDBModel.T_Trucks" Role="T_Trucks" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_TruckFinancialStatements" Role="T_TruckFinancialStatements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Trucks">
+        <PropertyRef Name="TruckID" />
+      </Principal>
+      <Dependent Role="T_TruckFinancialStatements">
+        <PropertyRef Name="TruckID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_TrucksPays_T_TruckFinancialStatements">
+    <End Type="MaaseDBModel.T_TruckFinancialStatements" Role="T_TruckFinancialStatements" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_TrucksPays" Role="T_TrucksPays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_TruckFinancialStatements">
+        <PropertyRef Name="TruckFinancialStatementID" />
+      </Principal>
+      <Dependent Role="T_TrucksPays">
+        <PropertyRef Name="TFSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RoleId">
+    <End Type="MaaseDBModel.T_UserRoles" Role="T_UserRoles" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_UsersInRoles" Role="T_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_UserRoles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="T_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Users_T_Users_Type">
+    <End Type="MaaseDBModel.T_Users_Type" Role="T_Users_Type" Multiplicity="0..1" />
+    <End Type="MaaseDBModel.T_Users" Role="T_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users_Type">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="T_Users">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Type="MaaseDBModel.T_Users" Role="T_Users" Multiplicity="1" />
+    <End Type="MaaseDBModel.T_UsersInRoles" Role="T_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="T_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

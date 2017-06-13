@@ -1,0 +1,732 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_BurdenInformations
+
+@{
+    ViewBag.Title = "ویرایش حواله بار";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+            <div class="panel-group">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">ویرایش حواله بار </div>
+
+                    <div class="panel-body">
+                        @Html.HiddenFor(model => model.BurdenInformationID)
+                        @Html.HiddenFor(model => model.CFSID)
+                        @Html.HiddenFor(model => model.PFSID)
+                        @*@Html.HiddenFor(model => model.TFSID)
+                        @Html.HiddenFor(model => model.PPPID)
+                        @Html.HiddenFor(model => model.CPPID)*@
+
+                        <div class="row">
+                            <div class="col-md-3 alert-info">
+                                
+                                    <div class="editor-label">
+                                        @Html.Label("کدسیستم")
+                                    </div>
+                                <div class="form-control alert-success">
+                                    @ViewBag.BID
+                                </div>
+
+                                
+                                
+
+                            </div>
+                            <div class="col-md-3">
+                                
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model.T_Trucks._OwnerFullName)
+                                </div>
+                                <div class="editor-field ">
+                                    @Html.TextBox("TOwner", null, new { @class = "form-control ", @disabled = true })
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._TruckNumber)
+                                </div>
+
+                                <div class="editor-field ">
+                                    @Html.DropDownList("TruckID", null, String.Empty, new { style = "width:200px;min-height:25px;" })
+                                    @Html.ValidationMessageFor(model => model._TruckID)
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.Label("انتخاب محصول")
+                                </div>
+
+                                @Html.DropDownList("ProduceID", null, "", new { style = "width:200px;min-height:25px;" })
+
+
+                                @*<div class="dropdown" style="min-width:200px;min-height:25px;">
+
+                                    <select id="ProduceID">
+                                        <option></option>
+                                    </select>
+
+
+                                </div>*@
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.Label("انتخاب خریدار")
+                                </div>
+                                <div class="dropdown">
+                                    @Html.DropDownList("ConsumerID", null, "خریدار را انتخاب کنید", new { style = "width:200px;min-height:25px;" })
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.Label("انتخاب تولید کننده")
+                                </div>
+                                <div class="dropdown">
+                                    @Html.DropDownList("ProducerID", null, "تولید کننده را انتخاب کنید", new { style = "width:200px;min-height:25px;" })
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._LoadFullTruckWeight)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._LoadFullTruckWeight, new { @class = "form-control", id = "lfutw" })
+                                    @Html.ValidationMessageFor(model => model._LoadFullTruckWeight)
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._LoadFreeTruckWeight)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._LoadFreeTruckWeight, new { @class = "form-control", id = "lfrtw" })
+                                    @Html.ValidationMessageFor(model => model._LoadFreeTruckWeight)
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._LoadDateTime)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.LoadDateTime, new { @class = "form-control", id = "LoadOutDateTime" })
+                                    @Html.ValidationMessageFor(model => model._LoadDateTime)
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._ResidLoadNumber)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._ResidLoadNumber, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._ResidLoadNumber)
+                                </div>
+                                @*<div class="editor-label">
+                                    @Html.LabelFor(model => model._LoadDateTime)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._LoadDateTime, new { @class = "form-control", id = "LoadInDateTime" })
+                                    @Html.ValidationMessageFor(model => model._LoadDateTime)
+                                </div>*@
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._UnLoadFullTruckWeight)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._UnLoadFullTruckWeight, new { @class = "form-control", id = "ulfutw" })
+                                    @Html.ValidationMessageFor(model => model._UnLoadFullTruckWeight)
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._UnLoadFreeTruckWeight)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._UnLoadFreeTruckWeight, new { @class = "form-control", id = "ulfrtw" })
+                                    @Html.ValidationMessageFor(model => model._UnLoadFreeTruckWeight)
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._UnLoadDateTime)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model.UnLoadDateTime, new { @class = "form-control", id = "UnLoadOutDateTime" })
+                                    @Html.ValidationMessageFor(model => model._UnLoadDateTime)
+                                </div>
+
+                            </div>
+                            <div class="col-md-3">
+                                <div class="editor-label">
+                                    @Html.LabelFor(model => model._ResidUnLoadNumber)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._ResidUnLoadNumber, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model._ResidUnLoadNumber)
+                                </div>
+                                @*<div class="editor-label">
+                                    @Html.LabelFor(model => model._UnLoadInDateTime)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBoxFor(model => model._UnLoadInDateTime, new { @class = "form-control", id = "UnLoadInDateTime" })
+                                    @Html.ValidationMessageFor(model => model._UnLoadInDateTime)
+                                </div>*@
+                            </div>
+                        </div>
+
+
+@if (Request.IsAuthenticated && User.IsInRole("Administrator"))
+{
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <p></p>
+                                <a class="btn btn-success btn-sm" id="managerInfo">مشاهده اطلاعات مدیریتی</a>
+                                <p></p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row well" id="Management">
+                            <div class="col-md-2">
+
+                            </div>
+                            <div class="col-md-2">
+                                @*<div class="editor-label">
+                                    سود خالص
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBox("profit", null, new { style = "width:125px;", @disabled = true })
+                                </div>*@
+
+
+
+                            </div>
+
+
+
+                            <div class="col-md-2">
+                                <div class="editor-label">
+                                    مبلغ فروش (هر تن)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownList("CPPID", null, new { style = "width:125px;" })
+                                    @Html.ValidationMessageFor(model => model.T_ConsumerProducePrices._ConsumerProducePriceID)
+                                </div>
+
+                                <div class="editor-label">
+                                    مبلغ کل فروش
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBox("totalConsumer", null, new { style = "width:125px;", @disabled = true })
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="editor-label">
+                                    مبلغ خرید (هر تن)
+                                </div>
+                                <div class="editor-field">
+                                    @Html.DropDownList("PPPID", null, new { style = "width:125px;" })
+                                    @Html.ValidationMessageFor(model => model.T_ProducerProducePrices._ProducerProducePriceID)
+                                </div>
+                                <div class="editor-label">
+                                    مبلغ کل خرید
+                                </div>
+                                <div class="editor-field">
+                                    @Html.TextBox("totalProducer", null, new { style = "width:125px;", @disabled = true })
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+
+                                <div class="editor-label">
+                                    وزن خالص بارگیری
+                                </div>
+                                <div class="editor-field ">
+                                    @Html.TextBox("LoudPurW", null, new { style = "width:125px;", @disabled = true })
+                                </div>
+                                <div class="editor-label">
+                                    وزن خالص تخلیه
+                                </div>
+                                <div class="editor-field ">
+                                    @Html.TextBox("ULoudPurW", null, new { style = "width:125px;", @disabled = true })
+                                </div>
+
+
+
+                            </div>
+                            <div class="col-md-2">
+
+
+                                <div class="editor-label">
+                                    مبلغ کرایه(هرتن)
+                                </div>
+
+                                <div class="editor-field">
+                                    @Html.DropDownList("TransportPriceID", null, new { style = "width:125px;" })
+                                    @Html.ValidationMessageFor(model => model.T_TransportPrices._TransportPriceID)
+                                </div>
+                                <div class="editor-label">
+                                    مبلغ کل کرایه
+                                </div>
+                                <div class="editor-field ">
+                                    @Html.TextBox("totalTrans", null, new { style = "width:125px;", @disabled = true })
+                                </div>
+
+
+                            </div>
+
+                        </div>
+}
+else
+{
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <p></p>
+            <a class="btn btn-success btn-sm" id="managerInfo">مشاهده وزن خالص</a>
+            <p></p>
+        </div>
+    </div>
+
+
+
+    <div class="row well" id="Management">
+        <div class="col-md-2  hidden">
+
+        </div>
+        <div class="col-md-2  hidden">
+            @*<div class="editor-label">
+                سود خالص
+            </div>
+            <div class="editor-field">
+                @Html.TextBox("profit", null, new { style = "width:125px;", @disabled = true })
+            </div>*@
+
+
+
+        </div>
+
+
+
+        <div class="col-md-2 hidden">
+            <div class="editor-label">
+                مبلغ فروش (هر تن)
+            </div>
+            <div class="editor-field">
+                @Html.TextBox("consumerFi", null, new { style = "width:125px;", @disabled = true })
+            </div>
+
+            <div class="editor-label">
+                مبلغ کل فروش
+            </div>
+            <div class="editor-field">
+                @Html.TextBox("totalConsumer", null, new { style = "width:125px;", @disabled = true })
+            </div>
+
+
+        </div>
+        <div class="col-md-2  hidden">
+            <div class="editor-label">
+                مبلغ خرید (هر تن)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("PPPID", null, new { style = "width:125px;" })
+                @Html.ValidationMessageFor(model => model.T_ProducerProducePrices._ProducerProducePriceID)
+            </div>
+            <div class="editor-label">
+                مبلغ کل خرید
+            </div>
+            <div class="editor-field">
+                @Html.TextBox("totalProducer", null, new { style = "width:125px;", @disabled = true })
+            </div>
+
+
+        </div>
+        <div class="col-md-2">
+
+            <div class="editor-label">
+                وزن خالص بارگیری
+            </div>
+            <div class="editor-field ">
+                @Html.TextBox("LoudPurW", null, new { style = "width:125px;", @disabled = true })
+            </div>
+            <div class="editor-label">
+                وزن خالص تخلیه
+            </div>
+            <div class="editor-field ">
+                @Html.TextBox("ULoudPurW", null, new { style = "width:125px;", @disabled = true })
+            </div>
+
+
+
+        </div>
+        <div class="col-md-2  hidden">
+
+
+            <div class="editor-label">
+                مبلغ کرایه(هرتن)
+            </div>
+
+            <div class="editor-field">
+                @Html.DropDownList("TransportPriceID", null, new { style = "width:125px;" })
+                @Html.ValidationMessageFor(model => model.T_TransportPrices._TransportPriceID)
+            </div>
+            <div class="editor-label">
+                مبلغ کل کرایه
+            </div>
+            <div class="editor-field ">
+                @Html.TextBox("totalTrans", null, new { style = "width:125px;", @disabled = true })
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+}
+
+
+
+                        @*<div class="editor-label">
+                                @Html.LabelFor(model => model.UserID, "کاربر")
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownList("UserID", String.Empty)
+                                @Html.ValidationMessageFor(model => model.UserID)
+                            </div>*@
+
+                        @{
+                            try
+                            {
+
+                                <div>
+                                    <p class="text-danger">@ViewBag.err</p>
+                                </div>
+
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+
+
+
+
+                        <button type="submit" class="btn btn-default">ویرایش</button>
+
+                        @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+
+    </div>
+
+
+
+}
+
+@section Scripts {
+
+    <script>
+
+
+        $(document).ready(function () {           
+
+            $.ajax({
+
+                type: "POST",
+
+                url: "/BurdenInformation/getTruckOwnerName",
+                datatype: "string",
+                data: { TruckID: $('#TruckID').val() },
+                success: function (data) {
+                    $('#TOwner').val(data);
+                }
+            });
+        });
+
+        function commaSeparateNumber(val) {
+            while (/(\d+)(\d{3})/.test(val.toString())) {
+                val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
+            }
+            return val;
+        }
+
+        $('#ProduceID').change(function () {
+
+            $('#TransportPriceID').empty();
+            $('#PPPID').empty();
+            $('#CPPID').empty();
+
+            $.ajax({
+                type: "POST",
+                url: "/BurdenInformation/getActiveTransportPrice_Price",
+                datatype: "Json",
+                data: { ProducerID: $('#ProducerID').val(), ConsumerID: $('#ConsumerID').val(), ProduceID: $('#ProduceID').val() },
+                success: function (data) {
+                    $.each(data, function (index, value) {
+                        $('#TransportPriceID').append('<option value="' + value.TransportPriceID + '">' + (value.Price) + '</option>');
+                    });
+                }
+            });
+
+
+            $.ajax({
+                type: "POST",
+                url: "/BurdenInformation/getActivePPP_Prices",
+                datatype: "Json",
+                data: { ProducerID: $('#ProducerID').val(), ProduceID: $('#ProduceID').val() },
+                success: function (data) {
+                    $.each(data, function (index, value) {
+                        $('#PPPID').append('<option value="' + value.ProducerProducePriceID + '">' + (value.Price) + '</option>');                        
+                    });
+                }
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "/BurdenInformation/getActiveCPP_Prices",
+                datatype: "Json",
+                data: { ConsumerID: $('#ConsumerID').val(), ProduceID: $('#ProduceID').val() },
+                success: function (data) {
+                    $.each(data, function (index, value) {
+                        $('#CPPID').append('<option value="' + value.ConsumerProducePriceID + '">' + (value.Price) + '</option>');
+                    });
+                }
+            });            
+        });
+
+        $('#managerInfo').click(function () {
+            //$('#Management').slideToggle("slow");
+
+            var totaltrans, totalPro, totalcons, profi, consfi, transfi, weigthload, weigthUnload, fullLoad, freeLoad, fullUnLoad, freeUnLoad, profit;
+            transfi = parseInt($('#TransportPriceID option:selected').text());
+            fullUnLoad = parseInt($('#ulfutw').val());
+            freeUnLoad = parseInt($('#ulfrtw').val());
+
+            fullLoad = parseInt($('#lfutw').val());
+            freeLoad = parseInt($('#lfrtw').val());
+
+            profi = parseInt($('#PPPID option:selected').text());
+            consfi = parseInt($('#CPPID option:selected').text());
+
+            weigthUnload = (fullUnLoad - freeUnLoad);
+            weigthload = (fullLoad - freeLoad);
+
+            totaltrans = (weigthUnload / 1000) * transfi;
+
+            totalcons = (weigthUnload / 1000) * consfi;
+            totalPro = (weigthload / 1000) * profi;
+
+            //profit = totalcons - totalPro - totaltrans;
+
+
+            if (!isNaN(totaltrans)) {
+                $('#totalTrans').val(commaSeparateNumber(totaltrans));
+                $('#totalProducer').val(commaSeparateNumber(totalPro));
+                $('#totalConsumer').val(commaSeparateNumber(totalcons));
+                $('#LoudPurW').val(commaSeparateNumber(weigthload));
+                $('#ULoudPurW').val(commaSeparateNumber(weigthUnload));
+                //$('#profit').val(commaSeparateNumber(profit));
+            }
+
+
+        });
+
+        $('#ConsumerID').change(function () {
+            $('#ProduceID').empty();
+
+
+            $('#ProduceID').append('<option value="-1">لطفا محصول را انتخاب کنید</option>');
+
+            $.ajax({
+
+                type: "POST",
+
+                url: "/BurdenInformation/getActiveTransportPrice_Produce",
+
+                datatype: "Json",
+
+                data: { ProducerID: $('#ProducerID').val(), ConsumerID: $('#ConsumerID').val() },
+
+                success: function (data) {
+
+                    $.each(data, function (index, value) {
+
+                        $('#ProduceID').append('<option value="' + value.ProduceID + '">' + value.ProduceName + '</option>');
+
+                    });
+
+                }
+
+            });
+
+
+        });
+
+        $('#ProducerID').change(function () {
+
+            $('#Produce').empty();
+            $.ajax({
+
+                type: "POST",
+
+                url: "/BurdenInformation/getActiveTransportPrice_Produce",
+
+                datatype: "Json",
+
+                data: { ProducerID: $('#ProducerID').val(), ConsumerID: $('#ConsumerID').val() },
+
+                success: function (data) {
+
+                    $.each(data, function (index, value) {
+
+                        $('#Produce').append('<option value="' + value.ProduceID + '">' + value.ProduceName + '</option>');
+
+                    });
+
+                }
+
+            });
+
+
+        });
+
+        $('#TruckID').change(function () {
+            $('#TOwner').val("");
+            $.ajax({
+
+                type: "POST",
+
+                url: "/BurdenInformation/getTruckOwnerName",
+
+                datatype: "string",
+
+                data: { TruckID: $('#TruckID').val() },
+
+                success: function (data) {
+
+
+
+                    $('#TOwner').val(data);
+
+
+
+                }
+
+            });
+
+
+
+
+        });
+
+
+
+
+
+
+
+
+
+    </script>
+
+    <script type="text/javascript">
+        $('#UnLoadOutDateTime').MdPersianDateTimePicker({
+            Placement: 'bottom', // default is 'bottom'
+            Trigger: 'focus', // default is 'focus',
+            EnableTimePicker: true, // default is true,
+            TargetSelector: '', // default is empty,
+            GroupId: '', // default is empty,
+            ToDate: false, // default is false,
+            FromDate: false, // default is false,
+            EnglishNumber: true,
+        });
+        $('#UnLoadInDateTime').MdPersianDateTimePicker({
+            Placement: 'bottom', // default is 'bottom'
+            Trigger: 'focus', // default is 'focus',
+            EnableTimePicker: true, // default is true,
+            TargetSelector: '', // default is empty,
+            GroupId: '', // default is empty,
+            ToDate: false, // default is false,
+            FromDate: false, // default is false,
+            EnglishNumber: true,
+        });
+        $('#LoadOutDateTime').MdPersianDateTimePicker({
+            Placement: 'bottom', // default is 'bottom'
+            Trigger: 'focus', // default is 'focus',
+            EnableTimePicker: true, // default is true,
+            TargetSelector: '', // default is empty,
+            GroupId: '', // default is empty,
+            ToDate: false, // default is false,
+            FromDate: false, // default is false,
+            EnglishNumber: true,
+        });
+        $('#LoadInDateTime').MdPersianDateTimePicker({
+            Placement: 'bottom', // default is 'bottom'
+            Trigger: 'focus', // default is 'focus',
+            EnableTimePicker: true, // default is true,
+            TargetSelector: '', // default is empty,
+            GroupId: '', // default is empty,
+            ToDate: false, // default is false,
+            FromDate: false, // default is false,
+            EnglishNumber: true,
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

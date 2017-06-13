@@ -1,0 +1,124 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using MaaseShooei.Areas.Management.Models;
+
+namespace MaaseShooei.Areas.Management.Controllers
+{
+    [Authorize(Roles = "HighUser,Administrator")]
+    public class ProduceController : Controller
+    {
+        private MaaseDBEntities db = new MaaseDBEntities();
+
+        //
+        // GET: /Produces/
+
+        public ActionResult Index()
+        {
+            return View(db.T_Produces.ToList());
+        }
+
+        //
+        // GET: /Produces/Details/5
+
+        public ActionResult Details(int id = 0)
+        {
+            T_Produces t_produces = db.T_Produces.Find(id);
+            if (t_produces == null)
+            {
+                return HttpNotFound();
+            }
+            return View(t_produces);
+        }
+
+        //
+        // GET: /Produces/Create
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Produces/Create
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(T_Produces t_produces)
+        {
+            if (ModelState.IsValid)
+            {
+                db.T_Produces.Add(t_produces);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(t_produces);
+        }
+
+        //
+        // GET: /Produces/Edit/5
+
+        public ActionResult Edit(int id = 0)
+        {
+            T_Produces t_produces = db.T_Produces.Find(id);
+            if (t_produces == null)
+            {
+                return HttpNotFound();
+            }
+            return View(t_produces);
+        }
+
+        //
+        // POST: /Produces/Edit/5
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(T_Produces t_produces)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(t_produces).State = System.Data.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(t_produces);
+        }
+
+        //
+        // GET: /Produces/Delete/5
+
+        public ActionResult Delete(int id = 0)
+        {
+            T_Produces t_produces = db.T_Produces.Find(id);
+            if (t_produces == null)
+            {
+                return HttpNotFound();
+            }
+            return View(t_produces);
+        }
+
+        //
+        // POST: /Produces/Delete/5
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            T_Produces t_produces = db.T_Produces.Find(id);
+            db.T_Produces.Remove(t_produces);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
+    }
+}

@@ -1,0 +1,61 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Consumer_Bank
+
+@{
+    ViewBag.Title = "ویرایش بانک(خریدار)";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="panel-group">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">ویرایش بانک(خریدار)</div>
+
+            <div class="panel-body">
+                @*<div class="editor-label">
+                        @Html.LabelFor(model => model._BankID)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model._BankID)
+                        @Html.ValidationMessageFor(model => model._BankID)
+                    </div>*@
+                @Html.HiddenFor(model => model.BankID)
+                <div class="row">
+                    <div class="col-md-4">
+
+
+                    </div>
+                    <div class="col-md-4">
+
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model._BankName)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model._BankName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model._BankName)
+                        </div>
+
+                    </div>
+
+                </div>
+                <p></p>
+                <button type="submit" class="btn btn-success">ویرایش <span class="glyphicon glyphicon-plus-sign"></span></button>
+                <a href="@Url.Action("Index")" class="btn btn-warning"> بازگشت <span class="glyphicon glyphicon-backward"></span> </a>
+
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

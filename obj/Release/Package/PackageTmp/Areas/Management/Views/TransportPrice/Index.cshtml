@@ -1,0 +1,262 @@
+﻿@model IEnumerable<MaaseShooei.Areas.Management.Models.T_TransportPrices>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+<div class="panel-group">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> لیست قیمت حمل و نقل </div>
+
+        <div class="panel-body">
+            @*@using (Ajax.BeginForm("Index", "TransportPrice", new { ProducerID=}, new AjaxOptions { Confirm = "آیا فعال شود؟", UpdateTargetId = "MyAjax", HttpMethod = "Post", InsertionMode = InsertionMode.Replace }))
+            {
+                <text>تولید کننده : </text>@Html.DropDownList("Producers",new SelectList(string.Empty, "ProducerID", "CompanyName")  , "Please select a Producer",new { @style="width:250px;"})
+                <text>مصرف کننده : </text>@Html.DropDownList("Consumers",new SelectList(string.Empty, "ConsumerID", "CompanyName"), "Please select a Producer",new { @style="width:250px;"})
+                <text>محصول : </text>@Html.DropDownList("Produces", new SelectList(string.Empty, "ProduceID", "ProduceName"), "Please select a Producer",new { @style="width:250px;"})
+                <text>قیمت ترابری : </text>@Html.DropDownList("StateID", String.Empty)
+
+                <button type="submit" class="btn btn-default ">فیلتر</button>
+            }*@
+
+            @*<select id="Producers">
+                <option></option>
+            </select>*@
+            <p>
+               @* @Html.ActionLink("ایجاد", "Create", "TransportPrice", null, new { @class = "btn btn-default" })*@
+                <a href="@Url.Action("Create")" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span></a>
+            </p>
+
+            <div class="dataTables_wrapper">
+                <table class="table table-striped  table-hover" id="dataTables-example">
+                    <thead style="background-color:peru;">
+
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model._TransportPriceID)
+                            </th>
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model.T_Produces._ProduceName)
+                            </th>
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model.T_Producers._CompanyName)
+                            </th>
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model.T_Consumers._CompanyName)
+                            </th>
+                            <th class ="text-right">
+                                @Html.DisplayNameFor(model => model._Date)
+                            </th>
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model._Price)
+                            </th>
+                            <th class="text-right">
+                                @Html.DisplayNameFor(model => model._StateID)
+                            </th>
+                            
+                            
+                            
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TransportPriceID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.T_Produces._ProduceName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.T_Producers._CompanyName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.T_Consumers._CompanyName)
+                                </td>
+                                
+                                <td class="text-right">
+                                    @Html.DisplayFor(modelItem => item._Date)
+                                </td>
+                                <td class="text-right">
+                                    @Html.DisplayFor(modelItem => item._Price)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item._StateID)
+                                </td>
+                                
+                                <td>
+
+                                    <a href="@Url.Action("Edit", new { id = item._TransportPriceID })" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a href="@Url.Action("Details", new { id = item._TransportPriceID })" class="btn btn-primary"><span class="glyphicon glyphicon-zoom-in"></span></a>
+                                    <a href="@Url.Action("Delete", new { id = item._TransportPriceID })" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+
+
+                                    @*@Html.ActionLink("ویرایش", "Edit", new { id = item._TransportPriceID }, new { @class = "btn btn-default" })
+                                    @Html.ActionLink("جزئیات", "Details", new { id = item._TransportPriceID }, new { @class = "btn btn-default" })
+                                    @Html.ActionLink("حذف", "Delete", new { id = item._TransportPriceID }, new { @class = "btn btn-danger" })*@
+                                   @* @Ajax.ActionLink("فعال", "Active",new {id=item._TransportPriceID}, new AjaxOptions { Confirm = "آیا فعال شود؟", UpdateTargetId = "MyAjax", HttpMethod = "Post", InsertionMode = InsertionMode.Replace }))*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div id="MyAjax"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+
+    <script>
+                    $(document).ready(function () {
+                        $('#dataTables-example').DataTable({
+                            responsive: true
+                        });
+                    });
+    </script>
+
+@*<script>
+    window.onload = function () {
+        var link = document.getElementById("list");
+        link.onclick = getservertime;
+    }
+
+    function getservertime() {
+        var xlr = new XMLHttpRequest();
+        xlr.open("GET", "/TransportPrice/getServerTime");
+
+        xlr.onreadystatechange = function () {
+            if (xlr.readyState == 4) {
+                if (xlr.status == 200) {
+                    var timedev = document.getElementById("timedev");
+                    timedev.innerHTML = xlr.responseText;
+
+                }
+            }
+
+        }
+        xlr.send();
+    }
+
+
+
+
+</script>*@
+
+
+
+<script >
+    //$(function () {
+
+
+    //    $.getJSON("/TransportPrice/getProducers",
+    //        "",
+    //        function (data) {
+    //            $(data).each(function () {
+    //                $("<option>").val(this.ProducerID)
+    //                             .text(this.CompanyName)
+    //                             .appendTo("#Producers");
+
+
+    //            });
+    //        });
+    //});
+
+
+
+
+
+
+    //$(function () {
+
+    //    $.ajax({
+
+    //        type: "GET",
+
+    //        url: "/TrasnportPrice/getProducers",
+
+    //        datatype: "Json",
+
+    //        success: function (data) {
+
+    //            $.each(data, function (index, value) {
+
+    //                $('#Producers').append('<option value="' + value.ProducerID + '">' + value.CompanyName + '</option>');
+
+    //            });
+
+    //        }
+
+    //    });
+    //}
+    //    $.ajax({
+
+    //        type: "GET",
+
+    //        url: "/Management/TrasnportPrice/getConsumers",
+
+    //        datatype: "Json",
+
+    //        success: function (data) {
+
+    //            $.each(data, function (index, value) {
+
+    //                $('#Consumers').append('<option value="' + value.ConsumerID + '">' + value.CompanyName + '</option>');
+
+    //            });
+
+    //        }
+
+    //    });
+
+
+    //    $('#Consumers').change(function () {
+
+
+
+    //        $('#Produces').empty();
+
+
+
+    //        $.ajax({
+
+    //            type: "POST",
+
+    //            url: "/Management/TransportPrice/getProduces",
+
+    //            datatype: "Json",
+
+    //            data: { ConsumerId: $('#Consumers').val(), ProducerId: $('#Producers').val() },
+
+    //            success: function (data) {
+
+    //                $.each(data, function (index, value) {
+
+    //                    $('#Produces').append('<option value="' + value._ProduceID + '">' + value._ProduceName + '</option>');
+
+    //                });
+
+    //            }
+
+    //        });
+
+    //    });
+
+    //});
+
+</script>
+
+}

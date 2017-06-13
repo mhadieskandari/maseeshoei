@@ -1,0 +1,43 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Consumer_Bank
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>T_Consumer_Bank</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model._BankID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model._BankID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model._BankName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model._BankName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BankID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BankID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BankName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BankName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

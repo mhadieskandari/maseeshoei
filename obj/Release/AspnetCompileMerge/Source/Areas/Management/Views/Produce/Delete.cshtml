@@ -1,0 +1,46 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Produces
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="panel-group">
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">حذف محصول</div>
+
+        <div class="panel-body">
+
+            @*<div class="display-label">
+                @Html.DisplayNameFor(model => model.ProduceID)
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.ProduceID)
+            </div>*@
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._ProduceName)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._ProduceName)
+            </div>
+
+            <div class="display-label">
+                @Html.DisplayNameFor(model => model._Descryption)
+            </div>
+            <div class="form-control">
+                @Html.DisplayFor(model => model._Descryption)
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <p>
+                    <button type="submit" class="btn btn-danger">حذف</button>
+                    @Html.ActionLink("بازگشت به لیست", "Index", null, new { @class = "btn btn-default" })
+                </p>
+            }
+        </div>
+    </div>
+
+</div>

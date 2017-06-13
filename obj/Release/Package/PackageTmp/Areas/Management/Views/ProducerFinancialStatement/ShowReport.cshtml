@@ -1,0 +1,25 @@
+﻿@using Stimulsoft.Report.Mvc
+
+@{
+    ViewBag.Title = "گزارش";
+   
+}
+@*@Html.Stimulsoft().StiMvcViewer(
+"MvcViewer1", new StiMvcViewerOptions()
+{
+    
+    ActionGetReportSnapshot ="GetReportSnapshot",
+    ActionViewerEvent = "ViewerEvent",
+})*@
+
+
+@Html.Stimulsoft().StiMvcViewer("stiv1", new StiMvcViewerOptions()
+{
+    ActionGetReportSnapshot = "GetReportSnapshot",
+    ActionViewerEvent = "ViewerEvent",
+    Localization=Server.MapPath(@"~/Content/fa.xml"),
+    
+
+
+
+})

@@ -1,0 +1,65 @@
+﻿@model MaaseShooei.Areas.Management.Models.T_Produces
+
+@{
+    ViewBag.Title = "ویرایش";
+    Layout = "~/Areas/Management/Views/Shared/_AdminLayout.cshtml";
+    }
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="panel-group ">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">ویرایش محصول</div>
+
+                <div class="panel-body">
+
+                    @Html.HiddenFor(model => model.ProduceID)
+                    @*<div class="editor-label">
+                            @Html.LabelFor(model => model.ProduceID)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.ProduceID)
+                            @Html.ValidationMessageFor(model => model.ProduceID)
+                        </div>*@
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model._ProduceName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model._ProduceName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model._ProduceName)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model._Descryption)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model._Descryption, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model._Descryption)
+                    </div>
+
+                    <p></p>
+
+                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-save"></span></button>
+                    <a href="@Url.Action("Index")" class="btn btn-warning"><span class="glyphicon glyphicon-remove"></span></a>
+
+                    @*@Html.ActionLink("بازگشت به لیست", "Index", null, new { @class = "btn btn-default" })*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
